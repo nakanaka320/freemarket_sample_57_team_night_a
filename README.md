@@ -7,15 +7,14 @@
 # userテーブル
 |Column|type|Options|
 |:--:|:--:|:--:|
-|fullname|string|null: false|j
+|fullname|string|null: false|
 |nickname|string|null: false|
-|kana1|string|null: false|
-|kana2|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
 |cards|integer||
 |password|string|null: false|
 |E-mail|string|null:false , unique: true|
 |birth|date|null:false|
-|address|string|null: false , unique: true|
 |phone_number|integer|null: false|
 |comment|string|null: false|
 |good|timestanp|null: false|
@@ -27,6 +26,17 @@
 - has_many :good ,dependent::destroy
 - has_many :sellitem
 - has_many :buyitem
+
+# addressテーブル
+|Column|type|Options|
+|:--:|:--:|:--:|
+|state|string|null: false|
+|city|string|null: false|
+|street|string|null: false|
+|use_id|references|nill: false, foreign_key: true|
+
+# Association
+
 
 # sellitemテーブル
 |Column|type|Options|
