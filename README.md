@@ -7,7 +7,7 @@
 # userテーブル
 |Column|type|Options|
 |:--:|:--:|:--:|
-|fullname|string|null: false|
+|fullname|string|null: false|j
 |nickname|string|null: false|
 |kana1|string|null: false|
 |kana2|string|null: false|
@@ -23,8 +23,8 @@
 |buyitem|string|null: false|
 
 # Association
-- has_many :comment
-- has_many :good
+- has_many :comment ,dependent::destroy
+- has_many :good ,dependent::destroy
 - has_many :sellitem
 - has_many :buyitem
 
@@ -43,12 +43,11 @@
 # buyitemテーブル
 |Column|type|Options|
 |:--:|:--:|:--:|
-|sellitem_id|references|null: false|
+|sellitem_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 
 # Association
 - belongs_to :user
-|sellitem_id|references|null: false, foreign_key: true|
 
 # commentテーブル
 |Column|type|Options|
