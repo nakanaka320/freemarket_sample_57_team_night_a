@@ -22,10 +22,10 @@
 |buyitem|string|null: false|
 
 # Association
-- has_many :comment ,dependent::destroy
-- has_many :good ,dependent::destroy
-- has_many :sellitem
-- has_many :buyitem
+- has_many :comments ,dependent::destroy
+- has_many :goods ,dependent::destroy
+- has_many :sellitems
+- has_many :buyitems
 
 # addressテーブル
 |Column|type|Options|
@@ -36,7 +36,7 @@
 |use_id|references|nill: false, foreign_key: true|
 
 # Association
-
+- belongs_to :user
 
 # sellitemテーブル
 |Column|type|Options|
@@ -67,7 +67,7 @@
 
 # Association
 - belongs_to :user
-- has_many :Item
+- has_many :item
 
 # goodテーブル
 |Column|type|Options|
@@ -77,7 +77,7 @@
 
 # Association
 - belongs_to :user
-- has_many :Item
+- has_many :item
 
 # categoriesテーブル
 |Column|Type|Option|
@@ -85,3 +85,5 @@
 |name|string|null: false|
 
 # Association
+- has_many :sellitem
+- has_many :buyitem
