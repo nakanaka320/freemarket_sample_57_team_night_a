@@ -1,0 +1,124 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FreemarketSample57TeamNightA
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = yield
+    %header
+      %div
+        .header-up
+          .logo
+            %a
+          %form.search-bar
+            %input{:placeholder => "何かお探しですか？", :type => "search"}/
+            %button
+        .header-down
+          .search
+            .category
+              %a カテゴリーから探す
+            .brand
+              %a ブランドから探す
+          .registration
+            .signup
+              %a 新規会員登録
+            .login
+              %a ログイン
+    .main
+      %div
+        .slide
+          %a
+          .slider
+            .flame
+            .left
+            .right
+            .bottom
+        .category
+          %h2 人気のカテゴリー
+          %div
+            %ul
+              %li
+                %a レディース
+              %li
+                %a メンズ
+              %li
+                %a 家電・スマホ・カメラ
+              %li
+                %a おもちゃ・ホビー・グッズ
+        .item
+        .brand
+          %h2 人気のブランド
+          %div
+            %ul
+              %li
+                %a シャネル
+              %li
+                %a ルイ・ヴィトン
+              %li
+                %a シュープリーム
+              %li
+                %a ナイキ
+        .brand-item
+    %div
+      %a
+    .aside
+      %div
+        .aside-left
+          %div スマホでかんたんフリマアプリ
+          %div 今すぐ無料ダウンロード！!
+          %div
+            %img/
+            %a
+            %a
+        %figure.aside-right
+          %img/
+    .footer
+      %nav
+        %div
+          %h2 メルカリについて
+          %ul
+            %li
+            %li
+            %li
+            %li
+            %li
+            %a
+            %a
+        %div
+          %h2 ヘルプ&amp;ガイド
+          %ul
+            %li
+            %li
+            %li
+            %li
+            %li
+            %li
+            %li
+            %li
+        %div
+          %h2 プライバシーと利用規約
+          %div
+            %ul
+              %li
+              %li
+              %li
+              %li
+          %div
+            %ul
+              %li
+              %li
+              %li
+              %li
+        %div
+          %h2 国
+          %ul
+            %li
+              %a 日本
+              %a United States
+      .footer-logo
+        %a
+        %span © 2019 Mercari
