@@ -1,0 +1,20 @@
+// Place all the styles related to the mypages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-container{
+  display:flex;
+  width:100%;
+  margin: 40px 100px 0 ;
+  background-color: lightgray;
+}
+
+.left-area{
+  float:left;
+  margin: 0 40px 0 0 ;
+}
+
+.right-area{
+  float:right;
+  width: calc(100%-280px);
+}
