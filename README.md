@@ -35,7 +35,7 @@
 |city|string|null: false|
 |street|string|null: false|
 |post_number|integer|null: false|
-|use_id|references|nill: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 # Association
 - belongs_to :user
