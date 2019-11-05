@@ -100,6 +100,11 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     erubi (1.9.0)
+    erubis (2.7.0)
+    execjs (2.7.0)
+    ffi (1.11.1)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     excon (0.68.0)
     execjs (2.7.0)
     ffi (1.11.1)
@@ -198,6 +203,9 @@ GEM
     regexp_parser (1.6.0)
     ruby-vips (2.0.16)
       ffi (~> 1.9)
+    responders (3.0.0)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
     sass (3.7.4)
@@ -225,6 +233,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    temple (0.8.2)
     sshkit (1.20.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -238,6 +247,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -268,6 +279,9 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  devise
+  font-awesome-rails
+  haml-rails
   fog-aws
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
