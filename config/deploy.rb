@@ -79,6 +79,7 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
+# sharedで大丈夫か
   desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
