@@ -1,23 +1,23 @@
 .left-content{
   flex-basis: 280px;
   margin-right:40px;
-  &__bar{
-    font-size: 14px;
-    margin-bottom: 40px;
-    }
-    ul{
-      padding-inline-start:0;
-      li{
-        background-color:white;
-        padding: 16px;
-        display: flex;
-        align-items:center;
-        position: relative;
-        .fa-chevron-right{
-          display: block;
-          margin: 0 0 0 auto;
-          color: #ccc;
+  font-size: 14px;
+  margin-bottom: 40px;  
+  ul{
+    padding-inline-start:0;
+    li{
+      background-color:white;
+      padding: 16px;
+      margin-top:1px;
+      display: flex;
+      align-items:center;
+      position: relative;
+      border: 1px solid #000000;
+      .fa-chevron-right{
+        display: block;
+        margin: 0 0 0 auto;
+        color: #ccc;    
         }
-      }
     }
   }
+}
