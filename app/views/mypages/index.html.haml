@@ -5,13 +5,22 @@
   .left-area
     =render "mypages/side-bar"
   .right-area
-    %section
-      %a
-        %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}
+    .right-area__user-icon
+      =link_to "#" ,class: "right-area__user-icon__a" do
+        %img{class: "user-img",src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60px", height:"60px"}
         %h2 出品者の名前
-        %div
-          %div
-          %div
+        .right-area__user-icon__number
+          %p 評価
+          %p 出品数
+    .right-area__box
+      %ul.right-area__box__tabs
+        %li.active
+          %h4
+            = link_to "お知らせ", root_path,class:""
+        %li
+          %h4
+            = link_to "やることリスト", root_path,class:""
+
 
 
 

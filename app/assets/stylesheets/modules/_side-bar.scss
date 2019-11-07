@@ -2,7 +2,10 @@
   flex-basis: 280px;
   margin-right:40px;
   font-size: 14px;
-  margin-bottom: 40px;  
+  margin-bottom: 40px;
+  a {
+    color: #333;
+  }  
   ul{
     padding-inline-start:0;
     li{
@@ -12,7 +15,7 @@
       display: flex;
       align-items:center;
       position: relative;
-      border: 1px solid #000000;
+      // border: 1px solid #000000;
       .fa-chevron-right{
         display: block;
         margin: 0 0 0 auto;
