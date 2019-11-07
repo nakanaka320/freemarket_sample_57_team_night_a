@@ -39,7 +39,11 @@
 
 
 .footer {
-  background-color: #222;
+  // width: 80%;
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  margin: 0 auto;
   height: 400px;
   h2 {
     color: #fff;
@@ -57,54 +61,60 @@
   span {
     color: white;
   }
-}
 
-.footer-content {
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  &__content {
-    margin: 0 30px;
-    text-align: left;
-    li {
-      margin-top: 12px;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    &--social {
-      display: flex;
+  &__top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    &__content {
+      margin-top: 18px;
+      padding: 0 20px 0 0 ;
+      text-align: left;
       li {
-        padding-right: 20px;
+        margin-top: 12px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      &--social {
+        display: flex;
+        li {
+          padding-right: 20px;
+        }
+      }
+      &--divide {
+        display: flex;
+        &--left {
+          width: 50%;
+          margin-right: 20px;
+        }
       }
     }
-    &--divide {
-      display: flex;
-      &--left {
-        width: 50%;
-        margin-right: 20px;
+  }
+  
+  &__bottom {
+    width:1020px;
+    display: flex;
+    margin: 30px auto 20px;
+    a {
+      width: auto;
+      margin-right:10px;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1.5em;
+      &:hover {
+        opacity: 0.7;
       }
+    }
+    span {
+      width:745px;
+      display: inline-block;
+      margin: 8px 0 0;
+      text-align: center;
+      vertical-align: sub;
     }
   }
 }
 
-.footer-bottom {
-  display: flex;
-  padding: 20px 0;
-  a {
-    width: 50%;
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-  span {
-    line-height: 33px;
-    font-size: 12px;
-  }
-}
+
+
