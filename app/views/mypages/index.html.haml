@@ -52,9 +52,11 @@
                   = fa_icon 'history', class: 'icon'
                   .right-area__tab-content__box__body--time--date 3日前
               %i.fa.fa-angle-right.fa-2x
-        %li
-          %h4
-            =link_to "一覧を見る", root_path ,class:"go-to-mypage"
+        =link_to root_path do
+          %li.go-to-mypage
+            .right-area__tab-content__box
+              .right-area__tab-content__box--string 一覧を見る
+            
 
 
 
