@@ -56,7 +56,18 @@
           %li.go-to-mypage
             .right-area__tab-content__box
               .right-area__tab-content__box--string 一覧を見る
-            
+    .right-area__tab-container
+      %h2  購入した商品
+      %ul.right-area__tab-container__tabs
+        %li.active
+          %h3
+            = link_to "取引中", root_path,class:""
+        %li
+          %h3
+            = link_to "過去の取引", root_path,class:""
+      .right-area__tab-container__transaction
+        %ul
+          %li.item-not-found 取引中の商品がありません
 
 
 
