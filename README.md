@@ -13,7 +13,7 @@
 |last_name|string|null: false|
 |cards|integer||
 |password|string|null: false|
-|E-mail|string|null:false , unique: true|
+|E_mail|string|null:false , unique: true|
 |birth|date|null:false|
 |phone_number|integer|null: false|
 |comment|string|null: false|
@@ -71,7 +71,7 @@
 
 # Association
 - belongs_to :user
-- has_many :item
+- has_many :items
 
 # goodテーブル
 |Column|type|Options|
