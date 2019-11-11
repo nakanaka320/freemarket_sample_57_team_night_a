@@ -1,0 +1,75 @@
+=render "shared/header"
+
+.bread-crumbs
+.main-container.clearfix
+  .left-area
+    =render "mypages/side-bar"
+  .right-area
+    .right-area__user-icon
+      =link_to "#" ,class: "right-area__user-icon__a" do
+        %img{class: "user-img",src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60px", height:"60px"}
+        %h2 出品者の名前
+        .right-area__user-icon__number
+          %p 評価
+          %p 出品数
+    .right-area__box
+      %ul.right-area__box__tabs
+        %li.active
+          %h4
+            = link_to "お知らせ", root_path ,class:"" 
+        %li
+          %h4
+            = link_to "やることリスト", root_path ,class:"" 
+    .right-area__tab-content
+      %ul
+        %li
+          =link_to root_path do
+            .right-area__tab-content__box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-area__tab-content__box__img",width:"48px",height:"48px"
+              .right-area__tab-content__box__body
+                .right-area__tab-content__box__body--text 「まさかのコラボ！？」あのマツモトキヨシがお笑い芸人とコラボ♫　イベント「マツモトヒトシ」開催中！！
+                .right-area__tab-content__box__body--time
+                  = fa_icon 'history', class: 'icon'
+                  .right-area__tab-content__box__body--time--date 1日前
+              %i.fa.fa-angle-right.fa-2x
+        %li
+          =link_to root_path do
+            .right-area__tab-content__box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-area__tab-content__box__img",width:"48px",height:"48px"
+              .right-area__tab-content__box__body
+                .right-area__tab-content__box__body--text  今なら実質無料！ポイントキャッシュバック２億円キャンペーン開催中
+                .right-area__tab-content__box__body--time
+                  = fa_icon 'history', class: 'icon'
+                  .right-area__tab-content__box__body--time--date 2日前
+              %i.fa.fa-angle-right.fa-2x
+        %li
+          =link_to root_path do
+            .right-area__tab-content__box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-area__tab-content__box__img",width:"48px",height:"48px"
+              .right-area__tab-content__box__body
+                .right-area__tab-content__box__body--text インド人もビックリ！　カレーハウスCoCo壱番屋の新作カレー？「カレー風味おでん」
+                .right-area__tab-content__box__body--time
+                  = fa_icon 'history', class: 'icon'
+                  .right-area__tab-content__box__body--time--date 3日前
+              %i.fa.fa-angle-right.fa-2x
+        =link_to root_path do
+          %li.go-to-mypage
+            .right-area__tab-content__box
+              .right-area__tab-content__box--string 一覧を見る
+    .right-area__tab-container
+      %h2  購入した商品
+      %ul.right-area__tab-container__tabs
+        %li.active
+          %h3
+            = link_to "取引中", root_path,class:""
+        %li
+          %h3
+            = link_to "過去の取引", root_path,class:""
+      .right-area__tab-container__transaction
+        %ul
+          %li.item-not-found 取引中の商品がありません
+
+
+
+=render "shared/sell-btn"
+=render "shared/footer"
