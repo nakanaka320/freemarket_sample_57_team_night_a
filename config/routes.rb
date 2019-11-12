@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "products#index"
   
   get 'mypage', to: 'mypages#index'
-  get 'signup', to: 'signup#index'
+  get 'users', to: 'users#new'
 
 end

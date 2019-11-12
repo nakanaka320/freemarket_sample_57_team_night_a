@@ -1,0 +1,32 @@
+
+@import "./reset";
+@import "font-awesome";
+@import "users/login-header";
+@import "users/login-footer";
+
+
+.signup-container {
+  width:100%;
+  height:100%;
+  padding: 0 0 220px;
+  position: relative;
+  display:block;
+}
+
+.signup-main {
+  background-color: white;
+  height: 350px;
+  margin: 0 auto 220px;
+  width: 700px;  
+  &__head {
+    background-color: #FFFFFF;
+    border-bottom:#eee solid 1px;
+    font-size: 22px;
+    font-weight: 550;
+    line-height: 33px;
+    padding: 32px;
+    text-align: center;
+    width: 700px;
+    margin: 0 auto 0;
+  }
+}
