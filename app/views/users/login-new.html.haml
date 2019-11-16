@@ -21,9 +21,18 @@
               .login-panel__form__button__google__icon
               
       .login-panel__form-bottom
-
-
-
+        .login-panel__form-bottom__mail
+          %input.login-input-text{:name => "email", :placeholder => "メールアドレス", :type => "email"}/
+        .login-panel__form-bottom__password
+          %input.login-input-text{:name => "password", :placeholder => "パスワード", :type => "password"}/
+        .login-panel__form-bottom__recaptcha
+          ここにreCAPTCHA
+        .login-panel__form-bottom__login
+          =link_to "#" do
+            .login-panel__form-bottom__login__btn 
+              ログイン
+        %p
+          =link_to "パスワードをお忘れの方" ,class: "forget-pass" 
 
 
 
