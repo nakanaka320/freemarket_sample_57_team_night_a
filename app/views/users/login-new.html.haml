@@ -8,15 +8,19 @@
         =link_to "新規会員登録" 
 
       .login-panel__form
-        %ul
-          %li.signup-main__button__facebook
+        %ul.login-panel__form__button
+          %li.login-panel__form__button__facebook
             =link_to "#" do
-              Facebookで登録する
+              Facebookでログイン
               %i
-                = fa_icon "facebook-square" 
-
-
-      .login-panel__form
+                = fa_icon "facebook-square"
+          %li.login-panel__form__button__google
+            =link_to "#" do
+              .login-panel__form__button__google__text
+                Googleでログイン
+              .login-panel__form__button__google__icon
+              
+      .login-panel__form-bottom
 
 
 
