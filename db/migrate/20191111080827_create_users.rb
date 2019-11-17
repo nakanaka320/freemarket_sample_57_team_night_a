@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.date :birth,null:false
       t.integer :phone_number,null: false
       t.string :comment,null:false
-      t.timestamp :good, null: false
+      t.integer :good, null: false
       t.string :sellitem, null: false
       t.string :buyitem, null: false
       t.timestamps
