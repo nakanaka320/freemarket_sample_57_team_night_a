@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_081030) do
     t.date "birth", null: false
     t.integer "phone_number", null: false
     t.string "comment", null: false
-    t.timestamp "good", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.integer "good", null: false
     t.string "sellitem", null: false
     t.string "buyitem", null: false
     t.datetime "created_at", null: false

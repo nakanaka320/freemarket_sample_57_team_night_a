@@ -1,0 +1,15 @@
+.test
+  .form
+    = form_for @user do |f|
+      = f.text_field :fullname, placeholder: 'type a name'
+      .form_test
+        = f.text_field :first_name, placeholder: 'type a firstname'
+      .actions
+        = f.submit "sign in", class: 'btn'
+      -# = f.text_field :last_name, placeholder: 'type a lastname'
+      -# = f.text_field :cards, placeholder: 'type a cards'
+      -# .form__mask
+      -#   = f.label :image, class: 'form__mask__image' do
+      -#     = icon('fas', 'image', class: 'icon')
+      -#     = f.file_field :image, class: 'hidden'
+      -# = f.submit 'Send', class: 'form__submit'

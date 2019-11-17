@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   root to: "products#index"
   
   get 'mypage', to: 'mypages#index'
+  get 'index', to: 'users#index'
+  resource :products
+  resource :users
 
 end
