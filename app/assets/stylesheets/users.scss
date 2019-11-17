@@ -1,3 +1,83 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "./reset";
+@import "font-awesome";
+@import "users/login-header";
+@import "users/login-footer";
+
+
+.signup-container {
+  width:100%;
+  height:732px;
+  padding: 0 0 220px;
+  position: relative;
+  display:block;
+}
+
+.signup-main {
+  background-color: white;
+  height: 350px;
+  margin: 0 auto 220px;
+  width: 700px;  
+  &__head {
+    border-bottom:#eee solid 1px;
+    font-size: 22px;
+    font-weight: 550;
+    line-height: 33px;
+    padding: 32px;
+    text-align: center;
+    width: 700px;
+    margin: 0 auto 0;
+  }
+  &__button {
+    max-width: 343px;
+    margin: 0 auto;
+    padding-top: 40px;
+    &__mail {
+      color: #fff;
+      background-color: #ea352d;
+      border-radius: 4px;
+    }
+    &__facebook {
+      margin: 16px 0 0;
+      background: #385185;
+      color: #fff;
+      border-radius: 4px;
+    }
+    &__google{
+      color: #333;
+      height: 50px;
+      margin: 16px auto ;
+      border: #979797 solid 1px;
+      border-radius: 4px;
+    }
+    &__google__icon {
+      background-image:url("https://i.gyazo.com/a8315f1ed60c24380d1ccc7b87f0b383.png");
+      background-size:cover;
+      height: 30px;
+      width: 30px;
+      position: relative;
+      bottom:40px;
+      left:15px;
+    }
+    li {
+      text-align: center;
+      position: relative;
+    }
+    a {
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      color: #fff;
+      .fa {
+        font-size: 16px;
+        float: left;
+        position: absolute;
+        top: 25%;
+        left: 16px;
+        color: #fff;
+      }
+      .fa-facebook-square {
+        font-size: 26px;
+      }
+    }
+  }
+}
