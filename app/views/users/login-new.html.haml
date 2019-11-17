@@ -1,0 +1,41 @@
+.login-container
+  =render "users/login-header"
+
+  .login-main
+    .login-panel
+      .login-panel__no-account
+        %p アカウントをお持ちでない方はこちら
+        =link_to "新規会員登録" 
+
+      .login-panel__form
+        %ul.login-panel__form__button
+          %li.login-panel__form__button__facebook
+            =link_to "#" do
+              Facebookでログイン
+              %i
+                = fa_icon "facebook-square"
+          %li.login-panel__form__button__google
+            =link_to "#" do
+              .login-panel__form__button__google__text
+                Googleでログイン
+              .login-panel__form__button__google__icon
+              
+      .login-panel__form-bottom
+        .login-panel__form-bottom__mail
+          %input.login-input-text{:name => "email", :placeholder => "メールアドレス", :type => "email"}/
+        .login-panel__form-bottom__password
+          %input.login-input-text{:name => "password", :placeholder => "パスワード", :type => "password"}/
+        .login-panel__form-bottom__recaptcha
+          ここにreCAPTCHA
+        .login-panel__form-bottom__login
+          =link_to "#" do
+            .login-panel__form-bottom__login__btn 
+              ログイン
+        %p
+          =link_to "パスワードをお忘れの方" ,class: "forget-pass" 
+
+
+
+
+
+  =render "users/login-footer"
