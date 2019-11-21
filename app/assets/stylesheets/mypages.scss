@@ -1,10 +1,4 @@
 
-.bread-crumbs {
-  border-top: 1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  background-color: #fff;
-}
-
 .clearfix:after {
   content: '';
   display: block;
@@ -85,6 +79,7 @@
     font-size: 14px;
     &__box {
       position: relative;
+      background-color: white;
       &__img {
         float:left;
       }
@@ -104,6 +99,8 @@
       &--string {
         background: #eee;
         text-align:center;
+        padding: 16px;
+        line-height: 56px;
       }
       .fa-angle-right {
         position: absolute;
@@ -113,27 +110,22 @@
     }
     ul {
       width:100%;
-      display:block;
-      li {
-        position: relative;
-        border-bottom: 1px solid #eee;
-        a {
-          display: block;
-          min-height: 80px;
-          padding: 16px;
-          color: #333;
-        }
-      }
-      li.go-to-mypage {
-        display: block;
-        height: 56px;
-        margin: 0 auto;
-        background: #fff;
+    }
+    li {
+      position: relative;
+      border-bottom: 1px solid #eee;
+      height:88px;
+      a {
+        min-height: 80px;
+        padding: 16px;
         color: #333;
-        line-height: 56px;
-        text-align: center;
-        padding:16px;
       }
+    }
+    .go-to-mypage {
+      margin: 0 auto;
+      background: #fff;
+      color: #333;
+      text-align: center;
     }
   }
   &__tab-container {
