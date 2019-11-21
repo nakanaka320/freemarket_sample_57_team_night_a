@@ -1,0 +1,16 @@
+=render "shared/header"
+.content-area
+  .content-area__left
+    =render "mypages/side-bar"
+  .content-area__right
+    %section.content-area__head
+      %h2.content-area__head__profile プロフィール
+    %form{action: "https://www.mercari.com/jp/mypage/profile/", method: "POST"}
+      .profile-icon-area
+        %figure
+          = image_tag 'https://static.mercdn.net/members/664962968.jpg?1556902758', size: '60x60', alt: 'user-icon', class:"user-icon"
+        %input{type: "text", class: "input-default", placeholder: "例)マコなり社長"}
+
+
+=render "shared/sell-btn"
+=render "shared/footer"

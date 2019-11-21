@@ -1,8 +1,9 @@
 .left-content{
-  flex-basis: 280px;
+  float: left;
   margin-right:40px;
   font-size: 14px;
   margin-bottom: 40px;
+  clear: both;
   a {
     color: #333;
   }  
