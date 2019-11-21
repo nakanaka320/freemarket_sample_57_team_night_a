@@ -11,6 +11,8 @@
   width: 1020px;
   &__left {
     float:left;
+    width: 280px;
+    margin: 0 40px 0 0 ;
   }
   &__right {
     width: 700px;
@@ -18,12 +20,30 @@
     background-color: white;
   }
   &__head {
-    font-size: 24px;
-    padding: 8px 24px;
-    min-width: 768px;
     text-align: center;
     line-height: 1.4;
-    font-weight: bold;
+    &__profile {
+      font-size: 24px;
+      padding: 8px 24px;
+      font-weight: bold;
+    }
+  }
+}
+.profile-icon-area {
+  padding: 72px 16px 24px;
+  text-align: center;
+  figure {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    img {
+      border-radius: 50%;
+    }
+  }
+  input {
+    width: 220px;
+    margin: 0 0 0 8px;
   }
 }
 
