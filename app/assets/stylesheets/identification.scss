@@ -1,0 +1,23 @@
+@import "./reset";
+@import "font-awesome";
+@import "shared/header";
+@import "shared/footer";
+@import "shared/sell-btn";
+@import "modules/side-bar";
+
+
+.content-area {
+  margin: 40px auto 0;
+  padding: 0 0 40px;
+  width: 1020px;
+  &__left {
+    float:left;
+    width: 280px;
+    margin: 0 40px 0 0 ;
+  }
+  &__right {
+    width: 700px;
+    float: right;
+    background-color: white;
+  }
+}
