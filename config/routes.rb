@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "products#index"
   
+  # devise_for :users
+  root to: "products#index"
   get 'mypage', to: 'mypages#index'
-
-  get 'index', to: 'users#index'
+  get 'profile', to: 'mypages#edit' #仮ルーティング、プロフィール編集画面
+  get 'identification', to: 'mypages#identification' #仮ルーティング、ユーザー本人確認画面
+  get 'users', to: 'users#new' 
+  get 'login', to: 'users#login-new' #仮ルーティング、ログイン画面用のビュー
+  get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
+  
   resource :products
   resource :users
-  get 'users', to: 'users#login-new'
 
 end
