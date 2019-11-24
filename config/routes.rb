@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'users', to: 'users#new' 
   get 'login', to: 'users#login-new' #仮ルーティング、ログイン画面用のビュー
   get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
+  get 'detail', to: 'products#detail' #仮ルーティング、商品詳細ページ
   
   resource :products
   resource :users

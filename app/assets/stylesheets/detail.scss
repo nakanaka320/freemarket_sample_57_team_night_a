@@ -1,0 +1,39 @@
+section {
+  padding: 24px 40px 40px;
+  margin: 40px auto 0;
+  width: 700px;
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .detail-main {
+    margin: 16px 0 0;
+    .item-photo {
+      float: left;
+      min-width: 300px;
+      max-width: 300px;
+      min-height: 375px;
+    }
+    table {
+      float: right;
+      max-width: 300px;
+      height: 420px;
+      margin: 0 auto;
+    }
+    .item-pricebox {
+      margin: 24px 0 0;
+      &__price {
+        font-weight: 600;
+      }
+      &__tax {
+        font-size: 10px;
+      }
+      &__postage {
+        font-size: 16px;
+      }
+    }
+  }
+  
+}
+
