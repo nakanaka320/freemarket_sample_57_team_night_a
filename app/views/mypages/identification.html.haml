@@ -15,6 +15,7 @@
             登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
           = link_to root_path do
             本人確認書類のアップロードについて
+            %i.fa.fa-chevron-right
         .form-group
           %label お名前
           %p 奧村徳人
@@ -27,23 +28,27 @@
         .form-group
           %label 郵便番号
           %span.arbitrarily 任意
-          %input{type:text,class:"",placehodler:"例）1234567"} 
+          %input{type:"text",class:"#",placeholder:"例）1234567"} 
         .form-group
           %label 都道府県
           %span.arbitrarily 任意
-          %input{type:text,class:""} 
+          %input{type:"text",class:""} 
         .form-group
           %label 市町村
           %span.arbitrarily 任意
-          %input{type:text,class:""} 
+          %input{type:"text",class:"",placeholder:"例）名古屋市中区栄４丁目"} 
         .form-group
           %label 番地
           %span.arbitrarily 任意
-          %input{type:text,class:""} 
+          %input{type:"text",class:"",placeholder:"例）２番地"} 
         .form-group
           %label 建物名
           %span.arbitrarily 任意
-          %input{type:text,class:""} 
-
+          %input{type:"text",class:"",placeholder:"例）ホテルルートイン栄"}
+        %button{type:"submit"} 登録する
+        .form-group
+          = link_to root_path do
+            本人情報の登録について
+            %i.fa.fa-chevron-right
 = render "shared/sell-btn"
 = render "shared/footer"
