@@ -7,9 +7,43 @@
   .content-area__right
     .right-box
       %h2 本人情報の登録
-      %form 
-
-
+      %form{action: "https://www.mercari.com/jp/mypage/identification", method: "POST", class:"form-inner"}
+        .form-top
+          %p 
+            お客さまの本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          = link_to root_path do
+            本人確認書類のアップロードについて
+        .form-group
+          %label お名前
+          %p 奧村徳人
+        .form-group
+          %label お名前カナ
+          %p オクムラノリト
+        .form-group
+          %label 生年月日
+          %p 非公開
+        .form-group
+          %label 郵便番号
+          %span.arbitrarily 任意
+          %input{type:text,class:"",placehodler:"例）1234567"} 
+        .form-group
+          %label 都道府県
+          %span.arbitrarily 任意
+          %input{type:text,class:""} 
+        .form-group
+          %label 市町村
+          %span.arbitrarily 任意
+          %input{type:text,class:""} 
+        .form-group
+          %label 番地
+          %span.arbitrarily 任意
+          %input{type:text,class:""} 
+        .form-group
+          %label 建物名
+          %span.arbitrarily 任意
+          %input{type:text,class:""} 
 
 = render "shared/sell-btn"
 = render "shared/footer"
