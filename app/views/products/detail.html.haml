@@ -1,13 +1,60 @@
 =render "shared/header"
 
 %section
-  %h1 １００％スマイル
+  %h1 THE スマイル
   .detail-main
     .item-photo
-      .item-photo-sub
+      .photo
+        = image_tag "smile.jpg", size:"300x300"
+      .mini-photo
+        = image_tag "smile.jpg", size:"60x60"
     %table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to mypage_path, class:"user-name" do
+              真子 ゆきなり
+            .user-rate
+              .user-rate__left
+                = fa_icon "smile-o"
+                %span 53万
+              .user-rate__center
+                = fa_icon "meh-o"
+                %span 0
+              .user-rate__right
+                = fa_icon "frown-o"
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "#",class:"category" do
+              サービス
+            = link_to "#",class:"category" do
+              ＞ エンターテイメント
+            = link_to "#",class:"category" do
+              ＞ ジェスチャー
+        %tr
+          %th ブランド
+          %td TECH::EXPERT
+        %tr
+          %th 商品の状態
+          %td 至高
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td らくらくメルカリ便
+        %tr
+          %th 配送元の地域
+          %td 名古屋
+        %tr
+          %th 発送日の目安
+          %td 即日
+
     .item-pricebox
-      %span.item-pricebox__price ¥8,888
+      %span.item-pricebox__price ¥0
       %span.item-pricebox__tax  (税込)
       %span.item-pricebox__postage 送料込み
 
