@@ -57,7 +57,19 @@
       %span.item-pricebox__price ¥0
       %span.item-pricebox__tax  (税込)
       %span.item-pricebox__postage 送料込み
-
-
+    .item-coment
+      %p.item-coment__inner 最近話題のプログラミングスクール、「TECH::EXPERT」でライフコーチを務める奧村さん。その奧村さんから最高の贈り物が出品されました！ご購入頂いた方には特典として、「パーフェクトスマイル２０１９」を追加でプレゼント♪
+    .item-button
+      .item-button__left
+        %button{type: "button",class:"like-button"}
+          = fa_icon "heart"
+          %span いいね
+        = link_to "#",class:"report" do
+          = fa_icon "flag"
+          %span 不適切な商品の報告
+      .item-button__right
+        = link_to "#",class:"safety" do
+          = fa_icon "lock"
+          %span あんしん・あんぜんへの取り組み
 
 =render "shared/footer"
