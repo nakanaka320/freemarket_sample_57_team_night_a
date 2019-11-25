@@ -72,4 +72,21 @@
           = fa_icon "lock"
           %span あんしん・あんぜんへの取り組み
 
+.item-message
+  .message-content
+    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %textarea{type:"text",class:"area"}
+    %button{type:"submit"}
+      %span コメントする
+
+.nav-link
+  .prev-link
+    =fa_icon "chevron-left"
+    = link_to "前の商品へ","#"
+  .next-link
+    = link_to "次の商品へ","#"
+    = fa_icon "chevron-right"
+    
+
+
 =render "shared/footer"
