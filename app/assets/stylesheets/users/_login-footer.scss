@@ -9,16 +9,16 @@
   bottom: 0;
   left: 0;
   z-index: 1;
-
   &__nav {
     a {
       font-size: 12px;
       margin:0 0 0 16px;
     }
   }
-  &__logo img {
+  &__logo {
     width: 80px;
     height: 80px;
+    margin: 40px auto 0;
   }
   p {
     margin: 8px 0 0;
