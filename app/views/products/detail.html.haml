@@ -79,14 +79,25 @@
     %button{type:"submit"}
       %span コメントする
 
-.nav-link
+.nav-link.clearfix
   .prev-link
     =fa_icon "chevron-left"
     = link_to "前の商品へ","#"
   .next-link
     = link_to "次の商品へ","#"
     = fa_icon "chevron-right"
-    
+
+.social-media-box
+  %ul
+    %li.facebook
+      = link_to "#",class:"facebook" do
+        = fa_icon "facebook-square"      
+    %li.twitter
+      = link_to "#",class:"twitter" do
+        = fa_icon "twitter-square"
+    %li.pinterest
+      = link_to "#",class:"pinterest" do
+        = fa_icon "pinterest-square"        
 
 
 =render "shared/footer"
