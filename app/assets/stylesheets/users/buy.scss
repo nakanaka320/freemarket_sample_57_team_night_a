@@ -80,4 +80,31 @@
       }
     }
   }
+  .user-info {
+    margin: 40px 0 0;
+    padding: 24px 12.5% 0;
+    border-top: 1px solid #f5f5f5;
+    h3 {
+      width:100%;
+      font-weight: bold;
+    }
+    .user-address {
+      width: 100%;
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .user-info-fix {
+      width: 100%;
+      text-align: right;
+      a , i {
+        color: #0099e8;
+        font-size: 14px;
+      }
+      i {
+        margin: 0 0 0 8px;
+        font-size: 10px;
+      }
+    }
+  }
 }

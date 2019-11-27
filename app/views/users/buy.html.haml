@@ -19,7 +19,22 @@
               .buy-price-table__right
                 %span ¥ 0
             %button{type:"submit",class:"buy-btn"}購入する
-      %section
+
+      %section.user-info
+        .buy-content__inner
+          %h3 配送先
+          .user-address
+            〒150-0041
+            %br
+            東京都渋谷区神南1丁目18−2
+            %br
+            南 ゆうき
+          .user-info-fix
+            = link_to "#" do
+              変更する
+              %i.fa.fa-chevron-right
+
+
       %section
 
 
