@@ -1,0 +1,22 @@
+.sell-container
+  = render "users/login-header"
+
+  .sell-main
+    %section.single-container 
+      .sell-main__inner
+        %h2 商品の情報を入力
+        %form.sell-form
+          .upload-box
+            %h3 
+              出品画像
+              %span 必須
+            %p 最大10枚までアップロードできます
+            .drop-box
+              .drop-box__case
+                %input{type:"file"}
+                %p 
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+
+  = render "users/login-footer"
