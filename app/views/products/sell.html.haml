@@ -20,15 +20,15 @@
                   またはクリックしてファイルをアップロード
           
           .sell-content
-            %h3 
-              商品名
-              %span 必須
-            %form{type:"text"}
-
-
-          .upload-box
-            %h3 
-              商品の説明
-              %span 必須
+            .form-group
+              %h3 
+                商品名
+                %span 必須
+              %input{type:"text",placeholder:"商品名（必須４０文字まで）"}
+            .form-group-2
+              %h3 
+                商品の説明
+                %span 必須
+              %textarea{type:"text",placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
 
   = render "users/login-footer"
