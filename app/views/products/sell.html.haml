@@ -31,4 +31,42 @@
                 %span 必須
               %textarea{type:"text",placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
 
+          .sell-content.clearfix
+            %h3.sell-head
+              商品の詳細
+            .sell-form-box
+              .form-group
+              %h3 
+                カテゴリー
+                %span 必須
+              -# =f.collection_select
+              .form-group-2
+              %h3 
+                商品の状態
+                %span 必須
+              -# =f.collection_select
+              
+          .sell-content.clearfix
+            %h3.sell-head
+              配送について
+            .sell-form-box
+              .form-group
+              %h3 
+                配送料の負担
+                %span 必須
+              -# =f.collection_select
+              .form-group-2
+              %h3 
+                発送元の地域
+                %span 必須
+              -# =f.collection_select
+              .form-group-2
+              %h3 
+                発送までの日数
+                %span 必須
+              -# =f.collection_select
+
+
+          .sell-content.clearfix
+
   = render "users/login-footer"
