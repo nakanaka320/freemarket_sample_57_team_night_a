@@ -16,9 +16,12 @@
       margin:0 0 0 16px;
     }
   }
-  &__logo img {
-    width: 80px;
-    height: 80px;
+  &__logo {
+    margin: 40px 0 0 ;
+    img {
+      width: 80px;
+      height: 80px;
+    }
   }
   p {
     margin: 8px 0 0;
