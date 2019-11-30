@@ -100,6 +100,63 @@
         .sell-form-box {
           float: right;
           width: 400px;
+          .price-box {
+            padding: 0 0 40px;
+            border: 0;
+            label {
+              float: left;
+              font-weight: bold;
+              width: 50%;
+              line-height: 48px;
+              span {
+                background: #ea352d;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+              }
+            }
+            .price-right {
+              float: right;
+              width: 50%;
+              &__input {
+                display: inline-block;
+                width: 80%;
+                margin: 0 0 0 5%;
+              }
+              .input-text {
+                text-align: right;
+              }
+            }
+          }
+        }
+        .icon {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          line-height: 14px;
+          font-size: 12px;
+          text-align: center;
+        }
+        li {
+          font-size: 14px;
+          padding: 24px 0;
+          border-top: 1px solid #ccc;
+          .text-left {
+            float: left;
+            &__profit {
+              font-size: 16px;
+              font-weight: bold;
+            }
+          }
+          .text-right {
+            float: right;
+          }
         }        
       }
     }
