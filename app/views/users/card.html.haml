@@ -1,6 +1,15 @@
 .card-container
   = render "users/login-header"
 
+  .card-main
+    .card-box
+      %h3.card-box__head 支払い方法
+      .card-number-box
+        %p 
+          カード番号
+          %span 必須
+        %input{type:"text",placeholder:"半角数字のみ"}
+
 
 
   = render "users/login-footer"
