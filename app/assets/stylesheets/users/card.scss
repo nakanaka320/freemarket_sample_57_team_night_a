@@ -56,12 +56,34 @@
       border: none;
       .link-right {
         float: right;
+        span {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          text-align: center;
+          font-size: 12px;
+        }
+        a {
+          color: #0099e8;
+
+        }
       }
     } 
     .go-to-next-btn {
       border: none;
+      padding-bottom: 40px;
       button {
         background-color: #ea352d;
+        width: 100%;
+        color: #fff;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        line-height: 1.5;
         font-size: 16px;
       }
     }
