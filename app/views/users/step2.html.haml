@@ -1,0 +1,58 @@
+.phone-body
+  =render "users/login-header"
+  .phone-body__container-2
+    .phone-body__container-2__header
+      %h1.phone-body__container-2__header__h1 
+        -# = image_tag "main-logo.png" , width: 240, height:70
+      .progress-bar-contents
+        .progress-bar
+          .progress-bar__text
+            会員登録
+          .progress-bar__dot.dot-bars1.red-dot
+            ●
+            .progress-bar__dot__bars.dot-bar1#red-bar
+        .progress-bar
+          .progress-bar__text.input-login-phonenumber
+            電話番号認証
+          .progress-bar__dot.dot-bars2.red-dot
+            ●
+            .progress-bar__dot__bars.dot-bars2
+        .progress-bar
+          .progress-bar__text
+            お届け先住所入力
+          .progress-bar__dot.dot-bar3
+            ●
+            .progress-bar__dot__bars.dot-bars3
+        .progress-bar
+          .progress-bar__text
+            支払い方法
+          .progress-bar__dot.dot-bar4
+            ●
+            .progress-bar__dot__bars.dot-bars4
+        .progress-bar
+          .progress-bar__text
+            完了
+          .progress-bar__dot.dot-bars5
+            ●
+    .phone-main
+      = form_with model:@user,url: registration_step2_users_path, method: :get, local: true do |f|
+        .phone-main__box
+          .phone-main__box__text
+            電話番号の確認
+          .phone-main__box__registration
+            .phone-main__box__registration__content
+              .phone-main__box__registration__content__form
+                %h2.phone-main__box__registration__content__form__text
+                  携帯電話の番号
+                %span
+                  = f.text_field :phone_number, autocomplete: "phone_namber", placeholder: "携帯電話の番号を入力", class: "phone-main__box__registration__content__form__phone-number"
+              %p.phone-number-text
+                本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              %button.btn-sns
+                SMSを送信する
+              %p.phone-number-text
+                ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+              .text-right
+                = link_to "電話番号の確認が必要な理由" , "" , class: "text-right__link" 
+                = fa_icon "angle-right" , class: "angle-right-icon fa-lg"
+      =render "users/login-footer"
