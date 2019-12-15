@@ -1,0 +1,190 @@
+@import "mixin";
+@import "variable";
+
+.form-group__arbitrarily{
+  @include form-icon($pale_gray);
+  padding: 3px 4px;
+}
+
+.input-address{
+  color: $red;
+};
+
+.red-dot{
+  color: $red;
+};
+
+#red-bar{
+  background-color: $red;
+};
+
+.angle-icon{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transform:translateX(210px) translateY(38px);
+}
+
+.address-body{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: $black;
+  line-height: 1; 
+  &__container {
+    padding: 0 0 300px;
+    box-sizing: border-box;
+    height: 100%;
+    &__header{
+      margin: auto;
+      width: 500px;
+      height: 128px;
+      display: flex;
+      .progress-bar{
+        color: $button-gray;
+        width: 100px;
+        height:32px;
+        box-sizing: border-box;
+        &__text{
+          font-size: 12px;
+          font-weight: 600;
+          width:100px;
+          text-align: center;
+        }
+        &__dot{
+          font-size: 25px;
+          width:12px;
+          margin: auto;
+          z-index: 1;
+          position: relative;
+          &__bars{
+            background-color: $button-gray;
+            width:97px;
+            height: 2px;
+            position: absolute;
+            bottom: 12px;
+            left: 8px;
+            z-index: -1;
+          }
+        }
+      }
+      
+      .progress-bar-contents{
+        width: 480px;
+        height: 60px;
+        box-sizing: border-box;
+        display: flex;
+        margin-top: 50px; 
+      }
+      &__h1{
+        display: inline-block;
+        margin: 40px 0 0;
+        &__url{
+          width: 185px;
+          height: 49px;
+          line-height: 49px;
+          display: inline-block;
+          margin: 0 8px 0 0;
+          &__img{
+            width: 185px;
+            height: 49px;
+          }
+        }
+      }
+    }
+  } 
+    .adress-main{
+      display: block;
+      &__box{
+        background: $white;
+        width: 700px;
+        margin: 0 auto;
+        &__text{
+          font-size: 22px;
+          padding: 32px;
+          line-height: 1.5;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+      .adress-inner{
+        padding: 24px 16px 40px;
+        border-top: 1px solid #f5f5f5;
+        display: block;
+        box-sizing: border-box;
+        &__contents{
+          max-width: 343px;
+          margin: 0 auto;
+          display: block;
+          text-align: left;
+          .form-group{
+            margin: 0;
+            box-sizing: border-box;
+            &__name{
+              cursor: default;
+              font-weight: 600;
+            }
+            &__hissu{
+              @include form-icon($red);
+              padding: 3px 4px;
+              font-size: 13px;
+            }
+            &__input-box{
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              width: 100%;
+              margin: 4px 0 0;
+              box-sizing: border-box;
+            }
+          }
+          .form-group-2{
+            margin: 24px 0 0;
+            box-sizing: border-box;
+            appearance: none;
+            font-size: 14px;
+          .form-group-2__select{
+            @include select-arrow;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            width: 100%;
+            margin: 4px 0 0;
+            box-sizing: border-box;
+            }
+          }
+        }
+        .form-group-btn-box{
+          margin: 35px 0 0;
+          box-sizing: border-box;
+          appearance: none;
+          font-size: 14px;
+        }
+          .btn-next-box{
+            margin: 24px 0 0;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+          }
+      }
+    }
+  }

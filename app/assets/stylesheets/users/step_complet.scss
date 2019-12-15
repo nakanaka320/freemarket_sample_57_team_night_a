@@ -1,0 +1,136 @@
+@import "./variable";
+@import "./mixin";
+
+.login-hidden{
+  display: none;
+};
+
+.login-block{
+  display: block;
+}
+
+.complete-body__container-2{
+  padding: 0 0 300px;
+  box-sizing: border-box;
+}
+
+.input-new-member-complete{
+  color: $red;
+};
+
+.complete-body{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: $black;
+  line-height: 1; 
+  &__container {
+    padding: 0 0 300px;
+    box-sizing: border-box;
+    height: 100%;
+    &__header{
+      margin: auto;
+      width: 500px;
+      height: 128px;
+      display: flex;
+      .progress-bar{
+        color: $button-gray;
+        width: 100px;
+        height:32px;
+        box-sizing: border-box;
+        &__text{
+          font-size: 12px;
+          font-weight: 600;
+          width:100px;
+          text-align: center;
+        }
+        &__dot{
+          color: $red;
+          font-size: 25px;
+          width:12px;
+          margin: auto;
+          z-index: 2;
+          &__bars{
+            background-color: $red;
+            width:97px;
+            height: 2px;
+            position: relative;
+            bottom: 12px;
+            left: 8px;
+            z-index: 1;
+          }
+        }
+      }
+      
+      .progress-bar-contents{
+        width: 480px;
+        height: 60px;
+        box-sizing: border-box;
+        display: flex;
+        margin-top: 50px; 
+      }
+      &__h1{
+        display: inline-block;
+        margin: 40px 0 0;
+        &__url{
+          width: 185px;
+          height: 49px;
+          line-height: 49px;
+          display: inline-block;
+          margin: 0 8px 0 0;
+          &__img{
+            width: 185px;
+            height: 49px;
+          }
+        }
+      }
+    }
+  } 
+
+.complete-main{
+  display: block;
+  height: 400px;
+  &__box{
+    background: $white;
+    width: 700px;
+    margin: 0 auto;
+    &__text{
+      font-size: 22px;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  .complete-inner{
+    padding: 50px 16px 50px;
+    border-top: 1px solid #f5f5f5;
+    display: block;
+    box-sizing: border-box;
+    &__contents{
+      max-width: 343px;
+      margin: 0 auto;
+      display: block;
+      text-align: left;
+      &__text{
+        font-size: 20px;
+        padding-top: 10px;
+        text-align: center;
+      }
+    }
+    &__submit{
+      margin: auto;
+      font-size: 16px;
+      margin-top: 40px;
+      height: 50px;
+      width: 343px;
+      line-height: 25px;
+      color: #fff;
+      background-color: #ea352d;
+      max-width: 343px;
+    }
+  }
+}
+}
