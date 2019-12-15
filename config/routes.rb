@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'mypage', to: 'mypages#index'
   get 'index', to: 'users#index'
   resource :products
+  #get 'users', to: 'users#new' 
+  #get 'login', to: 'users#login-new' #仮ルーティング、ログイン画面用のビュー
+  #get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
   resource :users do
     collection do
       get 'step1'
