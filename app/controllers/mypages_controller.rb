@@ -5,6 +5,8 @@ class MypagesController < ApplicationController
   def edit
     render :profile
   end
-
+  
+  def identification 
+  end
   
 end
