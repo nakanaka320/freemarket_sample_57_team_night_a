@@ -1,0 +1,91 @@
+.card-container {
+  padding: 0 0 220px;
+  position: relative;
+  .card-box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    &__head {
+      padding: 32px 16px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 40px 0;
+      border-top: 1px solid #eee;
+      p {
+        font-size: 16px;
+        font-weight: bold;
+        span {
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+      }
+      input {
+        width: 100%;
+        margin: 8px 0 0;
+        padding: 10px 16px 8px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      ul {
+        display: flex;
+        li {
+          margin: 8px 0 0 8px;
+        }
+      }
+    }
+    .deadline-box {
+      border: none;
+      select {
+        width: 20%;
+        margin-top: 4px; 
+      }
+      span {
+        margin:0 0 0 4px;
+      }
+    }
+    .security-box {
+      border: none;
+      .link-right {
+        float: right;
+        span {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          text-align: center;
+          font-size: 12px;
+        }
+        a {
+          color: #0099e8;
+
+        }
+      }
+    } 
+    .go-to-next-btn {
+      border: none;
+      padding-bottom: 40px;
+      button {
+        background-color: #ea352d;
+        width: 100%;
+        color: #fff;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+  }
+}
