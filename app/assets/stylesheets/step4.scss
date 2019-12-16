@@ -1,0 +1,172 @@
+@import"variable.scss";
+@import"mixin.scss";
+
+.login-hidden{
+  display: none;
+};
+
+.login-block{
+  display: block;
+}
+
+.login-input-credit{
+  color: $red;
+};
+
+.hissu_tag{
+  @include form-icon($red);
+    padding: 1px;
+}
+
+.credit-body{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: $black;
+  line-height: 1; 
+  &__container-2 {
+    padding: 0 0 300px;
+    box-sizing: border-box;
+    &__header{
+      margin: auto;
+      width: 700px;
+      height: 128px;
+      display: flex;
+      .progress-bar{
+        color: $button-gray;
+        width: 100px;
+        height:32px;
+        box-sizing: border-box;
+        &__text{
+          font-size: 12px;
+          font-weight: 600;
+          width:100px;
+          text-align: center;
+        }
+        &__dot{
+          font-size: 25px;
+          width:12px;
+          margin: auto;
+          z-index: 1;
+          position: relative;
+          &__bars{
+            background-color: $button-gray;
+            width:97px;
+            height: 2px;
+            position: absolute;
+            bottom: 12px;
+            left: 8px;
+            z-index: -1;
+          }
+        }
+      }
+      
+      .progress-bar-contents{
+        width: 480px;
+        height: 60px;
+        box-sizing: border-box;
+        display: flex;
+        margin-top: 50px; 
+      }
+      &__h1{
+        display: inline-block;
+        margin: 40px 0 0;
+        &__url{
+          width: 185px;
+          height: 49px;
+          line-height: 49px;
+          display: inline-block;
+          margin: 0 8px 0 0;
+          &__img{
+            width: 185px;
+            height: 49px;
+          }
+        }
+      }
+    }
+  
+
+
+.credit-card-resistration-2{
+  @include box(500px);
+  margin: auto;
+  &__title{
+    @include title-box;
+  }
+  &__box{
+    height:450px;
+    width:700px;
+    padding: 16px 24px 40px;
+    box-sizing: border-box;
+  }
+}
+
+.card-information-box{
+  height: 383px;
+  width: 343px;
+  margin: auto;
+  &__card-number{
+    height: 100px;
+  }
+  &__expiration{
+    margin-top: 24px;
+  }
+  &__security{
+    margin-top: 24px;
+  }
+  &__label{
+    font-size: 14px;
+    font-weight: bold;
+  }
+  &__require-icon2{
+    @include form-icon($red);
+    padding: 3px;
+  }
+  &__input{
+    font-size: 14px;
+    width:343px;
+    height: 48px;
+    margin-top: 8px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:$pale_gray;
+    background-color:$white ;
+    box-sizing: border-box;
+  }
+  &__select{
+    font-size: 14px;
+    width:131px;
+    height: 48px;
+    margin-top: 8px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:$pale_gray;
+    background-color:$white ;
+    box-sizing: border-box; 
+    @include select-arrow;
+    &__text{
+      margin:0px 5px 0px 10px;
+      font-size:14px;
+    }
+  }
+  &__picture{
+    height: 30px;
+  }
+  &__submit{
+    font-size: 14px;
+    margin-top: 40px;
+    height:50px;
+    width:100%;
+    line-height: 25px;
+    color:$white;
+    background-color:$red ;
+  }
+ }
+}
+}
