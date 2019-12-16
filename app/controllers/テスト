@@ -1,0 +1,88 @@
+:nickname,
+:first_name, 
+:last_name,
+:first_name_kana,
+:last_name_kana,
+:password,
+:password_confirmation,
+:E_mail, 
+:birthday_year,
+:birthday_month,
+:birthday,
+:prefecture,
+:phone_number,
+:post_number,
+:city,
+:street,
+:building)
+コントローラー
+       
+
+nickname: session[:nickname],
+E_mail: session[:E_mail],
+password: session[:password],
+password_confirmation: session[:password_confirmation],
+first_name: session[:first_name],
+last_name: session[:last_name],
+first_name_kana: session[:first_name_kana],
+last_name_kana: session[:last_name_kana],
+phone_number: session[:phone_number],
+post_number: session[:post_number],
+prefecture: session[:prefecture],
+city: session[:city],
+street: session[:street],
+building: session[:building],
+birthday_year: session[:birthday_year],
+birthday_month: session[:birthday_month],
+birthday: session[:birthday]
+session
+
+
+t.string :nickname,           null: false
+t.string :fullname,           null: false
+t.string :first_name,         null: false
+t.string :last_name,          null: false
+t.string :first_name_kana,    null: false
+t.string :last_name_kana,     null: false
+t.string :E_mail,             null: false, unique: true
+t.integer :birthday_year,     null: false
+t.integer :birthday_month,    null: false
+t.integer :birthday,          null: false
+t.integer :phone_number,      null: false
+t.string :comment,            null: false
+t.integer :good,              null: false
+t.string :sellitem,           null: false
+t.string :buyitem,            null: false
+t.string :prefecture,         null: false
+t.string :city,               null: false
+t.string :street,             null: false
+t.string :building,           null: false
+t.integer :post_number,       null: false
+マイグレーショんファイル
+
+
+
+
+
+
+
+
+
+:nickname,
+:first_name,
+:last_name,
+:first_name_kana,
+:last_name_kana,
+:password,
+:password_confirmation,
+:E_mail, 
+:birthday_year,
+:birthday_month,
+:birthday,
+:prefecture,
+:phone_number,
+:post_number,
+:city,
+:street,
+:building])
+アプリケーション.rb
