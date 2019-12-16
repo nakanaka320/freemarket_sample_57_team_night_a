@@ -69,8 +69,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'gretel' 
-gem 'active_hash'
-gem 'rspec-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

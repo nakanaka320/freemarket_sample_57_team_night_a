@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_123005) do
+ActiveRecord::Schema.define(version: 2019_11_11_081030) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "state", null: false
@@ -77,35 +77,20 @@ ActiveRecord::Schema.define(version: 2019_12_09_123005) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "nickname", null: false
-    t.string "fullname", default: "無名", null: false
+    t.string "fullname", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
     t.integer "cards"
-    t.integer "birthday_year", null: false
-    t.integer "birthday_month", null: false
-    t.integer "birthday", null: false
-    t.string "phone_number", null: false
-    t.string "comment", default: "未記入", null: false
-    t.integer "good", default: 0, null: false
-    t.string "sellitem", default: "未販売", null: false
-    t.string "buyitem", default: "未購入", null: false
-    t.string "prefecture", default: "未記入", null: false
-    t.string "city", null: false
-    t.string "street", null: false
-    t.string "building", null: false
-    t.integer "post_number", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.string "password", null: false
+    t.string "E_mail", null: false
+    t.date "birth", null: false
+    t.integer "phone_number", null: false
+    t.string "comment", null: false
+    t.integer "good", null: false
+    t.string "sellitem", null: false
+    t.string "buyitem", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
