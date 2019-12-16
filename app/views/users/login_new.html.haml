@@ -5,7 +5,7 @@
     .login-panel
       .login-panel__no-account
         %p アカウントをお持ちでない方はこちら
-        =link_to "新規会員登録" 
+        =link_to "新規会員登録" , sign_up_choice_users_path, class: "btn registration"
 
       .login-panel__form
         %ul.login-panel__form__button
@@ -33,9 +33,4 @@
               ログイン
         %p
           =link_to "パスワードをお忘れの方" ,class: "forget-pass" 
-
-
-
-
-
   =render "users/login-footer"

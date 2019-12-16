@@ -1,0 +1,128 @@
+.login-body
+  =render "users/login-header"
+  .login-body__container-2
+    .login-body__container-2__header
+      %h1.login-body__container-2__header__h1 
+      .progress-bar-contents
+        .progress-bar
+          .progress-bar__text.input-member-info
+            会員登録
+          .progress-bar__dot.dot-bars1.red-dot
+            ●
+            .progress-bar__dot__bars.dot-bar1
+        .progress-bar
+          .progress-bar__text
+            電話番号認証
+          .progress-bar__dot.dot-bars2
+            ●
+            .progress-bar__dot__bars.dot-bars2
+        .progress-bar
+          .progress-bar__text
+            お届け先住所入力
+          .progress-bar__dot.dot-bar3
+            ●
+            .progress-bar__dot__bars.dot-bars3
+        .progress-bar
+          .progress-bar__text
+            支払い方法
+          .progress-bar__dot.dot-bar4
+            ●
+            .progress-bar__dot__bars.dot-bars4
+        .progress-bar
+          .progress-bar__text
+            完了
+          .progress-bar__dot.dot-bars5
+            ●
+    .member-body
+      .member-body__main
+        .member-body__main__box
+          %h2.member-body__main__box__h2
+            会員情報入力
+          .member-body__main__box__inner
+            .member-body__main__box__inner__contents
+              = form_with model:@user, url: registration_step1_users_path, method: :get, local: true do |f|
+                .member-body__main__box__inner__contents__form-box
+                  %label.member-body__main__box__inner__contents__form-box__nick-name
+                    ニックネーム
+                  %span.member-body__main__box__inner__contents__form-box__hissu
+                    必須
+                  %span
+                    = f.text_field :nickname, autofocus: true, placeholder: "例) メルカリ太郎"
+                .member-body__main__box__inner__contents__form-box2-8
+                  %label.member-body__main__box__inner__contents__form-box__e-mail 
+                    メールアドレス
+                  %span.member-body__main__box__inner__contents__form-box__hissu
+                    必須
+                  %span
+                    = f.email_field :email, autofocus: true, placeholder: "例) PC・携帯どちらでも可"
+                .member-body__main__box__inner__contents__form-box2-8
+                  %label.member-body__main__box__inner__contents__form-box__password
+                    パスワード
+                  %span.member-body__main__box__inner__contents__form-box__hissu
+                    必須
+                  %span
+                    = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+                .member-body__main__box__inner__contents__form-box2-8
+                  %label.member-body__main__box__inner__contents__form-box__password-confirmation
+                    パスワード（確認）
+                  %span.member-body__main__box__inner__contents__form-box__hissu
+                    必須
+                  %span
+                    = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+                .member-body__main__box__inner__contents__form-box2-8
+                  %h3.member-body__main__box__inner__contents__form-box2-8__h3
+                    本人確認
+                  %p.member-body__main__box__inner__contents__form-box2-8__h3__honbun
+                    安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+                .member-body__main__box__inner__contents__form-box2-8
+                  %label.member-body__main__box__inner__contents__form-box__full-name
+                    お名前（全角）
+                  %span.member-body__main__box__inner__contents__form-box__hissu
+                    必須
+                  .member-body__main__box__inner__contents__form-box2-8__doublebox
+                    %span
+                      = f.text_field :first_name, autocomplete: "family_name_kanji", placeholder: "例）山田"
+                    %span
+                      = f.text_field :last_name, autocomplete: "family_name_kanji", placeholder: "例）太郎"
+                .member-body__main__box__inner__contents__form-box2-8
+                  %label.member-body__main__box__inner__contents__form-box__full-kana-name
+                    お名前カナ（全角）
+                  %span.member-body__main__box__inner__contents__form-box__hissu
+                    必須
+                  .member-body__main__box__inner__contents__form-box2-8__doublebox
+                    %span
+                      = f.text_field :first_name_kana, placeholder: "例）ヤマダ"
+                    %span
+                      = f.text_field :last_name_kana, placeholder: "例）タロウ"
+                .member-body__main__box__inner__contents__form-box2-8
+                  %label.member-body__main__box__inner__contents__form-box__birthday
+                    生年月日
+                  %span.member-body__main__box__inner__contents__form-box__hissu
+                    必須
+                  .member-body__main__box__inner__contents__form-box2-8__doublebox
+                    = raw sprintf(f.date_select( :birthday, 
+                      prompt: "--",
+                      use_two_digit_numbers: true,
+                      start_year: Time.now.year,
+                      end_year: 1900,
+                      date_separator: '%s'),
+                      '年 ', '月 ') + '日'
+                  .member-body__main__box__inner__contents__text-info
+                    ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+                .member-body__main__box__inner__contents
+                  .member-body__main__box__inner__contents__robot
+                    %select.member-body__main__box__inner__contents__robot__box
+                    私はロボットではありませんよ。
+                  .member-body__main__box__inner__contents__form-box2-8
+                    %p.member-body__main__box__inner__contents__form-box2-8__text
+                      「次へ進む」のボタンを押すことにより,
+                    = link_to '利用規約', '' , class: 'kiyaku' 
+                    %p.member-body__main__box__inner__contents__form-box2-8__text
+                      に同意したものとします。
+                  %button.member-body__main__box__inner__contents__btm
+                    = f.submit "次へ進む", class: "btn registration"
+                  .member-body__main__box__inner__contents__touroku-information
+                    %p.member-body__main__box__inner__contents__touroku-information__text-box
+                      = link_to '本人情報の登録について' 
+                      = fa_icon "angle-right" , class: "angle-right-icon"
+  =render "users/login-footer"
