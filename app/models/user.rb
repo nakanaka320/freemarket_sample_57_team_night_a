@@ -8,10 +8,7 @@ class User < ApplicationRecord
   has_many :goods ,dependent: :destroy
   has_many :sellitems
   has_many :buyitems
-<<<<<<< HEAD
   # has_one :addresses
-=======
->>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
 
   validates :nickname, {presence: true}
   validates :email, {presence: true}
@@ -19,10 +16,7 @@ class User < ApplicationRecord
   validates :last_name, {presence: true}
   validates :first_name_kana, {presence: true}
   validates :last_name_kana, {presence: true}
-<<<<<<< HEAD
   validates :phone_number, presence: true,uniqueness: true,numericality:{only_integer: true}
-=======
->>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
   validates :birthday_year, {presence: true}
   validates :birthday_month, {presence: true}
   validates :birthday, {presence: true}
