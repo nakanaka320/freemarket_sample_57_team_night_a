@@ -1,0 +1,56 @@
+.buy-container
+  = render "users/login-header"
+  .buy-main
+    %section.buy-item-container
+      %h2 購入内容の確認
+      %section.buy-content
+        .buy-content__inner
+          %h3.buy-item-image
+            = image_tag "smile.png",height:"64px",width:"64px"
+          %p.buy-item-name
+            《送料無料》The スマイル
+          %form.buy-form
+            %p.buy-price 
+              ¥0
+              %span 
+                送料込み
+            .buy-price-table
+              .buy-price-table__left 支払い金額
+              .buy-price-table__right
+                %span ¥ 0
+            %button{type:"submit",class:"buy-btn"}購入する
+
+      %section.user-info
+        .buy-content__inner
+          %h3 配送先
+          .user-address
+            〒150-0041
+            %br
+            東京都渋谷区神南1丁目18−2
+            %br
+            南 ゆうき
+          .user-info-fix
+            = link_to "#" do
+              変更する
+              %i.fa.fa-chevron-right
+
+
+      %section.user-info
+        .buy-content__inner
+          %h3 支払い方法
+          .user-credit-info 
+            ***********3350
+            %br
+            05/24
+          %figure
+            =image_tag "VISA.jpg",height:"20px",width:"50px"
+          
+          .user-info-fix
+            = link_to "#" do
+              変更する
+              %i.fa.fa-chevron-right
+
+
+
+
+  = render "users/login-footer"

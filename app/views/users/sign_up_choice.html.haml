@@ -5,10 +5,7 @@
       新規会員登録
     %ul.signup-main__button
       %li.signup-main__button__mail
-        =link_to "#" do
-          メールアドレスで登録する
-          %i
-            = fa_icon "envelope" 
+        = link_to "メールアドレスで登録する" ,step1_users_path , class: "btn registration"
       %li.signup-main__button__facebook
         =link_to "#" do
           Facebookで登録する

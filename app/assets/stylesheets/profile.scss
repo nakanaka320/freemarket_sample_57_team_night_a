@@ -1,0 +1,80 @@
+@import "./reset";
+@import "font-awesome";
+@import "shared/header";
+@import "shared/footer";
+@import "shared/sell-btn";
+@import "modules/side-bar";
+
+.content-area {
+  margin: 40px auto 0;
+  padding: 0 0 40px;
+  width: 1020px;
+  &__left {
+    float:left;
+    width: 280px;
+    margin: 0 40px 0 0 ;
+  }
+  &__right {
+    width: 700px;
+    float: right;
+    background-color: white;
+  }
+  &__head {
+    text-align: center;
+    line-height: 1.4;
+    &__profile {
+      font-size: 24px;
+      padding: 8px 24px;
+      font-weight: bold;
+    }
+  }
+}
+.profile-icon-area {
+  padding: 72px 16px 24px;
+  text-align: center;
+  background-image: image-url("background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  figure {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    vertical-align: middle;
+    img {
+      border-radius: 50%;
+    }
+  }
+  input {
+    width: 220px;
+    margin: 0 0 0 8px;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+}
+.profile-content {
+  padding: 40px 16px;
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 216px;
+  }
+  button {
+    margin: 16px 0 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
