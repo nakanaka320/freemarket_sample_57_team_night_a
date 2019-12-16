@@ -6,6 +6,7 @@ class UsersController < ApplicationController
    end
 
   def step1
+<<<<<<< HEAD
     @user = User.new
   end
 
@@ -36,9 +37,42 @@ class UsersController < ApplicationController
    end
 
    def step3
+=======
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
+    @user = User.new
+  end
+
+  def step1_save
+    session[:nickname] = user_params[:nickname]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
+    session[:first_name] = user_params[:first_name]
+    session[:last_name] = user_params[:last_name]
+    session[:first_name_kana] = user_params[:first_name_kana]
+    session[:last_name_kana] = user_params[:last_name_kana]
+    session[:birthday_year] = user_params[:"birthday(1i)"]
+    session[:birthday_month] = user_params[:"birthday(2i)"]
+    session[:birthday] = user_params[:"birthday(3i)"]
+    redirect_to step2_users_path
+   end
+
+   def step2
+   @user = User.new 
+   end
+
+   def step2_save
+    session[:phone_number] = user_params[:phone_number]
+    redirect_to step3_users_path
+   end
+
+<<<<<<< HEAD
+=======
+   def step3
     @user = User.new
    end
 
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
    def step3_save
     session[:prefecture] = user_params[:prefecture]
     session[:city] = user_params[:city]
@@ -46,7 +80,10 @@ class UsersController < ApplicationController
     session[:post_number] = user_params[:post_number]
     session[:building] = user_params[:building]
     session[:phone_number] = user_params[:phone_number]
+<<<<<<< HEAD
     # binding.pry
+=======
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
     @user = User.new(
      
     nickname: session[:nickname],
@@ -67,7 +104,10 @@ class UsersController < ApplicationController
     birthday_month: session[:birthday_month],
     birthday: session[:birthday]
     )
+<<<<<<< HEAD
     # binding.pry
+=======
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
       if @user.save
         sign_in(@user)
         redirect_to  step4_users_path
@@ -83,7 +123,10 @@ class UsersController < ApplicationController
 
    def step4_save
    @user = User.new(user_params)
+<<<<<<< HEAD
    binding.pry
+=======
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
    if @user.save
     redirect_to step_complet_users_path, notice: '登録が完了しました'
   else

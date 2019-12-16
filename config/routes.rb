@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+<<<<<<< HEAD
   # devise_for :installs
   # devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+=======
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
   root to: "products#index"
   get 'mypage', to: 'mypages#index'
   get 'index', to: 'users#index'

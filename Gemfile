@@ -68,7 +68,10 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+<<<<<<< HEAD
 gem 'gretel' 
+=======
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
 gem 'active_hash'
 gem 'rspec-rails'
 

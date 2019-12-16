@@ -1,4 +1,5 @@
 class Default < ActiveRecord::Migration[5.2]
+<<<<<<< HEAD
   # def change
   #   # create_table :users do |t|
   #   change_column_null :users, :fullname, false, 0
@@ -8,6 +9,8 @@ class Default < ActiveRecord::Migration[5.2]
   #   change_column_null :users, :buyitem, false, 0
   #   change_column_null :users, :prefecture, false, 0
   # end
+=======
+>>>>>>> 2e15b99f23481d57c770b2b93dd7c37607c7bce7
   def up
     change_column :users, :fullname,   :string,  default: '無名'
     change_column :users, :comment,    :string,  default: '未記入'
