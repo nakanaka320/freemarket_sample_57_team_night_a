@@ -24,5 +24,6 @@ Rails.application.routes.draw do
 　get 'identification', to: 'mypages#identification' #仮ルーティング、ユーザー本人確認画面
   get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
   get 'buy', to: 'users#buy' #仮ルーティング、商品購入確認ページ
+  get 'sell', to: 'products#sell' #仮ルーティング、商品出品ページ
   get 'detail', to: 'products#detail' #仮ルーティング、商品詳細ページ
 end
