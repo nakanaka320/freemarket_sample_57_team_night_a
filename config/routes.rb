@@ -20,4 +20,8 @@ Rails.application.routes.draw do
       get 'adress'
     end
   end
+  get 'profile', to: 'mypages#edit' #仮ルーティング、プロフィール編集画面
+　get 'identification', to: 'mypages#identification' #仮ルーティング、ユーザー本人確認画面
+  get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
+  get 'detail', to: 'products#detail' #仮ルーティング、商品詳細ページ
 end
