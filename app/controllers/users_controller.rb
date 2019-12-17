@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-   def index
-   end
+  def index
+  end
 
-   def login_new
-   end
+  def login_new
+  end
 
   def step1
     @user = User.new
@@ -23,47 +23,23 @@ class UsersController < ApplicationController
     session[:birthday] = user_params[:"birthday(3i)"]
     # binding.pry
     redirect_to step2_users_path
-   end
+  end
 
-   def step2
-   @user = User.new 
-   end
+  def step2
+    @user = User.new 
+  end
 
-   def step2_save
+  def step2_save
     session[:phone_number] = user_params[:phone_number]
     # binding.pry
     redirect_to step3_users_path
-   end
+  end
 
-   def step3
+  def step3
     @user = User.new
   end
 
-  def step1_save
-    session[:nickname] = user_params[:nickname]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
-    session[:first_name] = user_params[:first_name]
-    session[:last_name] = user_params[:last_name]
-    session[:first_name_kana] = user_params[:first_name_kana]
-    session[:last_name_kana] = user_params[:last_name_kana]
-    session[:birthday_year] = user_params[:"birthday(1i)"]
-    session[:birthday_month] = user_params[:"birthday(2i)"]
-    session[:birthday] = user_params[:"birthday(3i)"]
-    redirect_to step2_users_path
-   end
-
-   def step2
-   @user = User.new 
-   end
-
-   def step2_save
-    session[:phone_number] = user_params[:phone_number]
-    redirect_to step3_users_path
-   end
-
-   def step3_save
+  def step3_save
     session[:prefecture] = user_params[:prefecture]
     session[:city] = user_params[:city]
     session[:street] = user_params[:street]
@@ -72,7 +48,7 @@ class UsersController < ApplicationController
     session[:phone_number] = user_params[:phone_number]
     # binding.pry
     @user = User.new(
-     
+      
     nickname: session[:nickname],
     email: session[:email],
     password: session[:password],
@@ -98,14 +74,14 @@ class UsersController < ApplicationController
       else
         render '/users/sign_up_choice'
       end
-   end
+  end
    
-   def step4
+  def step4
     @user = User.new
     @user = current_user
-   end
+  end
 
-   def step4_save
+  def step4_save
     @user = User.new(user_params)
       binding.pry
       if @user.save
@@ -113,28 +89,28 @@ class UsersController < ApplicationController
       else
       redirect_to  step4_users_path
     end
-   end
+  end
 
    private
-   def user_params
-     params.require(:user).permit(
-       :nickname,
-       :first_name, 
-       :last_name,
-       :first_name_kana,
-       :last_name_kana,
-       :password,
-       :password_confirmation,
-       :email, 
-       :birthday_year,
-       :birthday_month,
-       :birthday,
-       :prefecture,
-       :phone_number,
-       :post_number,
-       :city,
-       :street,
-       :building,
-       :cards)
-    end
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :first_name, 
+      :last_name,
+      :first_name_kana,
+      :last_name_kana,
+      :password,
+      :password_confirmation,
+      :email, 
+      :birthday_year,
+      :birthday_month,
+      :birthday,
+      :prefecture,
+      :phone_number,
+      :post_number,
+      :city,
+      :street,
+      :building,
+      :cards)
   end
+end
