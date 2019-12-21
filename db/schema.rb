@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_123005) do
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.text "image", null: false
+    t.string "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sellitems_on_user_id"
