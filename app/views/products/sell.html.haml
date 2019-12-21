@@ -13,7 +13,7 @@
             %p 最大10枚までアップロードできます
             .drop-box
               .drop-box__case
-                %input{type:"file"}
+                %input{type:"image"}
                 %p 
                   ドラッグアンドドロップ
                   %br
@@ -24,7 +24,7 @@
               %h3 
                 商品名
                 %span 必須
-              %input{type:"text",placeholder:"商品名（必須４０文字まで）"}
+              %input{type:"name",placeholder:"商品名（必須４０文字まで）"}
             .form-group-2
               %h3 
                 商品の説明
@@ -84,7 +84,7 @@
                     .price-right
                       ¥
                       .price-right__input
-                        %input{type:"text",placeholder:"例）300",class:"input-text"}
+                        %input{type:"price",placeholder:"例）300",class:"input-text"}
                 %li.clearfix
                   .text-left
                     販売手数料 (10%)
