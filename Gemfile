@@ -71,6 +71,9 @@ gem 'mini_magick'
 gem 'gretel' 
 gem 'active_hash'
 gem 'rspec-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 
 group :production do
   gem 'unicorn', '5.4.1'
