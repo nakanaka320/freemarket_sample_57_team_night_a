@@ -10,12 +10,12 @@
       .login-panel__form
         %ul.login-panel__form__button
           %li.login-panel__form__button__facebook
-            =link_to "#" do
+            =link_to user_facebook_omniauth_authorize_path do
               Facebookでログイン
               %i
                 = fa_icon "facebook-square"
           %li.login-panel__form__button__google
-            =link_to "#" do
+            =link_to user_google_oauth2_omniauth_authorize_path do
               .login-panel__form__button__google__text
                 Googleでログイン
               .login-panel__form__button__google__icon

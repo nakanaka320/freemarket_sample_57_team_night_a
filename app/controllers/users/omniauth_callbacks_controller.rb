@@ -1,8 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     callback_for(:facebook)
-    binding.pry
-
+    # binding.pry
   end
 
   def google_oauth2
