@@ -6,6 +6,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable,
           :omniauthable,omniauth_providers: [:facebook, :google_oauth2] #oauth用モジュール
   
+  
   def self.find_oauth(auth)        #facebookとgoogleからuid
     uid = auth.uid
     provider = auth.provider
@@ -22,7 +23,7 @@ class User < ApplicationRecord
         )
       end
     sns = snscredential
-      #binding.pry
+      # binding.pry
 
     else  #sns登録 未
       user = User.where(email: auth.info.email).first
