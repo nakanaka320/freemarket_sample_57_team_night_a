@@ -21,16 +21,18 @@
               .login-panel__form__button__google__icon
               
       .login-panel__form-bottom
-        .login-panel__form-bottom__mail
-          %input.login-input-text{:name => "email", :placeholder => "メールアドレス", :type => "email"}/
-        .login-panel__form-bottom__password
-          %input.login-input-text{:name => "password", :placeholder => "パスワード", :type => "password"}/
-        .login-panel__form-bottom__recaptcha
-          ここにreCAPTCHA
-        .login-panel__form-bottom__login
-          =link_to "#" do
-            .login-panel__form-bottom__login__btn 
-              ログイン
-        %p
-          =link_to "パスワードをお忘れの方" ,class: "forget-pass" 
+        = form_with model: @user, url: root_path, method: :post, local: true do |f|
+
+          .login-panel__form-bottom__mail
+            = f.email_field :email, class:'', autofocus: true, placeholder:'メールアドレス'
+          .login-panel__form-bottom__password
+            = f.password_field :password, class:'', autofocus: true, placeholder:'パスワード'
+          .login-panel__form-bottom__recaptcha
+            ここにreCAPTCHA
+          .login-panel__form-bottom__login
+            =link_to "#" do
+              .login-panel__form-bottom__login__btn 
+                ログイン
+          %p
+            =link_to "パスワードをお忘れの方" ,class: "forget-pass" 
   =render "users/login-footer"

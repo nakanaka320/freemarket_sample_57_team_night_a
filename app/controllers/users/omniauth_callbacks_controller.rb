@@ -13,13 +13,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
     @user = info[:user]
     sns_id = info[:sns_id]
-    binding.pry
+    # binding.pry
     if @user.persisted? #userが存在したら
       sign_in_and_redirect @user, event: :authentication 
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else  #userが存在しなかったら
       session["devise.sns_id"] = sns_id #sns_credentialのid
-      render template: "users/sign_up_choice" #redirect_to だと更新してしまうのでrenderで
+      render template: "users/step1" #redirect_to だと更新してしまうのでrenderで
     end
   end
 
