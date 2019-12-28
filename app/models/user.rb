@@ -10,10 +10,10 @@ class User < ApplicationRecord
   def self.find_oauth(auth)        #facebookとgoogleからuid
     uid = auth.uid
     provider = auth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    snscredential = SnsCredential.find_by(uid: uid, provider: provider)
     # binding.pry
     if snscredential.present?       #sns登録のみ完了してるユーザー
-      user = User.where(id: snscredential.user_id).first
+      user = User.find_by(id: snscredential.user_id)
       unless user.present? #ユーザーが存在しないなら
         user = User.new(
           # snsの情報
@@ -26,7 +26,7 @@ class User < ApplicationRecord
       # binding.pry
 
     else  #sns登録 未
-      user = User.where(email: auth.info.email).first
+      user = User.find_by(email: auth.info.email)
       if user.present?  #会員登録 済
         sns = SnsCredential.new(
           uid: uid,
