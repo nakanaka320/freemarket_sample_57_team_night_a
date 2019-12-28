@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     session[:birthday_year] = user_params[:"birthday(1i)"]
     session[:birthday_month] = user_params[:"birthday(2i)"]
     session[:birthday] = user_params[:"birthday(3i)"]
-    # binding.pry
+
     redirect_to step2_users_path
   end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def step2_save
     session[:phone_number] = user_params[:phone_number]
-    # binding.pry
+
     redirect_to step3_users_path
   end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     session[:post_number] = user_params[:post_number]
     session[:building] = user_params[:building]
     session[:phone_number] = user_params[:phone_number]
-    # binding.pry
+
     @user = User.new(
       
     nickname: session[:nickname],
@@ -67,7 +67,6 @@ class UsersController < ApplicationController
     birthday_month: session[:birthday_month],
     birthday: session[:birthday]
     )
-    # binding.pry
       if @user.save
         sign_in(@user)
         redirect_to  step4_users_path

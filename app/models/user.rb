@@ -7,23 +7,20 @@ class User < ApplicationRecord
           :omniauthable,omniauth_providers: [:facebook, :google_oauth2] #oauth用モジュール
   
   
-  def self.find_oauth(auth)        #facebookとgoogleからuid
+  def self.find_oauth(auth)        
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.find_by(uid: uid, provider: provider)
-    # binding.pry
     if snscredential.present?       #sns登録のみ完了してるユーザー
       user = User.find_by(id: snscredential.user_id)
-      unless user.present? #ユーザーが存在しないなら
+      unless user.present? 
         user = User.new(
           # snsの情報
-          # binding.pry => auth.infoとかで確認 
           nickname: auth.info.name,
           email: auth.info.email
         )
       end
     sns = snscredential
-      # binding.pry
 
     else  #sns登録 未
       user = User.find_by(email: auth.info.email)
@@ -39,25 +36,21 @@ class User < ApplicationRecord
           nickname: auth.info.name,
           email: auth.info.email
         )
-        # binding.pry
         sns = SnsCredential.create(
           uid: uid,
           provider: provider
         )
-        # binding.pry
-        
       end
     end
-    # binding.pry
-    # hashでsnsのidを返り値として保持しておく
+  
     return { user: user , sns_id: sns.id }
+    
   end
 
   has_many :comments ,dependent: :destroy
   has_many :goods ,dependent: :destroy
   has_many :sellitems
   has_many :buyitems
-  # has_one :addresses
 
   validates :nickname, {presence: true}
   validates :email, {presence: true}
