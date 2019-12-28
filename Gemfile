@@ -74,6 +74,7 @@ gem 'rspec-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem "omniauth-rails_csrf_protection"
 
 group :production do
   gem 'unicorn', '5.4.1'
