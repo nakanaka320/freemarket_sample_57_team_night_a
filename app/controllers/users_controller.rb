@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-   def index
-   end
+  def index
+  end
 
-   def login_new
-   end
+  def login_new
+  end
 
   def step1
     @user = User.new
@@ -43,12 +43,13 @@ class UsersController < ApplicationController
     end
    end
 
-   def step2
-   @user = User.new 
-   end
+  def step2
+    @user = User.new 
+  end
 
-   def step2_save
+  def step2_save
     session[:phone_number] = user_params[:phone_number]
+
     @user = User.new(
       phone_number: session[:phone_number],
       nickname: session[:nickname],
@@ -77,18 +78,20 @@ class UsersController < ApplicationController
 
    end
 
-   def step3
+  def step3
     @user = User.new
-   end
+  end
 
-   def step3_save
+  def step3_save
     session[:prefecture] = user_params[:prefecture]
     session[:city] = user_params[:city]
     session[:street] = user_params[:street]
     session[:post_number] = user_params[:post_number]
     session[:building] = user_params[:building]
     session[:phone_number] = user_params[:phone_number]
+    # binding.pry
     @user = User.new(
+
     nickname: session[:nickname],
     email: session[:email],
     password: session[:password],
@@ -107,6 +110,7 @@ class UsersController < ApplicationController
     birthday_month: session[:birthday_month],
     birthday: session[:birthday]
     )
+
       if @user.save 
         sign_in(@user)
         redirect_to step4_cards_path
@@ -114,12 +118,12 @@ class UsersController < ApplicationController
         @user.errors.messages
         render '/users/step3'
       end
-   end
+  end
    
-   def step4
+  def step4
     @user = User.new
     @user = current_user
-   end
+  end
 
    def step4_save
    @user = User.new(user_params)
@@ -127,29 +131,29 @@ class UsersController < ApplicationController
     redirect_to step_complet_users_path
   else
     redirect_to  step4_users_path
+
   end
-   end
 
    private
-   def user_params
-     params.require(:user).permit(
-       :nickname,
-       :first_name, 
-       :last_name,
-       :first_name_kana,
-       :last_name_kana,
-       :password,
-       :password_confirmation,
-       :email, 
-       :birthday_year,
-       :birthday_month,
-       :birthday,
-       :prefecture,
-       :phone_number,
-       :post_number,
-       :city,
-       :street,
-       :building,
-       :cards)
-    end
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :first_name, 
+      :last_name,
+      :first_name_kana,
+      :last_name_kana,
+      :password,
+      :password_confirmation,
+      :email, 
+      :birthday_year,
+      :birthday_month,
+      :birthday,
+      :prefecture,
+      :phone_number,
+      :post_number,
+      :city,
+      :street,
+      :building,
+      :cards)
   end
+end
