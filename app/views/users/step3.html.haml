@@ -41,6 +41,7 @@
             %h2.adress-main__box__text
               住所入力
             .adress-inner
+              = render "shared/error_messages", model: f.object
               .adress-inner__contents
                 .form-group
                   = f.label :"お名前", class: 'form-group__name'

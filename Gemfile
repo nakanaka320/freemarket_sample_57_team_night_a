@@ -70,6 +70,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'active_hash'
 gem 'rspec-rails'
+gem 'rails-i18n'
 
 group :production do
   gem 'unicorn', '5.4.1'
