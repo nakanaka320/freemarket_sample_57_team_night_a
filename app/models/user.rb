@@ -12,12 +12,10 @@ class User < ApplicationRecord
 
   validates :nickname,presence: true,
   length: { maximum: 8}
-
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email,
     presence: true,
     format: {with: VALID_EMAIL_REGEX, allow_blank: true}
-
   validates :first_name, presence: true, format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
   validates :last_name, presence: true, format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
   validates :first_name_kana, presence: true,format: {with: /\A[ァ-ヶー－]+\z/}
