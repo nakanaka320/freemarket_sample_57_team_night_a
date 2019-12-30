@@ -21,9 +21,27 @@ class UsersController < ApplicationController
     session[:birthday_year] = user_params[:"birthday(1i)"]
     session[:birthday_month] = user_params[:"birthday(2i)"]
     session[:birthday] = user_params[:"birthday(3i)"]
-    # binding.pry
-    redirect_to step2_users_path
-  end
+
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      first_name: session[:first_name],
+      last_name: session[:last_name],
+      first_name_kana: session[:first_name_kana],
+      last_name_kana: session[:last_name_kana],
+      birthday_year: session[:birthday_year],
+      birthday_month: session[:birthday_month],
+      birthday: session[:birthday]
+    )
+    if @user.valid?(:sample)
+      redirect_to step2_users_path
+    else
+      @user.errors.messages
+      render '/users/step1'
+    end
+   end
 
   def step2
     @user = User.new 
@@ -31,9 +49,34 @@ class UsersController < ApplicationController
 
   def step2_save
     session[:phone_number] = user_params[:phone_number]
-    # binding.pry
+
+    @user = User.new(
+      phone_number: session[:phone_number],
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      first_name: session[:first_name],
+      last_name: session[:last_name],
+      first_name_kana: session[:first_name_kana],
+      last_name_kana: session[:last_name_kana],
+      birthday_year: session[:birthday_year],
+      birthday_month: session[:birthday_month],
+      birthday: session[:birthday],
+      post_number: "123-4567",
+      city: "未記入",
+      street: "未記入",
+      building: "未記入"
+    )
+
+    if @user.valid?
     redirect_to step3_users_path
-  end
+    else
+      @user.errors.messages
+      render '/users/step2'
+      end
+
+   end
 
   def step3
     @user = User.new
@@ -48,7 +91,7 @@ class UsersController < ApplicationController
     session[:phone_number] = user_params[:phone_number]
     # binding.pry
     @user = User.new(
-      
+
     nickname: session[:nickname],
     email: session[:email],
     password: session[:password],
@@ -67,12 +110,13 @@ class UsersController < ApplicationController
     birthday_month: session[:birthday_month],
     birthday: session[:birthday]
     )
-    # binding.pry
-      if @user.save
+
+      if @user.save 
         sign_in(@user)
-        redirect_to  step4_users_path
+        redirect_to step4_cards_path
       else
-        render '/users/sign_up_choice'
+        @user.errors.messages
+        render '/users/step3'
       end
   end
    
@@ -81,14 +125,13 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def step4_save
-    @user = User.new(user_params)
-      binding.pry
-      if @user.save
-        redirect_to step_complet_users_path, notice: '登録が完了しました'
-      else
-      redirect_to  step4_users_path
-    end
+   def step4_save
+   @user = User.new(user_params)
+   if @user.save.valid?
+    redirect_to step_complet_users_path
+  else
+    redirect_to  step4_users_path
+
   end
 
    private
