@@ -128,9 +128,9 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
    if @user.save.valid?
     redirect_to step_complet_users_path
-  else
+   else
     redirect_to  step4_users_path
-
+   end
   end
 
    private
