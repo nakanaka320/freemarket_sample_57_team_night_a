@@ -68,8 +68,12 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'gretel' 
 gem 'active_hash'
 gem 'rspec-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'rails-i18n'
 
 group :production do
