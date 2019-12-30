@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     session[:birthday_year] = user_params[:"birthday(1i)"]
     session[:birthday_month] = user_params[:"birthday(2i)"]
     session[:birthday] = user_params[:"birthday(3i)"]
-
+    
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -49,7 +49,6 @@ class UsersController < ApplicationController
 
   def step2_save
     session[:phone_number] = user_params[:phone_number]
-
     @user = User.new(
       phone_number: session[:phone_number],
       nickname: session[:nickname],
@@ -89,7 +88,7 @@ class UsersController < ApplicationController
     session[:post_number] = user_params[:post_number]
     session[:building] = user_params[:building]
     session[:phone_number] = user_params[:phone_number]
-    # binding.pry
+
     @user = User.new(
 
     nickname: session[:nickname],

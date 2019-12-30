@@ -1,8 +1,51 @@
 class User < ApplicationRecord
+  has_many :sns_credentials, dependent: :destroy # oauth認証テーブル
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise  :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable,
+          :omniauthable,omniauth_providers: [:facebook, :google_oauth2] #oauth用モジュール
+  
+  
+  def self.find_oauth(auth)        
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.find_by(uid: uid, provider: provider)
+    if snscredential.present?       #sns登録のみ完了してるユーザー
+      user = User.find_by(id: snscredential.user_id)
+      unless user.present? 
+        user = User.new(
+          # snsの情報
+          nickname: auth.info.name,
+          email: auth.info.email
+        )
+      end
+    sns = snscredential
+
+    else  #sns登録 未
+      user = User.find_by(email: auth.info.email)
+      if user.present?  #会員登録 済
+        sns = SnsCredential.new(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+        )
+
+      else  #会員登録 未
+        user = User.new(
+          nickname: auth.info.name,
+          email: auth.info.email
+        )
+        sns = SnsCredential.create(
+          uid: uid,
+          provider: provider
+        )
+      end
+    end
+  
+    return { user: user , sns_id: sns.id }
+    
+  end
 
   has_many :comments ,dependent: :destroy
   has_many :goods ,dependent: :destroy
