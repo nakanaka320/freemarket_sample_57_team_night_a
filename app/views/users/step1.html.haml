@@ -42,6 +42,7 @@
           .member-body__main__box__inner
             .member-body__main__box__inner__contents
               = form_with model:@user, url: registration_step1_users_path, method: :get, local: true do |f|
+                = render "shared/error_messages", model: f.object
                 .member-body__main__box__inner__contents__form-box
                   %label.member-body__main__box__inner__contents__form-box__nick-name
                     ニックネーム

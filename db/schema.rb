@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_151110) do
+# ActiveRecord::Schema.define(version: 2019_12_20_151110) do ごっちんの
+ActiveRecord::Schema.define(version: 2019_12_21_105420) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "state", null: false
@@ -40,9 +41,13 @@ ActiveRecord::Schema.define(version: 2019_12_20_151110) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "customer_id"
-    t.string "card_id"
+#     t.integer "user_id"
+#     t.string "customer_id"
+#     t.string "card_id"
+    t.string "number"
+    t.integer "exp_month"
+    t.integer "exp_year"
+    t.integer "cvc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_151110) do
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.text "image", null: false
+    t.string "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sellitems_on_user_id"

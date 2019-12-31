@@ -41,9 +41,10 @@
             電話番号の確認
           .phone-main__box__registration
             .phone-main__box__registration__content
+              = render "shared/error_messages", model: f.object
               .phone-main__box__registration__content__form
                 %h2.phone-main__box__registration__content__form__text
-                  携帯電話の番号
+                  携帯電話の番号(ハイフンを除いた数字を入力：例 09012345678)
                 %span
                   = f.text_field :phone_number, autocomplete: "phone_number", placeholder: "携帯電話の番号を入力", class: "phone-main__box__registration__content__form__phone-number"
                 %p.phone-number-text
