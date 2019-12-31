@@ -6,7 +6,6 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable,
           :omniauthable,omniauth_providers: [:facebook, :google_oauth2] #oauth用モジュール
   
-  
   def self.find_oauth(auth)        
     uid = auth.uid
     provider = auth.provider
@@ -25,26 +24,28 @@ class User < ApplicationRecord
     else  #sns登録 未
       user = User.find_by(email: auth.info.email)
       if user.present?  #会員登録 済
-        sns = SnsCredential.new(
+        sns = SnsCredential.create(
           uid: uid,
           provider: provider,
           user_id: user.id
         )
-
       else  #会員登録 未
+
         user = User.new(
           nickname: auth.info.name,
-          email: auth.info.email
+          email: auth.info.email,
+          password: Devise.friendly_token.first(7)
         )
         sns = SnsCredential.create(
           uid: uid,
-          provider: provider
+          provider: provider,
         )
+
       end
     end
   
-    return { user: user , sns_id: sns.id }
-    
+    return { user: user , sns: sns }
+
   end
 
   has_many :comments ,dependent: :destroy

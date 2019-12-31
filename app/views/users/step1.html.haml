@@ -56,25 +56,27 @@
                     必須
                   %span
                     = f.email_field :email, autofocus: true, placeholder: "例) PC・携帯どちらでも可"
-                .member-body__main__box__inner__contents__form-box2-8
-                  %label.member-body__main__box__inner__contents__form-box__password
-                    パスワード
-                  %span.member-body__main__box__inner__contents__form-box__hissu
-                    必須
-                  %span
-                    = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
-                .member-body__main__box__inner__contents__form-box2-8
-                  %label.member-body__main__box__inner__contents__form-box__password-confirmation
-                    パスワード（確認）
-                  %span.member-body__main__box__inner__contents__form-box__hissu
-                    必須
-                  %span
-                    = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
-                .member-body__main__box__inner__contents__form-box2-8
-                  %h3.member-body__main__box__inner__contents__form-box2-8__h3
-                    本人確認
-                  %p.member-body__main__box__inner__contents__form-box2-8__h3__honbun
-                    安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+                - if @omniauth.nil?  #SNS認証してない場合にはパスワードを入力させる
+                  .member-body__main__box__inner__contents__form-box2-8
+                    %label.member-body__main__box__inner__contents__form-box__password
+                      パスワード
+                    %span.member-body__main__box__inner__contents__form-box__hissu
+                      必須
+                    %span
+                      = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+                  .member-body__main__box__inner__contents__form-box2-8
+                    %label.member-body__main__box__inner__contents__form-box__password-confirmation
+                      パスワード（確認）
+                    %span.member-body__main__box__inner__contents__form-box__hissu
+                      必須
+                    %span
+                      = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+                  .member-body__main__box__inner__contents__form-box2-8
+                    %h3.member-body__main__box__inner__contents__form-box2-8__h3
+                      本人確認
+                    %p.member-body__main__box__inner__contents__form-box2-8__h3__honbun
+                      安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
                 .member-body__main__box__inner__contents__form-box2-8
                   %label.member-body__main__box__inner__contents__form-box__full-name
                     お名前（全角）

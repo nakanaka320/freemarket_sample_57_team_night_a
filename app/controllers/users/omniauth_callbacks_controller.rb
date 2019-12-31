@@ -1,4 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
   def facebook
     callback_for(:facebook) 
   end
@@ -8,14 +9,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルで定義したメソッドを使用
+    @omniauth = request.env['omniauth.auth']
+    info = User.find_oauth(@omniauth)
     @user = info[:user]
-    sns_id = info[:sns_id]
+
     if @user.persisted? 
       sign_in_and_redirect @user, event: :authentication 
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else  
-      session["devise.sns_id"] = sns_id #sns_credentialのid
+      @sns = info[:sns]
+      session[:provider] = @sns[:provider]
+      session[:uid] = @sns[:uid]
+      
       render template: "users/step1" #redirect_to だと更新してしまうのでrenderで
     end
   end
@@ -24,3 +29,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to root_path and return
   end
 end
+
