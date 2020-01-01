@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     session[:birthday_year] = user_params[:"birthday(1i)"]
     session[:birthday_month] = user_params[:"birthday(2i)"]
     session[:birthday] = user_params[:"birthday(3i)"]
-    
+    session[:uid] = session[:uid]
+    session[:provider] = session[:provider]
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
       birthday_month: session[:birthday_month],
       birthday: session[:birthday]
     )
+    binding.pry
     if @user.valid?(:sample)
       redirect_to step2_users_path
     else
