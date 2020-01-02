@@ -1,0 +1,168 @@
+.log-body
+  .log-body__container
+    = render "shared/header-log"
+    .main-container
+      %section.sell-box
+        = form_for @item, url: sells_path do |f|
+          .sell-box__inner
+            %h2.sell-box__inner__head
+              商品の情報を入力
+            .sell-form
+              .sell-form__upload-box
+                %h3.sell-form__upload-box__head
+                  出品画像
+                  %span.sell-form__upload-box__head__require.icon
+                    必須
+                %p.sell-form__upload-box__text
+                  最大5枚までアップロードできます
+                .sell-form__upload-box__image-upload
+                  .preview-open
+                  = f.fields_for :images do |i|
+                    = i.label :url, class: "top-heigter" do
+                      .pic-man.kumogakure{data: {id: 1}}                       
+                        %p.sell-form__upload-box__image-upload__text クリックしてファイルをアップロード    
+                      = i.file_field :url, class: "kumogakure pic-gone"         
+            .sell-box__content
+              .content-item
+                %label.content-item__name.item
+                  商品名
+                  %span.content-item__name__require.icon
+                    必須
+                .content-item__name
+                  = f.text_field :name, class: "content-item__item-name__holder", placeholder:"商品名（必須40文字まで）", maxlength: 40
+              .content-describe
+                %label.content-describe__name.item
+                  商品の説明
+                  %span.content-describe__name__require.icon
+                    必須
+                  .select-holder
+                    .select-wrap
+                = f.text_area :content, class: "content-describe__holder", rows: 5, placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: 1000
+            .sell-box__content.show-item
+              .form-box
+                %h3.form-box__sub-head
+                  商品の詳細
+                %a.form-question
+                  = fa_icon 'question-circle'
+              .form-box-right
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    カテゴリー
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      %select.select-wrap__holder.select-selecter
+                        %option{:disabled => "disabled", :selected => "selected", :value => ""}--
+                        - @category.each do |parent|
+                          %option.parent_ca{value: parent.id}
+                            = parent.name
+                      = f.hidden_field :category_id, class: "hidden-gone"
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    商品の状態
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :condition, Condition.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
+            .sell-box__content.show-item
+              .form-box
+                %h3.form-box__sub-head
+                  配送について
+                %a.form-question
+                  = fa_icon 'question-circle'
+              .form-box-right
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    配送料の負担
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :send_cost, Cost.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
+                  #send_m
+                    %label.form-box-right__info__text
+                      配送方法
+                      %span.form-box-right__info__text__require.icon
+                        必須
+                    .select-holder
+                      .select-wrap
+                        %i.select-wrap__icon
+                          = fa_icon 'angle-down'
+                        = f.collection_select :send_method, Post.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    発送元の地域
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :send_place, Prefecture.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
+                  .form-box-right__info
+                  %label.form-box-right__info__text
+                    発送までの日数
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :send_day, Day.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
+            .sell-box__content.show-item
+              .form-box
+                %h3.form-box__sub-head
+                  販売価格(300〜9,999,999)
+                %a.form-question
+                  = fa_icon 'question-circle'
+              .form-box-right
+                .form-box-right__info
+                  .info-box
+                    .price-box-left
+                      %label.left
+                        価格
+                        %span.form-box-right__info__text__require.icon
+                          必須
+                    .price-box-right
+                      .sell-price-input
+                        ¥
+                      = f.text_field :price, class: "sell-price-input__box", placeholder: "例) 300"                      
+                .form-box-right__input
+                  .left.fee
+                    販売手数料(10%)
+                  .right.zeikin
+                    %span -
+                .form-box-right__info.last-info
+                  .left
+                    販売利益
+                  .right.uriage
+                    %span -
+            .sell-box__content.show-item
+              .form-box-end
+                .text
+                  %p.text__conf
+                    %a.text__conf__link
+                      禁止されている出品
+                    、
+                    %a.text__conf__link
+                      行為
+                    を必ずご確認ください。
+                  %p.text__conf
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+                  %p.text__conf
+                    また、出品をもちまして
+                    %a.text__conf__link
+                      加盟店規約
+                    に同意したことになります。
+                  = f.submit "出品する", class: "text__submit-button"                    
+                = link_to mypage_path,class:"return-button" do
+                  %button.text__submit-button-return
+                    もどる

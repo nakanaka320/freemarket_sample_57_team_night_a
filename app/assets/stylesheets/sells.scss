@@ -1,0 +1,380 @@
+@import 'variable';
+@import 'mixin';
+
+.icon{
+  @include form-icon($red);
+  padding: 2px 4px;
+  font-weight: bold;
+}
+
+.item{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.main-container{
+  display: block;
+  background-color: $background_gray;
+  height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  color: $black;
+
+
+  .sell-box{
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-color: $white;
+
+    &__inner{
+
+      &__head{
+        padding: 32px 16px;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .sell-form{
+        border-top: solid 1px $background_gray;
+        font-size: 14px;
+
+        &__upload-box{
+          width: 620px;
+          padding: 40px 40px 0 40px;
+          margin: 0;
+          border-bottom: solid 1px $background_gray;
+
+          &__head{
+            font-weight: bold;
+            font-size: 16px;
+            
+            &__require{
+              line-height: 20px;
+            }
+          }
+
+          &__text{
+
+            margin: 8px 0 0;
+            line-height: 1.5;
+            font-size: 14px;
+          }
+
+          &__image-upload{
+            overflow: hidden;
+            position: relative;
+            display: block;
+            width: 620px;
+            height: 192px;
+            background-color: $background_gray;
+            margin: 16px auto 0;
+            border : dashed 1px $pale_gray;             
+            font-family: monospace,monospace;
+            flex-direction: column;
+            &__text{
+              width: 100%;
+              height: 48px;
+              line-height: 48px;
+              color: blue;
+              border-top: dashed 1px $pale_gray;
+
+            }
+          }
+          #reset-switch{
+            margin: 20px auto;
+            text-align: center;
+            width: 120px;
+            font-size: 14px;
+            font-family: monospace,monospace;
+            border: dashed 1px #ccc;
+            height: 30px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+    &__content{
+      padding: 40px;
+      border-bottom: 1px solid #eee;
+      .content-item{
+        margin: 0;
+        color: $black;
+        &__name{
+          margin: 8px 0 0;         
+          &__require{
+          }        
+          .content-item__item-name__holder{
+            height: 48px;
+            padding-left: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+          }
+        }
+      }
+      .content-describe{
+        margin: 40px 0 0;        
+        &__name{  
+          margin-bottom: 10px;          
+          &__require{
+          }
+          .select-holder{            
+            .select-wrap{
+            }
+          }
+        }
+        &__holder{   
+          display: block;
+          width: 100%;
+          max-width: 100%;
+          min-height: 104px;
+          padding: 10px;
+          margin-top: 10px ;
+          border: 1px solid $pale_gray;
+          background: $white;
+          font-size: 16px;
+          line-height: 1.5;
+          box-sizing: border-box;
+          overflow: auto;
+        }
+      }
+    }
+    .show-item{
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 14px;  
+      .form-box{
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        &__sub-head{
+          color: #888;
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .form-question{
+          margin-left: 3px;
+          color:$light_blue;
+          font-size: 17px;
+          line-height: 20px;
+        }
+        .text{
+          font-weight: normal;
+          font-size: 14px;
+          &__conf{
+            &__link{  
+            }
+          }
+        }
+        .text__submit-button{
+        }
+      }
+      .form-box-right{
+        width: 400px;      
+        &__input{
+          display: flex;
+          justify-content: space-between;
+          border-top: 1px solid $pale_gray;
+          border-bottom: 1px solid $pale_gray;
+          line-height: 20px;
+          padding:24px 0;
+          font-size: 14px;
+          font-weight: normal;
+        }
+        &__info:first-child{
+          margin: 0;
+        }
+        .last-info {
+          display: flex;
+          justify-content: space-between;
+          line-height: 20px;
+        }
+        &__info{
+          margin: 24px 0;
+          .left{
+          }
+          .right{
+            font-size:32px;
+          }
+          .info-box{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0 24px;
+            line-height: 48px;
+            .sell-price-input{
+              box-sizing: border-box;
+              padding-left: 20px;
+              &__box{
+                width: 80%;
+                display: inline-block;
+                margin: 0 0 0 5%;
+                padding: 10px 16px 8px;
+                text-align: right;
+                border-radius: 4px;
+                border: 1px solid $pale_gray;
+              }
+            }
+            .price-box-left{
+              width: 50%;
+            }
+            .price-box-right{
+              width: 50%;
+              display: flex;
+            }
+          }        
+          &__text{
+            font-weight: 600;
+            display: inline-block;
+            font-size: 14px;
+            width: 100%;
+
+            &__require{
+            }
+          }
+        }       
+        .select-holder{
+          .select-wrap{
+            margin: 8px 0 0;
+            width: 100%;
+            position: relative;
+            &__icon{
+              position: absolute;
+              right: 16px;
+              top: 50%;
+              z-index: 2;
+              color: #888;
+              font-size: 10px;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+            }
+            .fa {
+              font-size: 20px;
+              font-weight: bold;
+            }
+            &__holder{
+              height: 48px;
+              padding-left: 10px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              width: 100%;
+              box-sizing: border-box;
+            }
+          }
+        }
+      }
+    }
+
+    .form-box-end{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .text{
+        line-height: 1.5;
+        font-weight: normal;
+        &__conf{
+          &__link{
+            color: #0099e8;
+          }
+        }
+      }    
+      .text__submit-button{
+        margin-top: 35px;
+        border: 1px solid $red;
+        @include submit-button(100%,$red)
+      }
+      .return-button{
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        .text__submit-button-return{
+          width: 45%;
+          margin: 24px auto 0;
+          border: 1px solid button-gray;
+          color: #fff;
+          @include submit-button(45%,$button-gray)
+        }
+      }
+    }
+  }
+}
+
+.edit_linker{
+  text-decoration: none;
+}
+
+select {
+  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+  appearance: none;	/* 標準のスタイルを無効にする */ 
+  }
+  ::-ms-expand {	/* select要素のデザインを無効にする（IE用） */
+  display: none;
+}
+
+//ここからプレビュー用
+.pic-form{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.pic-man{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+
+
+.kumogakure{
+  display: none;
+}
+
+#send_m{
+  margin-top: 10px;
+}
+
+.click-point{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.previews{
+  display: inline-block;
+  margin-top: 0;
+  width: 19%;
+  height: 145px;
+  border-right: dashed 1px $pale_gray;
+}
+
+.open-pic{
+  width: 100%;
+  height: 120px;
+}
+
+.kill-me{
+  color: red;
+  width: 100%;
+  height: 24px;
+  text-align: center;
+  font-weight: 200;
+  line-height: 24px;
+  display: block;
+}
