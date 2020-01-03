@@ -35,7 +35,7 @@
           .progress-bar__dot.dot-bars5
             ●
     .phone-main
-      = form_with model:@user,url: registration_step2_users_path, method: :get, local: true do |f|
+      = form_with model:@user,url: registration_step2_users_path(@user), method: :get, local: true do |f|
         .phone-main__box
           .phone-main__box__text
             電話番号の確認
@@ -46,14 +46,15 @@
                 %h2.phone-main__box__registration__content__form__text
                   携帯電話の番号(ハイフンを除いた数字を入力：例 09012345678)
                 %span
-                  = f.text_field :phone_number, autocomplete: "phone_namber", placeholder: "携帯電話の番号を入力", class: "phone-main__box__registration__content__form__phone-number"
-              %p.phone-number-text
-                本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-              %button.btn-sns
-                SMSを送信する
-              %p.phone-number-text
-                ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-              .text-right
-                = link_to "電話番号の確認が必要な理由" , "" , class: "text-right__link" 
-                = fa_icon "angle-right" , class: "angle-right-icon fa-lg"
+                  = f.text_field :phone_number, autocomplete: "phone_number", placeholder: "携帯電話の番号を入力", class: "phone-main__box__registration__content__form__phone-number"
+                %p.phone-number-text
+                  本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+                %button.btn-sns
+                  = f.submit "SMSを送信する"
+                    
+                %p.phone-number-text
+                  ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+                .text-right
+                  = link_to "電話番号の確認が必要な理由" , "" , class: "text-right__link" 
+                  = fa_icon "angle-right" , class: "angle-right-icon fa-lg"
       =render "users/login-footer"
