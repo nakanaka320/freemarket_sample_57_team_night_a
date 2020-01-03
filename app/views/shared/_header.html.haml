@@ -44,7 +44,8 @@
           %li
             = link_to "#" do
               .header-bottom__right--image 
-              %span マイページ
+              %span 
+                = link_to "マイページ", mypage_path
               
     - else
       .header-bottom__right
