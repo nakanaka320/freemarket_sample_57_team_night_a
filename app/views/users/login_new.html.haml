@@ -10,12 +10,12 @@
       .login-panel__form
         %ul.login-panel__form__button
           %li.login-panel__form__button__facebook
-            =link_to user_facebook_omniauth_authorize_path do
+            = link_to user_facebook_omniauth_authorize_path, method: :post do
               Facebookでログイン
               %i
                 = fa_icon "facebook-square"
           %li.login-panel__form__button__google
-            =link_to user_google_oauth2_omniauth_authorize_path do
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
               .login-panel__form__button__google__text
                 Googleでログイン
               .login-panel__form__button__google__icon
@@ -30,7 +30,7 @@
           .login-panel__form-bottom__recaptcha
             ここにreCAPTCHA
           .login-panel__form-bottom__login
-            =link_to "#" do
+            = link_to "#" do
               .login-panel__form-bottom__login__btn 
                 ログイン
           %p
