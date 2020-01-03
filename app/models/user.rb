@@ -14,7 +14,6 @@ class User < ApplicationRecord
       user = User.find_by(id: snscredential.user_id)
       unless user.present? 
         user = User.new(
-          # snsの情報
           nickname: auth.info.name,
           email: auth.info.email
         )
@@ -33,17 +32,15 @@ class User < ApplicationRecord
 
         user = User.new(
           nickname: auth.info.name,
-          email: auth.info.email,
-          password: Devise.friendly_token.first(7)
+          email: auth.info.email
         )
         sns = SnsCredential.create(
           uid: uid,
-          provider: provider,
+          provider: provider
         )
 
       end
     end
-  
     return { user: user , sns: sns }
 
   end

@@ -20,8 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @sns = info[:sns]
       session[:provider] = @sns[:provider]
       session[:uid] = @sns[:uid]
-      
-      render template: "users/step1" #redirect_to だと更新してしまうのでrenderで
+      render template: "users/step1" 
     end
   end
 

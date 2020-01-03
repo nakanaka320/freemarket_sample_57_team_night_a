@@ -37,7 +37,7 @@
 
     .adress-main
       .adress-main
-        = form_with model:@user, url: registration_step3_users_path, method: :post, local: true do |f|
+        = form_with model:@user, url: registration_step3_users_path(@user), method: :post, local: true do |f|
           .adress-main__box
             %h2.adress-main__box__text
               住所入力

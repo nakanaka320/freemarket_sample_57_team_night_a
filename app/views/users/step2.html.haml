@@ -35,7 +35,7 @@
           .progress-bar__dot.dot-bars5
             ●
     .phone-main
-      = form_with model:@user,url: registration_step2_users_path, method: :get, local: true do |f|
+      = form_with model:@user,url: registration_step2_users_path(@user), method: :get, local: true do |f|
         .phone-main__box
           .phone-main__box__text
             電話番号の確認
