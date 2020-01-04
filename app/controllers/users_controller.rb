@@ -95,6 +95,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
         post_number:session[:post_number], prefecture: session[:prefecture], city:session[:city], street:session[:street], building:session[:building])
+
     end
       if @user.save 
         sign_in(@user)
@@ -103,8 +104,6 @@ class UsersController < ApplicationController
         session[:email].clear
         session[:uid].clear
         session[:provider].clear
-        session[:password].clear
-        session[:password_confirmation].clear
         session[:first_name].clear
         session[:last_name].clear
         session[:first_name_kana].clear
@@ -122,6 +121,8 @@ class UsersController < ApplicationController
         @user.errors.messages
         render 'users/step3'
       end
+    
+    
   end
 
    
