@@ -17,6 +17,7 @@ FactoryBot.define do
     prefecture            {"5"}
     city                  {"言"}
     street                {"5"}
+    building              {"未記入"}
   end
-
+  
 end

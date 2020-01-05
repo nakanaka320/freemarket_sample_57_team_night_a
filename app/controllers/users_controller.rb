@@ -93,10 +93,16 @@ class UsersController < ApplicationController
 
       sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
     else
+     
       @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
         post_number:session[:post_number], prefecture: session[:prefecture], city:session[:city], street:session[:street], building:session[:building])
+        
     end
       if @user.save 
+        if session[:password].present? && session[:password_confirmation].present?
+          session[:password].clear
+          session[:password_confirmation].clear
+        end
         sign_in(@user)
         redirect_to step4_cards_path
         session[:nickname].clear
