@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe User do
   describe '#create' do
-    
+
     it "nicknameが空では登録不可" do
      user = build(:user, nickname: "")
      user.valid?
@@ -30,17 +30,17 @@ describe User do
     it "emailが@を含まないと登録不可 " do
       user = build(:user, email: "aaaaa")
       user.valid?
-      expect(user.errors[:email][0]).to include("が不正な値です。")
+      expect(user.errors[:email]).to include("が不正な値です。")
     end
     it "emailの@の前に文字がないと登録不可 " do
       user = build(:user, email: "@aaa")
       user.valid?
-      expect(user.errors[:email][0]).to include("が不正な値です。")
+      expect(user.errors[:email]).to include("が不正な値です。")
     end
     it "emailの@の後に文字がないと登録不可" do
       user = build(:user, email: "aaaa@")
       user.valid?
-      expect(user.errors[:email][0]).to include("が不正な値です。")
+      expect(user.errors[:email]).to include("が不正な値です。")
     end
     it "passwordが空だと登録不可" do
       user = build(:user, password: nil)
@@ -68,7 +68,7 @@ describe User do
     it "first_nameに漢字以外が含まれると登録不可 " do
       user = build(:user, first_name: "亜亜a")
       user.valid?
-      expect(user.errors[:first_name][0]).to include("が不正な値です。")
+      expect(user.errors[:first_name]).to include("が不正な値です。")
     end
 
     it "last_nameが空だと登録不可" do
