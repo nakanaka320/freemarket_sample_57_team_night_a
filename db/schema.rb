@@ -40,9 +40,6 @@ ActiveRecord::Schema.define(version: 2019_12_21_105420) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "customer_id"
-    t.string "card_id"
     t.string "number"
     t.integer "exp_month"
     t.integer "exp_year"

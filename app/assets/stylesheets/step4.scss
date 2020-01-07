@@ -34,11 +34,15 @@
       width: 700px;
       height: 128px;
       display: flex;
+      .progress-bar-contents{
+        margin: 0 auto;
+      }
       .progress-bar{
         color: $button-gray;
         width: 100px;
         height:32px;
         box-sizing: border-box;
+
         &__text{
           font-size: 12px;
           font-weight: 600;
@@ -89,7 +93,7 @@
   
 
 
-.credit-card-resistration-2{
+.credit-card-resistration{
   @include box(500px);
   margin: auto;
   &__title{

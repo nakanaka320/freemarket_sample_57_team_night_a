@@ -27,24 +27,27 @@ Rails.application.routes.draw do
       get 'adress'
     end
   end
-  resource :cards do
+
+  resource :cards, only: [:new, :show] do
     collection do
      get 'step4',to: 'cards#step4'
      post 'registration-step4'=> 'cards#create'
+     post 'show', to: 'card#show'
+     post 'pay', to: 'card#pay'
+     post 'delete', to: 'card#delete'
     end
   end
+ 
   resource :sellitems do
     collection do
-      
     end
   end
-  get 'sell', to: 'sells#index' #仮ルーティング、商品出品ページ
 
+  get 'sell', to: 'sells#index' #仮ルーティング、商品出品ページ
   get 'profile', to: 'mypages#edit' #仮ルーティング、プロフィール編集画面
   get 'identification', to: 'mypages#identification' #仮ルーティング、ユーザー本人確認画面
   get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
   get 'buy', to: 'users#buy' #仮ルーティング、商品購入確認ページ
-  get 'card', to: 'users#card' #仮ルーティング(step4になるページ)クレジットカード登録ページ
+  # get 'card', to: 'users#card' ←多分もう使わないので消してよし！！
   get 'detail', to: 'products#detail' #仮ルーティング、商品詳細ページ
-  get 'card', to: 'users#card' #仮ルーティング、クレジットカード登録ページ
 end
