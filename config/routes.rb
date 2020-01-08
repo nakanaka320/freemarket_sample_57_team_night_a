@@ -28,13 +28,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :cards, only: [:new, :show] do
+  resource :card2s, only: [:new, :show] do
     collection do
-     get 'step4',to: 'cards#step4'
-     post 'registration-step4'=> 'cards#create'
-     post 'show', to: 'card#show'
-     post 'pay', to: 'card#pay'
-     post 'delete', to: 'card#delete'
+     get 'step4',to: 'card2s#step4'
+     post 'registration-step4'=> 'card2s#create'
+     post 'show', to: 'card2s#show'
+     post 'pay', to: 'card2s#pay'
+     post 'delete', to: 'card2s#delete'
     end
   end
  
