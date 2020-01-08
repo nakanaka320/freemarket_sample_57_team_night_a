@@ -2,6 +2,9 @@ class MypagesController < ApplicationController
   def index
   end
 
+  def profile
+  end
+
   def edit
     render :profile
   end
@@ -9,4 +12,6 @@ class MypagesController < ApplicationController
   def identification 
   end
   
+  def logout
+  end
 end

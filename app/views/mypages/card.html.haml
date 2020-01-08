@@ -1,0 +1,11 @@
+= render "shared/header"
+.content-area
+  .content-area__left
+    =render "mypages/side-bar"
+  .content-area__right
+    %section.content-area__head
+      .profile-content
+        %button{type: "submit"}ログアウトするかい？
+
+=render "shared/sell-btn"
+=render "shared/footer"
