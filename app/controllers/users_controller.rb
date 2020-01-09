@@ -98,14 +98,15 @@ class UsersController < ApplicationController
         if session[:password].present? && session[:password_confirmation].present?
           session[:password].clear
           session[:password_confirmation].clear
+        else
+          session[:uid].clear
+          session[:provider].clear
         end
         sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
         sign_in(@user)
         redirect_to controller: '/card2s', action: 'step4'
         session[:nickname].clear
         session[:email].clear
-        session[:uid].clear
-        session[:provider].clear
         session[:first_name].clear
         session[:last_name].clear
         session[:first_name_kana].clear
