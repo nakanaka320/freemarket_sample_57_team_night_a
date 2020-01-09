@@ -16,7 +16,8 @@ h2 {
   text-align: center;
 }
 .method_of_payment {
-  font-size: 18px;
+  font-size: 24px;
+  padding: 8px 24px;
   font-weight: bold;
 }
 .card-content-inner {
@@ -32,10 +33,26 @@ h2 {
   font-weight: bold;
   padding: 24px 0;
   position: relative;
+  &__container {
+    font-weight: normal;
+  }
 }
-.card-company-logos{
-  
+
+.card-remove-btn{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  padding: 4px 6px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #ea352d;
+  color: #ea352d;
+  span {
+    font-size: 14px;
+    color: #ea352d;
+  }
 }
+
 .add-card {
   background-color: #ea352d;
   height: 50px;

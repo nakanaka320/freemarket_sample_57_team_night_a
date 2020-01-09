@@ -42,15 +42,14 @@
               = fa_icon 'check', class: ""
               %span やることリスト
           %li
-            = link_to "#" do
-              .header-bottom__right--image 
-              %span 
-                = link_to "マイページ", "mypages/index"
+            = link_to "/mypages/index" do
+              %span マイページ
+              
               
     - else
       .header-bottom__right
         %ul
           %li
-            = link_to "新規会員登録", login_new_users_path , class: "btn registration"
+            = link_to "新規会員登録",  sign_up_choice_users_path , class: "btn registration"
           %li
-            = link_to "ログイン", "#", class: "btn login"
+            = link_to "ログイン", login_new_users_path, class: "btn login"

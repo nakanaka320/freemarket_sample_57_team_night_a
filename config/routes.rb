@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   root to: "products#index"
   get 'mypages/index', to:'mypages#index'
   get 'mypages/profile', to:'mypages#profile'
+  get 'mypages/card', to: 'mypages#card'
   get 'mypages/logout', to:'mypages#logout'
   get 'mypages/identification', to:'mypages#identification'
   get 'mypages/card', to:'mypages#card'
+  delete 'card2s/delete', to: 'card2s#destroy'
   resource :products
   #get 'users', to: 'users#new' 
   #get 'login', to: 'users#login-new' #仮ルーティング、ログイン画面用のビュー
@@ -33,13 +35,16 @@ Rails.application.routes.draw do
 
   resource :card2s, only: [:new, :show] do
     collection do
-     get 'step4',to: 'card2s#step4'
-     post 'registration-step4'=> 'card2s#create'
-     post 'show', to: 'card2s#show'
-     post 'pay', to: 'card2s#pay'
-     post 'delete', to: 'card2s#delete'
+      get 'step4',to: 'card2s#step4'
+      post 'registration-step4'=> 'card2s#create'
+      post 'show', to: 'card2s#show'
+      post 'pay', to: 'card2s#pay'
+      post 'delete', to: 'card2s#destroy'
     end
   end
+  resources :mypages,only: [:index]
+  resources :logout, only: [:index]
+  resources :card,only:[:index]
  
   resource :sellitems do
     collection do
