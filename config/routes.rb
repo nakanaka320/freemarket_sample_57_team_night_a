@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   get 'mypages/identification', to:'mypages#identification'
   get 'mypages/card', to:'mypages#card'
   delete 'card2s/delete', to: 'card2s#destroy'
+  post 'root', to:'products#index'
   
-  resource :products
+  resources :products
   #get 'users', to: 'users#new' 
   #get 'login', to: 'users#login-new' #仮ルーティング、ログイン画面用のビュー
-  resource :users do
+  resources :users do
     collection do
       get 'step1'
       get 'registration/step1' => 'users#step1_save'
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :card2s, only: [:new, :show] do
+  resources :card2s, only: [:new, :show] do
     collection do
       get 'step4',to: 'card2s#step4'
       post 'registration-step4'=> 'card2s#create'
