@@ -1,7 +1,50 @@
 .buy-container  
   = render "users/login-header"
+  .purchase
+    .purchase-container
+      %h2.purchase-container__done1 発送をお待ちください
+      %h2.purchase-container__done2 出品者からの発送通知をお待ちください
+      %h2.purchase-container__done3☆☆☆☆☆購入が完了しました☆☆☆☆☆
 
-  %h2 ☆☆☆☆☆購入が完了しました☆☆☆☆☆
-  %p 最上級スマイル ver.2020
-  %p ¥0(送料込み)
+      %section.buy-content
+        .buy-content__inner
+          %h3.buy-item-image
+            = image_tag "smile.png",height:"64px",width:"64px"
+          %p.buy-item-name
+            《送料無料》The スマイル
+          %form.buy-form
+            %p.buy-price 
+              ¥0
+              %span 
+                送料込み
+      %section.user-info
+        .buy-content__inner
+          %h3 配送先
+          .user-address
+            = @user.post_number.to_s
+            %br
+              = @user.prefecture + @user.city + @user.street + @user.building
+            %br
+              = @user.first_name + " " + @user.last_name
+          .user-info-fix
+            = link_to "#" do
+              変更する
+              %i.fa.fa-chevron-right
+
+      %section.user-info
+        .buy-content__inner
+          %h3 支払い方法
+          - if @default_card_information.blank? 
+            %br /
+          - else
+            = "**** **** **** " + @default_card_information.last4
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          
+          .user-info-fix
+            = link_to "#" do
+              変更する
+              %i.fa.fa-chevron-right
   = render "users/login-footer"
