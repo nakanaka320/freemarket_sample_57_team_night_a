@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
   def new
   end
 
+  def detail
+  end
+
   # def sell
   # end
 end
