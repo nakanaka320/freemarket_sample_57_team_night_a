@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get 'mypages/index', to:'mypages#index'
   get 'mypages/profile', to:'mypages#profile'
   get 'mypages/card', to: 'mypages#card'
+  post '/card' ,to: 'mypages#card'
+  get 'mypages/card-new', to: 'mypages#card-new'
   get 'mypages/logout', to:'mypages#logout'
   get 'mypages/identification', to:'mypages#identification'
-  get 'mypages/card', to:'mypages#card'
   delete 'card2s/delete', to: 'card2s#destroy'
-  post 'root', to:'products#index'
   
   resources :products
   #get 'users', to: 'users#new' 
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
       # get 'step4'
       post 'registration-step4' => 'users#step4_save'
       get 'step_complet'
-      get 'login_new'
       get 'sign_up_choice'
       get 'adress'
     end

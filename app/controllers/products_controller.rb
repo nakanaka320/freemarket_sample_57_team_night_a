@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   def index
-   
   end
 
   def new
@@ -11,4 +10,5 @@ class ProductsController < ApplicationController
 
   # def sell
   # end
+  
 end

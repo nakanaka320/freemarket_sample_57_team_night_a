@@ -21,7 +21,7 @@
               .login-panel__form__button__google__icon
               
       .login-panel__form-bottom
-        = form_with model: @user, url: user_session_path(@user), local: true do |f|
+        = form_with model: @user, url: user_session_path(@user),local: true do |f|
 
           .login-panel__form-bottom__mail
             = f.email_field :email, class:'', autofocus: true, placeholder:'メールアドレス'
