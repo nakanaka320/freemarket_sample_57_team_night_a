@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Card2sController < ApplicationController
   require "payjp"
   before_action :card_exist, only: [:index,:destroy,:show]
 
@@ -12,14 +12,14 @@ class CardsController < ApplicationController
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    card = Card.where(user_id: current_user.id).first
+    card = Card2.where(user_id: current_user.id).first
     redirect_to action: "index" if card.present?
   end
 
   def create #PayjpとCardのデータベースを作成
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.create(card: params[:payjpToken])
-    @card = Card.new(
+    @card = Card2.new(
     user_id: current_user.id, 
     customer_id: customer.id,
     card_id: customer.default_card,
@@ -33,7 +33,7 @@ class CardsController < ApplicationController
   end
 
   def destroy #PayjpとCardのデータベース削除
-    card = Card.where(user_id: current_user.id).first
+    card = Card2.where(user_id: current_user.id).first
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -45,7 +45,7 @@ class CardsController < ApplicationController
   end
 
   def show #CardのデータをPayjpに送り情報を取り出す
-    card = Card.where(user_id: current_user.id).first
+    card = Card2.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 
     else
@@ -59,7 +59,7 @@ class CardsController < ApplicationController
   private
 
   def card_exist
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card2.where(user_id: current_user.id).first
     redirect_to action: "step4" if @card.blank?
   end
 

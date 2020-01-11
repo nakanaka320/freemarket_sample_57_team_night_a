@@ -4,7 +4,7 @@
     =render "mypages/side-bar"
   .content-area__rights
     %h2.method_of_payment クレジットカード情報入力
-    = form_with model:@user, id: "charge_form", url: "/cards", method: :post, local: true do |f|
+    = form_with model:@user, id: "charge_form", url: "/card2s", method: :post, local: true do |f|
       .card-input-content
         .form-groups
           %label
