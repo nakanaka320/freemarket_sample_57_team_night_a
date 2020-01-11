@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'mypages/index', to:'mypages#index'
   get 'mypages/profile', to:'mypages#profile'
   get 'mypages/card', to: 'mypages#card'
-  post '/card' ,to: 'mypages#card'
   get 'mypages/card-new', to: 'mypages#card-new'
   get 'mypages/logout', to:'mypages#logout'
   get 'mypages/identification', to:'mypages#identification'
@@ -33,7 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card2s, only: [:new, :show] do
+  resources :card2s, only: [:new, :show,:create] do
     collection do
       get 'step4',to: 'card2s#step4'
       post 'registration-step4'=> 'card2s#create'
