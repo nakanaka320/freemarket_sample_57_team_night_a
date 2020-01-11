@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'mypages/card-new', to: 'mypages#card-new'
   get 'mypages/logout', to:'mypages#logout'
   get 'mypages/identification', to:'mypages#identification'
-  delete 'card2s/delete', to: 'card2s#destroy'
+  delete 'cards/delete', to: 'cards#destroy'
   
   resources :products
   #get 'users', to: 'users#new' 
@@ -32,13 +32,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card2s, only: [:new, :show,:create] do
+  resources :cards, only: [:new, :show,:create] do
     collection do
-      get 'step4',to: 'card2s#step4'
-      post 'registration-step4'=> 'card2s#create'
-      post 'show', to: 'card2s#show'
-      post 'pay', to: 'card2s#pay'
-      post 'delete', to: 'card2s#destroy'
+      get 'step4',to: 'cards#step4'
+      post 'registration-step4'=> 'cards#create'
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#destroy'
     end
   end
 

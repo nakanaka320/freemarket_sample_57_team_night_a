@@ -1,7 +1,6 @@
 @mixin box($fSize){
   color: $black;
   width: 700px;
-  // height: $fSize;
   background-color: $white;
   box-sizing: border-box;
 }

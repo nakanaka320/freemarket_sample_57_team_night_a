@@ -36,7 +36,7 @@
       .credit-card-resistration__title
         支払い方法
       .credit-card-resistration__box
-        = form_with model:@card, url: registration_step4_card2s_path, method: :post, local: true ,id: "charge_form" do |f|
+        = form_with model:@card, url: registration_step4_cards_path, method: :post, local: true ,id: "charge_form" do |f|
           .card-information-box
             .card-information-box__card-number
               .label-require-icon
