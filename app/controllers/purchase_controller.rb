@@ -1,12 +1,10 @@
 class PurchaseController < ApplicationController
 
-  require 'payjp'
-
   def index
     @user = current_user
     card = Card2.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to controller: "card2s", action: "new"
+      redirect_to new_card2_path
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -18,7 +16,7 @@ class PurchaseController < ApplicationController
     @user = current_user
     card = Card2.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to controller: "card2s", action: "new"
+      redirect_to new_card2_path
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)

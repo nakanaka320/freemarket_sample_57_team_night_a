@@ -11,19 +11,19 @@ class Card2sController < ApplicationController
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
-  def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
+  def new 
     card = Card2.where(user_id: current_user.id).first
     redirect_to action: "index" if card.present?
   end
 
-  def create #PayjpとCardのデータベースを作成
+  def create 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.create(card: params[:payjpToken])
     @card = Card2.new(
-    user_id: current_user.id, 
-    customer_id: customer.id,
-    card_id: customer.default_card,
-    token: params[:payjpToken])
+      user_id: current_user.id, 
+      customer_id: customer.id,
+      card_id: customer.default_card,
+      token: params[:payjpToken])
     if @card.save
       card_information
       redirect_to step_complet_users_path
@@ -32,10 +32,9 @@ class Card2sController < ApplicationController
     end
   end
 
-  def destroy #PayjpとCardのデータベース削除
+  def destroy 
     card = Card2.where(user_id: current_user.id).first
-    if card.blank?
-    else
+    if card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
@@ -44,7 +43,7 @@ class Card2sController < ApplicationController
       redirect_to  mypages_card_path
   end
 
-  def show #CardのデータをPayjpに送り情報を取り出す
+  def show 
     card = Card2.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 

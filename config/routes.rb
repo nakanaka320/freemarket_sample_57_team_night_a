@@ -36,7 +36,6 @@ Rails.application.routes.draw do
     collection do
       get 'step4',to: 'card2s#step4'
       post 'registration-step4'=> 'card2s#create'
-      post 'show', to: 'card2s#show'
       post 'pay', to: 'card2s#pay'
       post 'delete', to: 'card2s#destroy'
     end
@@ -44,7 +43,6 @@ Rails.application.routes.draw do
 
   resources :purchase, only: [:index] do
     collection do
-      get 'index', to: 'purchase#index'
       post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
     end
@@ -58,6 +56,4 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'sell', to: 'sells#index' #仮ルーティング、商品出品ページ
-  get 'detail', to: 'products#detail' #仮ルーティング、商品詳細ページ
 end

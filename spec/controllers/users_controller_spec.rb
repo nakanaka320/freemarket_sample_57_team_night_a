@@ -2,7 +2,7 @@ require 'rails_helper'
 describe UsersController do
   describe 'GET #step1' do
 
-    it "renders the :step1 template" do
+    it "step1のビューへ遷移するかどうか" do
       user = build(:user)
       get :step1 
       expect(response).to render_template :step1
