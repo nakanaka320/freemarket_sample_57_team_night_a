@@ -14,6 +14,7 @@
     .pickup-header {
       height: 200px;
       padding-top: 50px;
+      background-color: #fff;
       .pickup-header__name {
         text-align: center;
         font-size: 28px;
@@ -62,6 +63,7 @@
             padding: 5px 16px 5px 5px;
             a{
             color: rgb(0, 149, 238);
+            font-weight: bold;
             }
           }
         }

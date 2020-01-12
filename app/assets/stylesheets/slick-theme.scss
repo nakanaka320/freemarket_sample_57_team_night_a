@@ -63,15 +63,15 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-prev,
 .slick-next {
     position: absolute;
+    top: 75%;
     display: block;
-    height: 20px;
-    width: 20px;
+    height: 46px;
+    width: 31px;
     line-height: 0px;
     font-size: 0px;
     cursor: pointer;
     background: transparent;
     color: transparent;
-    top: 50%;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
@@ -91,9 +91,9 @@ $slick-opacity-not-active: 0.25 !default;
     }
     &:before {
         font-family: $slick-font-family;
-        font-size: 20px;
+        font-size: 50px;
         line-height: 1;
-        color: $slick-arrow-color;
+        color: black;
         opacity: $slick-opacity-default;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -101,32 +101,34 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    left: -25px;
+    left: 25px;
     [dir="rtl"] & {
         left: auto;
         right: -25px;
     }
-    &:before {
-        content: $slick-prev-character;
-        [dir="rtl"] & {
-            content: $slick-next-character;
-        }
-    }
 }
 
 .slick-next {
-    right: -25px;
+    right: 25px;
     [dir="rtl"] & {
         left: -25px;
         right: auto;
     }
-    &:before {
-        content: $slick-next-character;
-        [dir="rtl"] & {
-            content: $slick-prev-character;
-        }
-    }
 }
+
+.slick-prev, .slick-next {
+	width:60px; 
+	height:34px;
+}
+.slick-prev:before, .slick-next:before {
+	content:"";
+}
+button.slick-prev, button.slick-next {
+	z-index:2;
+}
+.slick-prev{left:40px; }
+.slick-next{right:40px; }
+.slick-arrow{z-index:10;}
 
 /* Dots */
 
@@ -192,3 +194,15 @@ $slick-opacity-not-active: 0.25 !default;
         }
     }
 }
+.slick-dots {
+    position: absolute !important;
+    bottom: 5px !important;
+    li {
+      font-size: 20px !important;
+      button:before {
+        content: "●" !important;
+        font-size: 14px !important;
+        color: rgb(60, 60, 60) !important;
+      }
+    }
+  }
