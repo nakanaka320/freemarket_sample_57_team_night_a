@@ -18,13 +18,16 @@
             %i.fa.fa-chevron-right
         .form-group
           %label お名前
-          %p 奧村徳人
+          %p 
+            = current_user.nickname
         .form-group
           %label お名前カナ
-          %p オクムラノリト
+          %p 
+            = current_user.first_name + current_user.last_name
         .form-group
           %label 生年月日
-          %p 非公開
+          %p 
+            = current_user.birthday_year
         .form-group
           %label 郵便番号
           %span.arbitrarily 任意

@@ -1,103 +1,107 @@
 =render "shared/header"
+.detail-container
+  .detail-adjustment
+    %section
+      %h1 
+        THE スマイル
+        -# = @product.name
+      .detail-main
+        .item-photo
+          .photo
+            = image_tag "smile.jpg", size:"300x300"
+          .mini-photo
+            = image_tag "smile.jpg", size:"60x60"
+        %table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to "#", class:"user-name" do
+                  真子 ゆきなり
+                .user-rate
+                  .user-rate__left
+                    = fa_icon "smile-o"
+                    %span 53万
+                  .user-rate__center
+                    = fa_icon "meh-o"
+                    %span 0
+                  .user-rate__right
+                    = fa_icon "frown-o"
+                    %span 0
+            %tr
+              %th カテゴリー
+              %td
+                = link_to "#",class:"category" do
+                  サービス
+                = link_to "#",class:"category" do
+                  ＞ エンターテイメント
+                = link_to "#",class:"category" do
+                  ＞ ジェスチャー
+            %tr
+              %th ブランド
+              %td TECH::EXPERT
+            %tr
+              %th 商品の状態
+              %td 至高
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 配送の方法
+              %td らくらくメルカリ便
+            %tr
+              %th 配送元の地域
+              %td 名古屋
+            %tr
+              %th 発送日の目安
+              %td 即日
 
-%section
-  %h1 THE スマイル
-  .detail-main
-    .item-photo
-      .photo
-        = image_tag "smile.jpg", size:"300x300"
-      .mini-photo
-        = image_tag "smile.jpg", size:"60x60"
-    %table
-      %tbody
-        %tr
-          %th 出品者
-          %td
-            = link_to mypage_path, class:"user-name" do
-              真子 ゆきなり
-            .user-rate
-              .user-rate__left
-                = fa_icon "smile-o"
-                %span 53万
-              .user-rate__center
-                = fa_icon "meh-o"
-                %span 0
-              .user-rate__right
-                = fa_icon "frown-o"
-                %span 0
-        %tr
-          %th カテゴリー
-          %td
-            = link_to "#",class:"category" do
-              サービス
-            = link_to "#",class:"category" do
-              ＞ エンターテイメント
-            = link_to "#",class:"category" do
-              ＞ ジェスチャー
-        %tr
-          %th ブランド
-          %td TECH::EXPERT
-        %tr
-          %th 商品の状態
-          %td 至高
-        %tr
-          %th 配送料の負担
-          %td 送料込み(出品者負担)
-        %tr
-          %th 配送の方法
-          %td らくらくメルカリ便
-        %tr
-          %th 配送元の地域
-          %td 名古屋
-        %tr
-          %th 発送日の目安
-          %td 即日
+        .item-pricebox
+          %span.item-pricebox__price ¥0
+          %span.item-pricebox__tax  (税込)
+          %span.item-pricebox__postage 送料込み
+                    -# ここに購入ボタン
+        .item-coment
+          %p.item-coment__inner 最近話題のプログラミングスクール、「TECH::EXPERT」でライフコーチを務める奧村さん。その奧村さんから最高の贈り物が出品されました！ご購入頂いた方には特典として、「パーフェクトスマイル２０１９」を追加でプレゼント♪
+        .item-button
+          .item-button__left
+            %button{type: "button",class:"like-button"}
+              = fa_icon "heart"
+              %span いいね
+            = link_to "#",class:"report" do
+              = fa_icon "flag"
+              %span 不適切な商品の報告
+          .item-button__right
+            = link_to "#",class:"safety" do
+              = fa_icon "lock"
+              %span あんしん・あんぜんへの取り組み
 
-    .item-pricebox
-      %span.item-pricebox__price ¥0
-      %span.item-pricebox__tax  (税込)
-      %span.item-pricebox__postage 送料込み
-    .item-coment
-      %p.item-coment__inner 最近話題のプログラミングスクール、「TECH::EXPERT」でライフコーチを務める奧村さん。その奧村さんから最高の贈り物が出品されました！ご購入頂いた方には特典として、「パーフェクトスマイル２０１９」を追加でプレゼント♪
-    .item-button
-      .item-button__left
-        %button{type: "button",class:"like-button"}
-          = fa_icon "heart"
-          %span いいね
-        = link_to "#",class:"report" do
-          = fa_icon "flag"
-          %span 不適切な商品の報告
-      .item-button__right
-        = link_to "#",class:"safety" do
-          = fa_icon "lock"
-          %span あんしん・あんぜんへの取り組み
+    .item-message
+      .message-content
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea{type:"text",class:"area"}
+        %button{type:"submit"}
+          %span コメントする
 
-.item-message
-  .message-content
-    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    %textarea{type:"text",class:"area"}
-    %button{type:"submit"}
-      %span コメントする
+    .nav-link.clearfix
+      .prev-link
+        =fa_icon "chevron-left"
+        = link_to "前の商品へ","#"
+      .next-link
+        = link_to "次の商品へ","#"
+        = fa_icon "chevron-right"
 
-.nav-link.clearfix
-  .prev-link
-    =fa_icon "chevron-left"
-    = link_to "前の商品へ","#"
-  .next-link
-    = link_to "次の商品へ","#"
-    = fa_icon "chevron-right"
-
-.social-media-box
-  %ul
-    %li.facebook
-      = link_to "#",class:"facebook" do
-        = fa_icon "facebook-square"      
-    %li.twitter
-      = link_to "#",class:"twitter" do
-        = fa_icon "twitter-square"
-    %li.pinterest
-      = link_to "#",class:"pinterest" do
-        = fa_icon "pinterest-square"        
+    .social-media-box
+      %ul
+        %li.facebook
+          = link_to "#",class:"facebook" do
+            = fa_icon "facebook-square"      
+        %li.twitter
+          = link_to "#",class:"twitter" do
+            = fa_icon "twitter-square"
+        %li.pinterest
+          = link_to "#",class:"pinterest" do
+            = fa_icon "pinterest-square"        
 
 
 =render "shared/footer"

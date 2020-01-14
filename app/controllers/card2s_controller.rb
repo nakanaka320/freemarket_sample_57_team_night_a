@@ -1,5 +1,6 @@
 class Card2sController < ApplicationController
   require "payjp"
+  before_action :authenticate_user!
   before_action :card_exist, only: [:index,:destroy,:show]
 
   def step4

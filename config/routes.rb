@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'mypages/logout', to:'mypages#logout'
   get 'mypages/identification', to:'mypages#identification'
   delete 'card2s/delete', to: 'card2s#destroy'
+  get 'detail', to: 'products#detail'
   
   resources :products
   #get 'users', to: 'users#new' 
