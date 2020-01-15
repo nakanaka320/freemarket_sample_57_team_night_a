@@ -91,7 +91,22 @@ section {
         font-size: 16px;
       }
     }
-    // ここに購入ボタン
+   
+    .purchase-box {
+      background-color: #e62017 ;
+      width: 100%;
+      text-align: center;
+    }
+    .purchase_btn {
+      margin: 16px 0 0;
+      color: #fff;
+      font-weight: 600;
+      font-size: 24px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+    }
+    
     .item-coment {
       padding: 32px 0 0;
       line-height: 1.5;
