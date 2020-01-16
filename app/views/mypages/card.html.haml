@@ -22,7 +22,7 @@
                 - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                 = exp_month + " / " + exp_year
               .card-remove-btn
-                = link_to delete_card2s_path, method: :delete do
+                = link_to delete_card2s_path, method: :post do
                   %span 削除する
                 
         - else
