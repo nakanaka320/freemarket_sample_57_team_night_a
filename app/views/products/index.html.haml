@@ -29,9 +29,9 @@
           %li
             おもちゃ・ホビー・グッズ
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
+      -# .pickup-content
+      -#   .pickup-content__img
+      -#   .pickup-content__text__box
       .pickup-content__price-box
         .pickup-contents-box
           .pickup-contents__header
@@ -41,10 +41,21 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             -# = render partial: 'product', collection: @ladiesproducts
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
+      -# .pickup-content
+      -#   .pickup-content__img
+      -#   .pickup-content__text__box
       .pickup-content__price-box
         .pickup-contents-box
           .pickup-contents__header
@@ -54,10 +65,20 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             -# = render partial: 'product', collection: @mensproducts
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
+      -# .pickup-content
+      -#   .pickup-content__img
+      -#   .pickup-content__text__box
       .pickup-content__price-box
         .pickup-contents-box
           .pickup-contents__header
@@ -67,10 +88,20 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             -# = render partial: 'product', collection: @appliancesproducts
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
+      -# .pickup-content
+      -#   .pickup-content__img
+      -#   .pickup-content__text__box
       .pickup-content__price-box
         .pickup-contents-box
           .pickup-contents__header
@@ -80,4 +111,15 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             -# = render partial: 'product', collection: @toysproducts
-= render 'shared/footer'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+
+  = render 'shared/footer'
