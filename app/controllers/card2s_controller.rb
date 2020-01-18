@@ -41,7 +41,7 @@ class Card2sController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to  mypages_card_path
+      redirect_to  card_mypages_path
   end
 
   def show 

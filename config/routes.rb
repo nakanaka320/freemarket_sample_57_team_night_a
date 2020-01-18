@@ -5,17 +5,21 @@ Rails.application.routes.draw do
   # devise_for :installs
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "products#index"
-  get 'mypages/index', to:'mypages#index'
-  get 'mypages/profile', to:'mypages#profile'
-  get 'mypages/card', to: 'mypages#card'
-  get 'mypages/card-new', to: 'mypages#card-new'
-  get 'mypages/logout', to:'mypages#logout'
-  get 'mypages/identification', to:'mypages#identification'
-  
+
+  resources :mypages, only: [:index] do
+    collection do
+      get 'profile', to:'mypages#profile'
+      get 'card', to: 'mypages#card'
+      get 'card-new', to: 'mypages#card-new'
+      get 'logout', to:'mypages#logout'
+      get 'identification', to:'mypages#identification'
+    end
+  end
   
   resources :products do
     collection do
-      get 'detail', to: 'products#detail'
+      get 'detail', to: 'products#detail' #商品詳細ページ
+      get 'edit', to: 'products#edit'
     end
   end
 
@@ -41,7 +45,6 @@ Rails.application.routes.draw do
       post 'registration-step4', to: 'card2s#create'
       post 'pay', to: 'card2s#pay'
       post 'delete', to: 'card2s#destroy'
-      # delete 'card2s/delete', to: 'card2s#destroy'
     end
   end
 
@@ -51,9 +54,6 @@ Rails.application.routes.draw do
       get 'done', to: 'purchase#done'
     end
   end
-  resources :mypages,only: [:index]
-  resources :logout, only: [:index]
-  resources :card,only:[:index]
  
   resource :sellitems do
     collection do
