@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
 
   def index
     @user = current_user
-    card = Card2.where(user_id: current_user.id).first
+    card = Card2.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_card2_path
     else
@@ -14,7 +14,7 @@ class PurchaseController < ApplicationController
 
   def done
     @user = current_user
-    card = Card2.where(user_id: current_user.id).first
+    card = Card2.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_card2_path
     else
@@ -26,12 +26,12 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    card = Card2.where(user_id: current_user.id).first
+    card = Card2.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     amount:  13500,    #仮置き、多分@product.price的なものになる
     customer:  card.customer_id, 
-    currency:  'jpy', 
+    currency:  'jpy'
   )
   redirect_to action: 'done' 
   end
