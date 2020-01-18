@@ -1,0 +1,9 @@
+=render "shared/header"
+.content-area
+  .content-area__left
+    =render "mypages/side-bar"
+  .content-area__right
+    = button_to "ログアウト", destroy_user_session_path, method: :delete , class: "user_destroy"
+
+=render "shared/sell-btn"
+=render "shared/footer"
