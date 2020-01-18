@@ -15,10 +15,8 @@ class User < ApplicationRecord
       unless user.present? 
         user = User.new(
           nickname: auth.info.name,
-          email: auth.info.email
-        )
+          email: auth.info.email)
       end
-    sns = snscredential
 
     else  #sns登録 未
       user = User.find_by(email: auth.info.email)
@@ -26,18 +24,15 @@ class User < ApplicationRecord
         sns = SnsCredential.create(
           uid: uid,
           provider: provider,
-          user_id: user.id
-        )
+          user_id: user.id)
       else  #会員登録 未
 
         user = User.new(
           nickname: auth.info.name,
-          email: auth.info.email
-        )
+          email: auth.info.email)
         sns = SnsCredential.create(
           uid: uid,
-          provider: provider
-        )
+          provider: provider)
 
       end
     end
