@@ -75,6 +75,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'rails-i18n'
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'active_hash'
 
 group :production do
   gem 'unicorn', '5.4.1'

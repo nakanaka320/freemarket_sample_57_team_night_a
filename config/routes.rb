@@ -33,13 +33,14 @@ Rails.application.routes.draw do
      post 'registration-step4'=> 'cards#create'
     end
   end
-  resource :sellitems do
+  resource :sells do
     collection do
-      
+      get 'category_children' 
+      get 'category_grandchildren'
     end
   end
-  get 'sell', to: 'sells#index' #仮ルーティング、商品出品ページ
-
+  post 'sellitem-registration'=> 'sells#create'
+  get 'sell', to: 'sells#new' #仮ルーティング、商品出品ページ
   get 'profile', to: 'mypages#edit' #仮ルーティング、プロフィール編集画面
   get 'identification', to: 'mypages#identification' #仮ルーティング、ユーザー本人確認画面
   get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
