@@ -91,16 +91,19 @@
       }
     }
   
-
-
 .credit-card-resistration{
   @include box(500px);
   margin: auto;
   &__title{
-    @include title-box;
+    // @include title-box;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 32px;
+    line-height: 33px;
+    text-align: center;
+    border-bottom: #eee solid 1px;
   }
   &__box{
-    height:450px;
     width:700px;
     padding: 16px 24px 40px;
     box-sizing: border-box;
@@ -111,6 +114,16 @@
   height: 383px;
   width: 343px;
   margin: auto;
+  .label-require-icon {
+    ul {
+    margin: 8px 0 0;
+    font-size: 0;
+    display: flex;
+      li {
+        margin: 0 0 0 8px;
+      }
+    }
+  }
   &__card-number{
     height: 100px;
   }

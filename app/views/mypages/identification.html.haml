@@ -16,40 +16,40 @@
           = link_to root_path do
             本人確認書類のアップロードについて
             %i.fa.fa-chevron-right
-        .form-group
+        .form-group-i
           %label お名前
           %p 
             = current_user.nickname
-        .form-group
+        .form-group-i
           %label お名前カナ
           %p 
             = current_user.first_name + current_user.last_name
-        .form-group
+        .form-group-i
           %label 生年月日
           %p 
             = current_user.birthday_year
-        .form-group
+        .form-group-i
           %label 郵便番号
           %span.arbitrarily 任意
           %input{type:"text",class:"#",placeholder:"例）1234567"} 
-        .form-group
+        .form-group-i
           %label 都道府県
           %span.arbitrarily 任意
           %input{type:"text",class:""} 
-        .form-group
+        .form-group-i
           %label 市町村
           %span.arbitrarily 任意
           %input{type:"text",class:"",placeholder:"例）名古屋市中区栄４丁目"} 
-        .form-group
+        .form-group-i
           %label 番地
           %span.arbitrarily 任意
           %input{type:"text",class:"",placeholder:"例）２番地"} 
-        .form-group
+        .form-group-i
           %label 建物名
           %span.arbitrarily 任意
           %input{type:"text",class:"",placeholder:"例）ホテルルートイン栄"}
         %button{type:"submit"} 登録する
-        .form-group
+        .form-group-i
           = link_to root_path do
             本人情報の登録について
             %i.fa.fa-chevron-right
