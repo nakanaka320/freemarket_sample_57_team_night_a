@@ -63,7 +63,7 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-prev,
 .slick-next {
     position: absolute;
-    top: 75%;
+    top: 45%;
     display: block;
     height: 46px;
     width: 31px;
@@ -133,7 +133,6 @@ button.slick-prev, button.slick-next {
 /* Dots */
 
 .slick-dotted.slick-slider {
-    margin-bottom: 30px;
 }
 
 .slick-dots {
