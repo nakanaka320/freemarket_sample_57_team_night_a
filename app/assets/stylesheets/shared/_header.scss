@@ -52,8 +52,8 @@
     width: 72%;
     margin: 0 auto;
     padding: 0px 10px 10px;
-    display: flex;
     justify-content: space-between;
+    display: flex;
     font-size: 14px;
     i {
       color: #ea352d;
@@ -97,6 +97,32 @@
             color: #0099e8;
           }
           span {
+            color: #0099e8;
+          }
+        }
+      }
+    }
+    &__right2 {
+      float:right;
+      ul {
+        position:relative;
+        display: flex;
+        line-height: 36px;
+        li {
+          margin-left: 20px;
+          .btn {
+            line-height: 32px;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+          }
+          .btn-regist {
+            border: 1px solid #ea352d;
+            background: #ea352d;
+            color: #fff;
+          }
+          .btn-login {
+            border: 1px solid #0099e8;
             color: #0099e8;
           }
         }

@@ -11,10 +11,11 @@
   clear: both;
 }
 
-.main-container{
+.main-container2{
   display:flex;
   width:1020px;
   margin: 40px auto 0 ;
+  padding: 0 0 40px;
 }
 
 .left-area{
@@ -33,7 +34,7 @@
     padding: 20px;
     text-align: center;
     background-size: cover; 
-    background-image: url("https://lh3.googleusercontent.com/tAe-PhZr-mUoPY8eP-vd9AE4jsW9YeIdD6Z3vJkikIZfkSlwj3VraefqefNole_wCgkCJQ=s170");
+    background-image: image-url("background.png");
     &__a{
       position: absolute;
       top:25%;
@@ -43,14 +44,14 @@
       .user-img{
         border-radius: 50%;
       }
-      h2{
-        margin: 8px 0 0 ;
-        font-size: 14px;
-      }
       p{
         display: inline-block;
         margin-left:8px;
       }   
+    }
+    &__name {
+      margin: 8px 0 0;
+      font-weight: bold;
     }
     &__number{
       margin: 8px 0 0 ;
@@ -126,7 +127,6 @@
       }
       li.go-to-mypage {
         display: block;
-        height: 56px;
         margin: 0 auto;
         background: #fff;
         color: #333;

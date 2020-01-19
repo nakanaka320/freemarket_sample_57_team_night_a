@@ -71,11 +71,15 @@ gem 'mini_magick'
 gem 'gretel' 
 gem 'active_hash'
 gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'rails-controller-testing'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
 gem 'rails-i18n'
+gem 'payjp'
+gem 'jquery-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
