@@ -7,18 +7,27 @@
         .buy-content__inner
           %h3.buy-item-image
             = image_tag "smile.png",height:"64px",width:"64px"
+            -# = image_tag "#{@product.images[0].image}", height: "64px" , width: "64px"
           %p.buy-item-name
-            《送料無料》The スマイル
+            LifeCoach OKUMURA
+            -# = @product.name
           %form.buy-form
             %p.buy-price 
-              ¥0
+              1980
+              -# = @product.price
               %span 
-                送料込み
+                円(送料込み)
             .buy-price-table
-              .buy-price-table__left 支払い金額
+              .buy-price-table__left 支払い金額 
               .buy-price-table__right
-                %span ¥ 0
+                %span
+                  -# = @product.price.to_s
+
             %button{type:"submit",class:"buy-btn"}購入する
+            -# - if @product.status == 0
+            -#   = link_to "購入する", "/products/#{@product.id}/purchase/pay", method: "GET", class:"btn-default"
+            -# - else 
+            -#   = link_to "取引が終了したアイテムです", root_path, method: "GET" ,class:"btn-default",style: "background-color: lightgray"
 
       %section.user-info
         .buy-content__inner

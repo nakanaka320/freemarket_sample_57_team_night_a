@@ -7,43 +7,26 @@ crumb :mypage do
 end
 
 crumb :profile do
-  link "プロフィール", mypages_profile_path
+  link "プロフィール", profile_mypages_path
   parent :mypage
 end
 
 crumb :card do
-  link "支払い方法", mypages_card_path
+  link "支払い方法", card_mypages_path
   parent :mypage
 end
 
 crumb :card_new do
-  link "支払い方法入力", mypages_card_new_path
+  link "支払い方法入力", card_new_mypages_path
   parent :mypage
 end
 
 crumb :logout do
-  link "ログアウト", mypages_logout_path
+  link "ログアウト", logout_mypages_path
   parent :mypage
 end
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
 
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
-
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
-
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
 
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
