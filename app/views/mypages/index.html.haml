@@ -1,16 +1,20 @@
 =render "shared/header"
 
-.bread-crumbs
-.main-container.clearfix
+- breadcrumb :mypage
+= render "shared/breadcrumbs"
+
+.main-container2.clearfix
   .left-area
     =render "mypages/side-bar"
   .right-area
     .right-area__user-icon
       =link_to "#" ,class: "right-area__user-icon__a" do
         %img{class: "user-img",src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60px", height:"60px"}
-        %h2 出品者の名前
+        .right-area__user-icon__name
+          %p 
+            = @user.nickname
         .right-area__user-icon__number
-          %p 評価
+          %p 評価数
           %p 出品数
     .right-area__box
       %ul.right-area__box__tabs
