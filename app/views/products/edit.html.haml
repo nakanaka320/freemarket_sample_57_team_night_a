@@ -2,40 +2,40 @@
   =render 'users/login-header'
   .product-exhibit-main
     %section
-      %h2
+      %h2.bold
         商品の情報の入力
       -# = form_for @product do |f|
       = form_for @user do |f|
         = render 'shared/error_messages', model: f.object
         .sell-upload-box
-          %h3
+          %h3.bold
             出品画像
             %span
               必須
           %p
             最大5枚までアップロードできます
-          .sellbox-form__upload--drop#click-btn
-            .sellbox-form__upload--drop--post
+          .dropzone
+            .dropzone__container
               = f.fields_for :image do |image|
-                .dropzone-container
+                .dropzone__container__dot
                   #preview
                   .dropzone-area
                     = image.label :image, class: "dropzone-box", for: "upload-image__btn" do
                       .input_area
-                        = image.file_field :image, id: "upload-image__btn", class: "upload-image", 'data-image': 0, type: "file", name: "product[images_attributes][0][image]"
+                        = image.file_field :image, id: "upload-image__btn", class: "upload-image", 'data-image': 0, type: "hidden", name: "product[images_attributes][0][image]"
                       %p
                         ドラッグアンドドロップ
                         %br
                         またはクリックしてファイルをダウンロード
         .sell-content
           .form-group#form-group-first
-            %label
+            %label.bold
               商品名
               %span
                 必須
             = f.text_field :nickname, id: "input-default",  placeholder: "商品名（必須 40文字まで)"
           .form-group
-            %label
+            %label.bold
               商品の説明
               %span
                 必須
@@ -45,7 +45,7 @@
             商品の詳細
           .sell-form-box
             .form-group#margin-0
-              %label
+              %label.bold
                 カテゴリー
                 %span
                   必須
@@ -63,7 +63,7 @@
                   %select.select-default#category_grandchildren
                   
             .form-group
-              %label
+              %label.bold
                 商品の状態
                 %span
                   必須
@@ -78,7 +78,7 @@
           = link_to "?", 'https://www.mercari.com/jp/help_center/article/68/', class:"form-question" 
           .sell-form-box
             .form-group#margin-0
-              %label
+              %label.bold
                 配送料の負担
                 %span
                   必須
@@ -88,7 +88,7 @@
                   = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
                   -# = f.select :fee_payer, Product.fee_payers.keys,{prompt: '---'},class:"select-default"
             .form-group
-              %label
+              %label.bold
                 配送の方法
                 %span
                   必須
@@ -98,7 +98,7 @@
                   = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
                   -# = f.select :delivery, Product.deliveries.keys,{prompt: '---'},class:"select-default"
             .form-group
-              %label
+              %label.bold
                 発送元の地域
                 %span
                   必須
@@ -108,7 +108,7 @@
                   = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
                   -# = f.select :city, Product.cities.keys,{prompt: '---'},class:"select-default"
             .form-group
-              %label
+              %label.bold
                 発送までの日数
                 %span
                   必須
@@ -125,7 +125,7 @@
             %ul
               %li.form-group#margin-0
                 .clearfix
-                  %label.sell-price-title
+                  %label.sell-price-title.bold
                     価格
                     %span
                       必須
