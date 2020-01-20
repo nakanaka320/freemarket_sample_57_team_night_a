@@ -5,27 +5,34 @@ Rails.application.routes.draw do
   # devise_for :installs
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "products#index"
-  get 'mypages/index', to:'mypages#index'
-  get 'mypages/profile', to:'mypages#profile'
-  get 'mypages/card', to: 'mypages#card'
-  get 'mypages/card-new', to: 'mypages#card-new'
-  get 'mypages/logout', to:'mypages#logout'
-  get 'mypages/identification', to:'mypages#identification'
-  delete 'card2s/delete', to: 'card2s#destroy'
+
+  resources :mypages, only: [:index] do
+    collection do
+      get 'profile', to:'mypages#profile'
+      get 'card', to: 'mypages#card'
+      get 'card-new', to: 'mypages#card-new'
+      get 'logout', to:'mypages#logout'
+      get 'identification', to:'mypages#identification'
+    end
+  end
   
-  resources :products
-  #get 'users', to: 'users#new' 
-  #get 'login', to: 'users#login-new' #仮ルーティング、ログイン画面用のビュー
+  resources :products do
+    collection do
+      get 'detail', to: 'products#detail' #商品詳細ページ
+      get 'edit', to: 'products#edit'
+    end
+  end
+
   resources :users do
     collection do
       get 'step1'
-      get 'registration/step1' => 'users#step1_save'
+      get 'registration/step1', to: 'users#step1_save'
       get 'step2'
-      get 'registration-step2' => 'users#step2_save'
+      get 'registration-step2', to: 'users#step2_save'
       get 'step3'
-      post 'registration-step3' => 'users#step3_save'
+      post 'registration-step3', to: 'users#step3_save'
       # get 'step4'
-      post 'registration-step4' => 'users#step4_save'
+      post 'registration-step4', to: 'users#step4_save'
       get 'step_complet'
       get 'sign_up_choice'
       get 'adress'
@@ -35,7 +42,7 @@ Rails.application.routes.draw do
   resources :card2s, only: [:new, :show,:create] do
     collection do
       get 'step4',to: 'card2s#step4'
-      post 'registration-step4'=> 'card2s#create'
+      post 'registration-step4', to: 'card2s#create'
       post 'pay', to: 'card2s#pay'
       post 'delete', to: 'card2s#destroy'
     end

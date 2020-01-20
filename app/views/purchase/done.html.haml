@@ -10,11 +10,14 @@
         .buy-content__inner
           %h3.buy-item-image
             = image_tag "smile.png",height:"64px",width:"64px"
+            -# = image_tag "#{@product.images[0].image}", height: "64px" , width: "64px"
           %p.buy-item-name
             《送料無料》The スマイル
+            -# = @product.name
           %form.buy-form
             %p.buy-price 
-              ¥0
+              ¥
+              -# = @procuct.price.to_s
               %span 
                 送料込み
       %section.user-info

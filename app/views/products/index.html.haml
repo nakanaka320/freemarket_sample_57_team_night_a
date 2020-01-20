@@ -6,9 +6,8 @@
       %li 
         = image_tag("https://web-jp-assets.mercdn.net/_next/static/images/top-banner-camp-4f3fd88c685e8932d7dde2ad3a8336ba.jpg",height:"400px", width:"100%")
       %li
-        = image_tag("kausika.jpeg",height:"400px", width:"100%")
-      %li
-        = image_tag("photoshop-54e8d1464d_640.jpg",height:"400px", width:"100%")
+        = image_tag("https://web-jp-assets.mercdn.net/_next/static/images/top-banner-barcode-aacab86f81df6a91d5ef08831103f2af.png",height:"400px", width:"100%")
+
     %div{id: "arrows"}
       .slick-next
         = image_tag("https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png")
@@ -30,10 +29,7 @@
           %li
             おもちゃ・ホビー・グッズ
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
-      .pickup-content__price-box
+      .pickup-contents__price-box
         .pickup-contents-box
           .pickup-contents__header
             .pickup-contents__header-name
@@ -42,11 +38,19 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             -# = render partial: 'product', collection: @ladiesproducts
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
-      .pickup-content__price-box
+      .pickup-contents__price-box
         .pickup-contents-box
           .pickup-contents__header
             .pickup-contents__header-name
@@ -55,11 +59,18 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             -# = render partial: 'product', collection: @mensproducts
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
-      .pickup-content__price-box
+      .pickup-contents__price-box
         .pickup-contents-box
           .pickup-contents__header
             .pickup-contents__header-name
@@ -68,11 +79,18 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             -# = render partial: 'product', collection: @appliancesproducts
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
     .pickup-contents
-      .pickup-content
-        .pickup-content__img
-        .pickup-content__text__box
-      .pickup-content__price-box
+      .pickup-contents__price-box
         .pickup-contents-box
           .pickup-contents__header
             .pickup-contents__header-name
@@ -82,3 +100,15 @@
           .pickup-contents__image
             -# = render partial: 'product', collection: @toysproducts
 = render 'shared/footer'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+            = render partial: 'product'
+
+  = render 'shared/footer'
