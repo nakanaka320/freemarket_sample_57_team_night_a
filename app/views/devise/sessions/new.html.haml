@@ -10,18 +10,18 @@
       .login-panel__form
         %ul.login-panel__form__button
           %li.login-panel__form__button__facebook
-            =link_to user_facebook_omniauth_authorize_path do
+            = link_to user_facebook_omniauth_authorize_path, method: :post do
               Facebookでログイン
               %i
                 = fa_icon "facebook-square"
           %li.login-panel__form__button__google
-            =link_to user_google_oauth2_omniauth_authorize_path do
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
               .login-panel__form__button__google__text
                 Googleでログイン
               .login-panel__form__button__google__icon
               
       .login-panel__form-bottom
-        = form_with model: @user, url: root_path, method: :post, local: true do |f|
+        = form_with model: @user, url: user_session_path(@user),local: true do |f|
 
           .login-panel__form-bottom__mail
             = f.email_field :email, class:'', autofocus: true, placeholder:'メールアドレス'
@@ -30,9 +30,7 @@
           .login-panel__form-bottom__recaptcha
             ここにreCAPTCHA
           .login-panel__form-bottom__login
-            =link_to "#" do
-              .login-panel__form-bottom__login__btn 
-                ログイン
+            = f.submit "ログイン",class: 'login-panel__form-bottom__login__btn'  
           %p
             =link_to "パスワードをお忘れの方" ,class: "forget-pass" 
   =render "users/login-footer"

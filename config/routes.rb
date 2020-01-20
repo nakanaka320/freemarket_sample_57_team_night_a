@@ -5,13 +5,18 @@ Rails.application.routes.draw do
   # devise_for :installs
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "products#index"
-  get 'mypage', to: 'mypages#index'
-  get 'index', to: 'users#index'  #←←このルーティングは要らないので消してよし
-  resource :products
+  get 'mypages/index', to:'mypages#index'
+  get 'mypages/profile', to:'mypages#profile'
+  get 'mypages/card', to: 'mypages#card'
+  get 'mypages/card-new', to: 'mypages#card-new'
+  get 'mypages/logout', to:'mypages#logout'
+  get 'mypages/identification', to:'mypages#identification'
+  delete 'card2s/delete', to: 'card2s#destroy'
+  
+  resources :products
   #get 'users', to: 'users#new' 
   #get 'login', to: 'users#login-new' #仮ルーティング、ログイン画面用のビュー
-  #get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
-  resource :users do
+  resources :users do
     collection do
       get 'step1'
       get 'registration/step1' => 'users#step1_save'
@@ -22,17 +27,27 @@ Rails.application.routes.draw do
       # get 'step4'
       post 'registration-step4' => 'users#step4_save'
       get 'step_complet'
-      get 'login_new'
       get 'sign_up_choice'
       get 'adress'
     end
   end
-  resource :cards do
+
+  resources :card2s, only: [:new, :show,:create] do
     collection do
-     get 'step4',to: 'cards#step4'
-     post 'registration-step4'=> 'cards#create'
+      get 'step4',to: 'card2s#step4'
+      post 'registration-step4'=> 'card2s#create'
+      post 'pay', to: 'card2s#pay'
+      post 'delete', to: 'card2s#destroy'
     end
   end
+
+  resources :purchase, only: [:index] do
+    collection do
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
+
   resource :sells do
     collection do
       get 'category_children' 
@@ -48,4 +63,13 @@ Rails.application.routes.draw do
   get 'card', to: 'users#card' #仮ルーティング(step4になるページ)クレジットカード登録ページ
   get 'detail', to: 'products#detail' #仮ルーティング、商品詳細ページ
   get 'card', to: 'users#card' #仮ルーティング、クレジットカード登録ページ
+  resources :mypages,only: [:index]
+  resources :logout, only: [:index]
+  resources :card,only:[:index]
+ 
+  resource :sellitems do
+    collection do
+    end
+  end
+
 end

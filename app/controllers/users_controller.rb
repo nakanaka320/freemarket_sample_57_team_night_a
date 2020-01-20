@@ -21,64 +21,62 @@ class UsersController < ApplicationController
     session[:birthday_year] = user_params[:"birthday(1i)"]
     session[:birthday_month] = user_params[:"birthday(2i)"]
     session[:birthday] = user_params[:"birthday(3i)"]
-    
-    @user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      first_name: session[:first_name],
-      last_name: session[:last_name],
-      first_name_kana: session[:first_name_kana],
-      last_name_kana: session[:last_name_kana],
-      birthday_year: session[:birthday_year],
-      birthday_month: session[:birthday_month],
-      birthday: session[:birthday]
-    )
+
+    if session[:provider].present? && session[:uid].present?
+      password = Devise.friendly_token.first(7)
+      @user = User.new(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday])
+    else
+      @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday])
+    end
+
     if @user.valid?(:sample)
-      redirect_to step2_users_path
+      render "users/step2"
     else
       @user.errors.messages
-      render '/users/step1'
+      render 'users/step1'
     end
+    
    end
 
   def step2
-    @user = User.new 
   end
 
   def step2_save
     session[:phone_number] = user_params[:phone_number]
-    @user = User.new(
-      phone_number: session[:phone_number],
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      first_name: session[:first_name],
-      last_name: session[:last_name],
-      first_name_kana: session[:first_name_kana],
-      last_name_kana: session[:last_name_kana],
-      birthday_year: session[:birthday_year],
-      birthday_month: session[:birthday_month],
-      birthday: session[:birthday],
-      post_number: "123-4567",
-      city: "未記入",
-      street: "未記入",
-      building: "未記入"
-    )
+    p_prefecture = "1"
+    p_city = "未記入"
+    p_street = "未記入"
+    p_building = "未記入"
+    
+    if session[:provider].present? && session[:uid].present?
+      password = Devise.friendly_token.first(7)
+      @user = User.new(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
+        post_number: 1234567,
+        prefecture: p_prefecture,
+        city: p_city,
+        street: p_street,
+        building: p_building)
+
+      sns = SnsCredential.new(user_id: @user.id,uid: session[:uid], provider: session[:provider])
+    else
+      @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
+        post_number: 1234567,
+        prefecture: p_prefecture,
+        city: p_city,
+        street: p_street,
+        building: p_building)
+    end
 
     if @user.valid?
-    redirect_to step3_users_path
+      render 'users/step3'
     else
       @user.errors.messages
-      render '/users/step2'
-      end
-
-   end
+      render 'users/step2'
+    end
+   
+  end
 
   def step3
-    @user = User.new
   end
 
   def step3_save
@@ -87,53 +85,49 @@ class UsersController < ApplicationController
     session[:street] = user_params[:street]
     session[:post_number] = user_params[:post_number]
     session[:building] = user_params[:building]
-    session[:phone_number] = user_params[:phone_number]
 
-    @user = User.new(
-
-    nickname: session[:nickname],
-    email: session[:email],
-    password: session[:password],
-    password_confirmation: session[:password_confirmation],
-    first_name: session[:first_name],
-    last_name: session[:last_name],
-    first_name_kana: session[:first_name_kana],
-    last_name_kana: session[:last_name_kana],
-    phone_number: session[:phone_number],
-    post_number: session[:post_number],
-    prefecture: session[:prefecture],
-    city: session[:city],
-    street: session[:street],
-    building: session[:building],
-    birthday_year: session[:birthday_year],
-    birthday_month: session[:birthday_month],
-    birthday: session[:birthday]
-    )
-
+    if session[:provider].present? && session[:uid].present?
+      password = Devise.friendly_token.first(7)
+      @user = User.new(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
+        post_number:session[:post_number],prefecture: session[:prefecture], city:session[:city], street:session[:street], building:session[:building])
+    else
+      @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
+        post_number:session[:post_number], prefecture: session[:prefecture], city:session[:city], street:session[:street], building:session[:building])
+    end
       if @user.save 
+        if session[:password].present? && session[:password_confirmation].present?
+          session[:password].clear
+          session[:password_confirmation].clear
+        else
+          session[:uid].clear
+          session[:provider].clear
+        end
+        sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
         sign_in(@user)
-        redirect_to step4_cards_path
+        redirect_to controller: '/card2s', action: 'step4'
+        session[:nickname].clear
+        session[:email].clear
+        session[:first_name].clear
+        session[:last_name].clear
+        session[:first_name_kana].clear
+        session[:last_name_kana].clear
+        session[:birthday_year].clear
+        session[:birthday_month].clear
+        session[:birthday].clear
+        session[:phone_number].clear
+        session[:prefecture].clear
+        session[:city].clear
+        session[:street].clear
+        session[:post_number].clear
+        session[:building].clear
       else
         @user.errors.messages
-        render '/users/step3'
+        render 'users/step3'
       end
+    
   end
-   
-  def step4
-    @user = User.new
-    @user = current_user
-  end
-
-   def step4_save
-   @user = User.new(user_params)
-   if @user.save.valid?
-    redirect_to step_complet_users_path
-   else
-    redirect_to  step4_users_path
-   end
-  end
-
-   private
+  
+  private
   def user_params
     params.require(:user).permit(
       :nickname,

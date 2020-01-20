@@ -15,13 +15,15 @@
  *= require_self
  */
 
- @import "./reset";
- @import "font-awesome";
- @import "shared/header";
- @import "shared/footer";
- @import "shared/sell-btn";
- @import "shared/index";
- @import "modules/side-bar";
- @import "variable.scss";
- @import 'variable_icon.scss';
- @import 'mixin.scss';
+@import "./reset";
+@import "font-awesome";
+@import "shared/header";
+@import "shared/footer";
+@import "shared/sell-btn";
+@import "shared/index";
+@import "modules/side-bar";
+@import "variable.scss";
+@import 'variable_icon.scss';
+@import 'mixin.scss';
+@import "slick-theme"; 
+@import "slick";
