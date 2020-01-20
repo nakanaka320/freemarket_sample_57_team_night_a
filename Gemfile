@@ -78,8 +78,10 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
 gem 'rails-i18n'
-gem 'payjp'
+gem 'mini_magick'
 gem 'jquery-rails'
+gem 'active_hash'
+gem 'payjp'
 
 group :production do
   gem 'unicorn', '5.4.1'
