@@ -6,7 +6,6 @@ class CardsController < ApplicationController
 
    def create
    @card = Card.new(card_params)
-  #  binding.pry
    if @card.save
     redirect_to step_complet_users_path, notice: '登録が完了しました'
   else

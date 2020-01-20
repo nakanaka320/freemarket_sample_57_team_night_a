@@ -28,11 +28,11 @@ $(document).on('turbolinks:load', ()=> {
 
 
 $(function(){
-  function appendOption(category){ // optionの作成
+  function appendOption(category){
     var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
   }
-  function appendChidrenBox(insertHTML){ // 子セレクトボックスのhtml作成
+  function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
       childSelectHtml =  `<div class="select-selecter2">
                             <select class="select-wrap__holder" name="sellitem[category_id]" id="sellitem_category_id2">
@@ -40,7 +40,6 @@ $(function(){
                             </select>
                           </div>`;
     $('.select-selecter').append(childSelectHtml);
-    // debugger;
   }
 
   function appendgrandChidrenBox(insertHTML){
@@ -53,7 +52,6 @@ $(function(){
     $('.select-selecter2').append(grandchildrenSelectHtml);
   }
 
-  // document､もしくは親を指定しないと発火しない
   $(document).on('change', '#sellitem_category_id', function(){
   var productcategory = document.getElementById('sellitem_category_id').value; 
     if (productcategory != ''){
@@ -64,18 +62,11 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        console.log('hoge1');
         var insertHTML = '';
         children.forEach(function(child){  
           insertHTML += appendOption(child); 
         });
         appendChidrenBox(insertHTML); 
-        // debugger;
-        // $(document).on('change', function(){
-        //   console.log('OK');
-        //   $('#sellitem_category_ids').remove(); 
-        //   // $('#grandchildren_wrapper').remove();
-        // })
       })
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
@@ -95,16 +86,11 @@ $(function(){
       dataType: 'json'
     })
     .done(function(grandchildren){
-      console.log('hoge2');
       var insertHTML = '';
       grandchildren.forEach(function(grandchild){
         insertHTML += appendOption(grandchild);
         });
         appendgrandChidrenBox(insertHTML);  
-        // $(document).on('change',function(){
-        //   console.log('OK2');
-        //   $('#sellitem_category_ids3').remove();
-        //   })
         })  
         .fail(function(){
           alert('カテゴリー取得に失敗しました');

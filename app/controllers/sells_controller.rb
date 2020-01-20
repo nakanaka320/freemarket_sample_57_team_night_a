@@ -7,13 +7,11 @@ class SellsController < ApplicationController
   def new
     @sellitem = Sellitem.new
     @sellitem.images.new
-    # @parents = Category.all.order("id ASC").limit(13)
     @parents = Category.roots
   end
 
   def create
     @sellitem = Sellitem.new(sellitem_params)
-    binding.pry
     if @sellitem.save
     redirect_to sell_path
     else
