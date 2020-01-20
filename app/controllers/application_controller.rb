@@ -38,10 +38,3 @@ class ApplicationController < ActionController::Base
   end
 
 end
-
-# :fullname,
-# :cards
-# :comment,
-#                                                        :good,
-#                                                        :sellitem,
-#                                                        :buyitem]

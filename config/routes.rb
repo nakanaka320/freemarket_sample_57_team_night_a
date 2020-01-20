@@ -54,6 +54,25 @@ Rails.application.routes.draw do
       get 'done', to: 'purchase#done'
     end
   end
+
+  resource :sells do
+    collection do
+      get 'category_children' 
+      get 'category_grandchildren'
+    end
+  end
+  post 'sellitem-registration'=> 'sells#create'
+  get 'sell', to: 'sells#new' #仮ルーティング、商品出品ページ
+  get 'profile', to: 'mypages#edit' #仮ルーティング、プロフィール編集画面
+  get 'identification', to: 'mypages#identification' #仮ルーティング、ユーザー本人確認画面
+  get 'logout', to: 'users#logout' #仮ルーティング、ログアウト画面用のビュー
+  get 'buy', to: 'users#buy' #仮ルーティング、商品購入確認ページ
+  get 'card', to: 'users#card' #仮ルーティング(step4になるページ)クレジットカード登録ページ
+  get 'detail', to: 'products#detail' #仮ルーティング、商品詳細ページ
+  get 'card', to: 'users#card' #仮ルーティング、クレジットカード登録ページ
+  resources :mypages,only: [:index]
+  resources :logout, only: [:index]
+  resources :card,only:[:index]
  
   resource :sellitems do
     collection do

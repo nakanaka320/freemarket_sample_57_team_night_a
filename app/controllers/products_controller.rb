@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
   def show
   end
-  
+
   def detail
   end
 
@@ -18,4 +18,5 @@ class ProductsController < ApplicationController
   # def sell
   # end
   
+# 039c56833f0cf7314efc65a89f6e067872d073f4
 end
