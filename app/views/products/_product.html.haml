@@ -5,8 +5,8 @@
       .img_content
       -# - if product.images.present?
       - if user_signed_in?
-        -# = image_tag "#{product.images[0].image}", class:'pickup-content__img'
-        = image_tag "smile.jpg", class:'pickup-content__img'
+        = image_tag "#{sellitem.images[0].image}", class:'pickup-content__img'
+        -# = @image.gazou
         .img_title
           %p.img_price
             -# ="¥#{product.price}"

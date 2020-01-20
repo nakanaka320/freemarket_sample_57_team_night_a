@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @image = Image.gazou
   end
 
   def new

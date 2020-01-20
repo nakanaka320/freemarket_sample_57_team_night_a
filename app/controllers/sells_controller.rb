@@ -13,7 +13,7 @@ class SellsController < ApplicationController
   def create
     @sellitem = Sellitem.new(sellitem_params)
     if @sellitem.save
-    redirect_to sell_path
+    redirect_to sellitem_registration_path
     else
       @parents = Category.roots
       render :new

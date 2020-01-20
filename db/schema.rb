@@ -70,19 +70,12 @@ ActiveRecord::Schema.define(version: 2020_01_18_120639) do
     t.index ["user_id"], name: "index_card2s_on_user_id"
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "number"
-    t.integer "exp_month"
-    t.integer "exp_year"
-    t.integer "cvc"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["name"], name: "index_categories_on_name"
   end
 
@@ -135,10 +128,15 @@ ActiveRecord::Schema.define(version: 2020_01_18_120639) do
 
   create_table "sellitems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "price", null: false
-    t.bigint "user_id", null: false
-    t.text "image", null: false
+    t.integer "price"
+    t.bigint "user_id"
     t.string "text", null: false
+    t.string "category_id"
+    t.string "condition", null: false
+    t.string "send_cost", null: false
+    t.string "send_method", null: false
+    t.string "send_place", null: false
+    t.string "send_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sellitems_on_user_id"
