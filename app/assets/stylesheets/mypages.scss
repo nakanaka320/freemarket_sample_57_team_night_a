@@ -78,6 +78,8 @@
     }
     li.active{
       background: #fff;
+      border-top: 2px solid;
+      border-top-color: red;
     }
   }
 
@@ -162,6 +164,8 @@
     }
     li.active {
       background: #fff;
+      border-top: 2px solid;
+      border-top-color: red;
     }
     li.item-not-found {
       width:100%;

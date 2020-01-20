@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :sns_credentials, dependent: :destroy # oauth認証テーブル
+  has_many :sns_credentials, dependent: :destroy 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise  :database_authenticatable, :registerable,
@@ -10,7 +10,7 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.find_by(uid: uid, provider: provider)
-    if snscredential.present?       #sns登録のみ完了してるユーザー
+    if snscredential.present?       
       user = User.find_by(id: snscredential.user_id)
       unless user.present? 
         user = User.new(
@@ -18,14 +18,14 @@ class User < ApplicationRecord
           email: auth.info.email)
       end
 
-    else  #sns登録 未
+    else  
       user = User.find_by(email: auth.info.email)
-      if user.present?  #会員登録 済
+      if user.present?  
         sns = SnsCredential.create(
           uid: uid,
           provider: provider,
           user_id: user.id)
-      else  #会員登録 未
+      else  
 
         user = User.new(
           nickname: auth.info.name,
