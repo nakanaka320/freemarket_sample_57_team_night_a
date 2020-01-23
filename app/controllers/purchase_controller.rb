@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
 
   def index
     @user = current_user
-    @sellitem = Sellitem.includes(:images).find_by(params[:id])
+    @sellitem = Sellitem.find(params[:id])
     card = Card2.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
@@ -11,6 +11,7 @@ class PurchaseController < ApplicationController
 
   def done
     @user = current_user
+    @sellitem = Sellitem.includes(:images).find(params[:sell_id])
     card = Card2.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
@@ -19,7 +20,7 @@ class PurchaseController < ApplicationController
 
 
   def pay
-    @sellitem = Sellitem.includes(:images).find_by(params[:id])
+    @sellitem = Sellitem.find(params[:sell_id])
     card = Card2.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(

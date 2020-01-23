@@ -1,11 +1,10 @@
-- @sellitem.each do |product|
+- @toys.each do |product|
   .pickup-content
     = link_to sell_path(product.id) do
       %figure.content__box
         .img_content
         - if product.images[0].present?
-          = image_tag product.images[0].gazou.file.file, class:'pickup-content__img'
-          -# = image_tag product.images[0].gazou.url, class:'pickup-content__img'
+          = image_tag product.images[0].gazou.url, class:'pickup-content__img'
 
           .img_title
             %p.img_price

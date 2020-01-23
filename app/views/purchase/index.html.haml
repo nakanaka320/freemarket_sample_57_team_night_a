@@ -19,9 +19,8 @@
               .buy-price-table__right
                 %span
                   = @sellitem.price.to_s
-            %button{type:"submit",class:"buy-btn"}購入する
             -binding.pry
-            = link_to "購入する", action: :pay , method: "POST", class:"btn-default"
+            = link_to "購入する", pay_sell_purchase_index_path(@sellitem),method: :post, class:"btn-default"
             -# - else 
             -#   = link_to "取引が終了したアイテムです", root_path, method: "GET" ,class:"btn-default",style: "background-color: lightgray"
 
@@ -55,8 +54,5 @@
             = link_to "#" do
               変更する
               %i.fa.fa-chevron-right
-
-
-
 
   = render "users/login-footer"

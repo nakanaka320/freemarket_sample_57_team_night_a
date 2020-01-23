@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
 
   def index
-    @sellitem = Sellitem.includes(:images).where(category: 1..137).order("created_at DESC").limit(10)
-    # @image = @sellitem.images.first
-    # binding.pry
-    # @sellitem[0].images[0].gazou.file.file
+    @ladies = Sellitem.includes(:images).where(category_id: [*1..137]).order("created_at DESC").limit(3)
+    @mens= Sellitem.includes(:images).where(category_id: [*138..360]).order("created_at DESC").limit(3)
+    @appliances = Sellitem.includes(:images).where(category_id: [*360..775]).order("created_at DESC").limit(3)
+    @toys = Sellitem.includes(:images).where(category_id: [*776..1000]).order("created_at DESC").limit(3)
   end
 
   def new

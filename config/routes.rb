@@ -48,11 +48,7 @@ Rails.application.routes.draw do
   end
 
   resources :purchase do
-    collection do
-      get 'pay', to: 'purchase#pay'
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
-    end
+    
   end
 
   resources :sells do
@@ -61,6 +57,10 @@ Rails.application.routes.draw do
       get 'category_grandchildren'
     end
     resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
     end
   end
   post 'sellitem-registration'=> 'sells#create'
