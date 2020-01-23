@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
+
   def index
-    @image = Image.gazou
+    @sellitem = Sellitem.includes(:images).where(category: 1..137).order("created_at DESC").limit(10)
+    # @image = @sellitem.images.first
+    # binding.pry
+    # @sellitem[0].images[0].gazou.file.file
   end
 
   def new

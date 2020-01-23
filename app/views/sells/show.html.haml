@@ -3,12 +3,12 @@
   .detail-adjustment
     %section
       %h1 
-        THE スマイル
-        -# = @product.name
+        = @sellitem.name
       .detail-main
         .item-photo
           .photo
-            = image_tag "smile.jpg", size:"300x300"
+            -# = image_tag @sellitem.images[0].gazou.file.file, size:"300x300"
+            = image_tag @sellitem.images[0].gazou.url, size:"300x300"
           .mini-photo
             = image_tag "smile.jpg", size:"60x60"
         %table
@@ -17,7 +17,7 @@
               %th 出品者
               %td
                 = link_to "#", class:"user-name" do
-                  真子 ゆきなり
+                  ダルビッシュ
                 .user-rate
                   .user-rate__left
                     = fa_icon "smile-o"
@@ -39,31 +39,39 @@
                   ＞ ジェスチャー
             %tr
               %th ブランド
-              %td TECH::EXPERT
+              %td
+                -# = @sellitem.category_id
             %tr
               %th 商品の状態
-              %td 至高
+              %td 
+                = @sellitem.condition
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td
+                = @sellitem.send_cost
             %tr
               %th 配送の方法
-              %td らくらくメルカリ便
+              %td
+                = @sellitem.send_method
             %tr
               %th 配送元の地域
-              %td 名古屋
+              %td
+                = @sellitem.send_place
             %tr
               %th 発送日の目安
-              %td 即日
+              %td
+                = @sellitem.send_day
 
         .item-pricebox
-          %span.item-pricebox__price ¥0
+          %span.item-pricebox__price
+            ¥
+            = @sellitem.price
           %span.item-pricebox__tax  (税込)
           %span.item-pricebox__postage 送料込み
         .purchase-box
-          = link_to "購入画面に進む",  purchase_index_path , class:"purchase_btn"
+          = link_to "購入画面に進む", sell_purchase_index_path(@sellitem) , class:"purchase_btn"
         .item-coment
-          %p.item-coment__inner 最近話題のプログラミングスクール、「TECH::EXPERT」でライフコーチを務める奧村さん。その奧村さんから最高の贈り物が出品されました！ご購入頂いた方には特典として、「パーフェクトスマイル２０１９」を追加でプレゼント♪
+          %p.item-coment__inner 商品説明商品説明商品説明商品説明商品説明
         .item-button
           .item-button__left
             %button{type: "button",class:"like-button"}

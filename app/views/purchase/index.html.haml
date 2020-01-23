@@ -6,26 +6,22 @@
       %section.buy-content
         .buy-content__inner
           %h3.buy-item-image
-            = image_tag "smile.png",height:"64px",width:"64px"
-            -# = image_tag "#{@product.images[0].image}", height: "64px" , width: "64px"
+            = image_tag @sellitem.images[0].gazou.url, height: "64px" , width: "64px"
           %p.buy-item-name
-            LifeCoach OKUMURA
-            -# = @product.name
+            = @sellitem.name
           %form.buy-form
             %p.buy-price 
-              1980
-              -# = @product.price
+              = @sellitem.price
               %span 
                 円(送料込み)
             .buy-price-table
               .buy-price-table__left 支払い金額 
               .buy-price-table__right
                 %span
-                  -# = @product.price.to_s
-
+                  = @sellitem.price.to_s
             %button{type:"submit",class:"buy-btn"}購入する
-            -# - if @product.status == 0
-            -#   = link_to "購入する", "/products/#{@product.id}/purchase/pay", method: "GET", class:"btn-default"
+            -binding.pry
+            = link_to "購入する", action: :pay , method: "POST", class:"btn-default"
             -# - else 
             -#   = link_to "取引が終了したアイテムです", root_path, method: "GET" ,class:"btn-default",style: "background-color: lightgray"
 

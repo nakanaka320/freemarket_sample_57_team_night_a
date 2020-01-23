@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   
   resources :products do
     collection do
-      get 'detail', to: 'products#detail' #商品詳細ページ
       get 'edit', to: 'products#edit'
     end
   end
@@ -48,25 +47,23 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchase, only: [:index] do
+  resources :purchase do
     collection do
+      get 'pay', to: 'purchase#pay'
       post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
     end
   end
 
-  resource :sells do
+  resources :sells do
     collection do
       get 'category_children' 
       get 'category_grandchildren'
     end
+    resources :purchase, only: [:index] do
+    end
   end
   post 'sellitem-registration'=> 'sells#create'
   
- 
-  # resource :sellitems do
-  #   collection do
-  #   end
-  # end
 
 end
