@@ -47,10 +47,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchase do
-    
-  end
-
   resources :sells do
     collection do
       get 'category_children' 
@@ -65,5 +61,4 @@ Rails.application.routes.draw do
   end
   post 'sellitem-registration'=> 'sells#create'
   
-
 end
