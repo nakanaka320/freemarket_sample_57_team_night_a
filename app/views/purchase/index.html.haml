@@ -19,10 +19,8 @@
               .buy-price-table__right
                 %span
                   = @sellitem.price.to_s
-            -binding.pry
             = link_to "購入する", pay_sell_purchase_index_path(@sellitem),method: :post, class:"btn-default"
-            -# - else 
-            -#   = link_to "取引が終了したアイテムです", root_path, method: "GET" ,class:"btn-default",style: "background-color: lightgray"
+ 
 
       %section.user-info
         .buy-content__inner
