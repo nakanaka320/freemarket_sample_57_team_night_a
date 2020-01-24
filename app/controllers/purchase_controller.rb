@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
 
   def index
     @user = current_user
-    @sellitem = Sellitem.find(params[:id])
+    @sellitem = Sellitem.find(params[:sell_id])
     card = Card2.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
