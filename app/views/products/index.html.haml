@@ -37,17 +37,8 @@
             .pickup-contents__header-more
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
-            -# = render partial: 'product', collection: @ladiesproducts
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
+            = render partial: 'product', collection: @ladies,as: "product" 
+            
             
     .pickup-contents
       .pickup-contents__price-box
@@ -58,17 +49,8 @@
             .pickup-contents__header-more
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
-            -# = render partial: 'product', collection: @mensproducts
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
+            = render partial: 'product', collection: @mens,as: "product" 
+           
     .pickup-contents
       .pickup-contents__price-box
         .pickup-contents-box
@@ -78,17 +60,8 @@
             .pickup-contents__header-more
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
-            -# = render partial: 'product', collection: @appliancesproducts
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
-            = render partial: 'product'
+            = render partial: 'product', collection: @appliances,as: "product" 
+           
     .pickup-contents
       .pickup-contents__price-box
         .pickup-contents-box
@@ -98,5 +71,7 @@
             .pickup-contents__header-more
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
-            -# = render partial: 'product', collection: @toysproducts
-  = render 'shared/footer'
+
+            = render partial: 'product', collection: @toys,as: "product" 
+= render 'shared/footer'
+

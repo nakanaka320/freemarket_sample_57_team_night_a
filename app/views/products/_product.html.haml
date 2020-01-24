@@ -1,20 +1,14 @@
 .pickup-content
-  -# = link_to product_path(product.id) do
-  = link_to root_path do
+  = link_to sell_path(product.id) do
     %figure.content__box
       .img_content
-      -# - if product.images.present?
-      - if user_signed_in?
-        -# = image_tag "#{product.images[0].image}", class:'pickup-content__img'
-        = image_tag "smile.jpg", class:'pickup-content__img'
+      - if product.images[0].present?
+        = image_tag product.images[0].gazou.url, class:'pickup-content__img'
         .img_title
           %p.img_price
-            -# ="¥#{product.price}"
-            ="¥555"
-      -# - else
-      -#   = image_tag "", class:'pickup-content__img'
-      -# %figcaption.text__box 
-      -#   %span 
-      -#     = product.name
-
--# ..................コメントアウト部分は後ほど解放.......................
+            = product.price
+      - else
+        = image_tag "", class:'pickup-content__img'
+      %figcaption.text__box 
+        %span 
+          = product.name
