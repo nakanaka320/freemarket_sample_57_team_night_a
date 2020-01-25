@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_01_18_120639) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-ActiveRecord::Schema.define(version: 2020_01_08_052226) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "state", null: false
@@ -69,15 +68,6 @@ ActiveRecord::Schema.define(version: 2020_01_08_052226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_card2s_on_user_id"
-  end
-
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "number"
-    t.integer "exp_month"
-    t.integer "exp_year"
-    t.integer "cvc"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -68,7 +68,7 @@
             position: relative;
             display: block;
             width: 620px;
-            height: 192px;
+            height: 430px;
             background-color: $background_gray;
             margin: 16px auto 0;
             border : dashed 1px $pale_gray;             
@@ -80,8 +80,14 @@
               line-height: 48px;
               color: blue;
               border-top: dashed 1px $pale_gray;
-
             }
+            .js-file_group{
+              display:flex;
+            //   float: left; 
+            //   .js-file{
+            //     // display: none;
+              }
+            // }
           }
           #reset-switch{
             margin: 20px auto;
@@ -178,7 +184,7 @@
         }
       }
       .form-box-right{
-        width: 400px;      
+        width: 400px; 
         &__input{
           display: flex;
           justify-content: space-between;
@@ -191,6 +197,7 @@
         }
         &__info:first-child{
           margin: 0;
+          // float: left; 
         }
         .last-info {
           display: flex;
@@ -269,6 +276,9 @@
               font-size: 16px;
               width: 100%;
               box-sizing: border-box;
+               .select-selecter{
+                
+               }
             }
           }
         }
