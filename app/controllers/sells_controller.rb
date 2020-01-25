@@ -6,18 +6,22 @@ class SellsController < ApplicationController
   
   def new
     @sellitem = Sellitem.new
-    @sellitem.images.new
+    @sellitem.images.build
     @parents = Category.roots
   end
 
   def create
     @sellitem = Sellitem.new(sellitem_params)
     if @sellitem.save
-    redirect_to sell_path
+    redirect_to root_path
     else
       @parents = Category.roots
       render :new
     end
+  end
+
+  def show
+    @sellitem = Sellitem.includes(:images).find(params[:id])
   end
 
   def category_children  
@@ -29,7 +33,7 @@ class SellsController < ApplicationController
   end
 
   private
-
+  
   def sellitem_params
     params.require(:sellitem).permit(:name,
                                      :text,
