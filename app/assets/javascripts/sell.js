@@ -77,7 +77,7 @@ $(function(){
   var productcategory = document.getElementById('sellitem_category_id').value; 
     if (productcategory != ''){
       $.ajax({
-        url: 'sells/category_children',
+        url: 'category_children',
         type: 'GET',
         data: { productcategory: productcategory },
         dataType: 'json'
@@ -101,7 +101,7 @@ $(function(){
     var productcategory = document.getElementById('sellitem_category_id2').value;
     if (productcategory != ''){
     $.ajax ({
-      url: 'sells/category_grandchildren',
+      url: 'category_grandchildren',
       type: 'GET',
       data: { productcategory: productcategory },
       dataType: 'json'
