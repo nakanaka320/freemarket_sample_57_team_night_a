@@ -132,11 +132,11 @@ ActiveRecord::Schema.define(version: 2020_01_18_120639) do
     t.bigint "user_id"
     t.string "text", null: false
     t.string "category_id"
-    t.string "condition", null: false
-    t.string "send_cost", null: false
-    t.string "send_method", null: false
-    t.string "send_place", null: false
-    t.string "send_day", null: false
+    t.integer "condition", null: false
+    t.integer "send_cost", null: false
+    t.integer "send_method", null: false
+    t.integer "send_place", null: false
+    t.integer "send_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sellitems_on_user_id"
