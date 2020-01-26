@@ -83,11 +83,7 @@
             }
             .js-file_group{
               display:flex;
-            //   float: left; 
-            //   .js-file{
-            //     // display: none;
               }
-            // }
           }
           #reset-switch{
             margin: 20px auto;
@@ -330,12 +326,6 @@ select {
   ::-ms-expand {	/* select要素のデザインを無効にする（IE用） */
   display: none;
 }
-
-// %span {
-//   -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
-//   -moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
-//   appearance: none;
-// }
 
 //ここからプレビュー用
 .pic-form{
