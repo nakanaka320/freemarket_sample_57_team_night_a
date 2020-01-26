@@ -20,6 +20,4 @@ class ProductsController < ApplicationController
     @user = current_user
   end
 
-  
-# 039c56833f0cf7314efc65a89f6e067872d073f4
 end

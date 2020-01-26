@@ -68,7 +68,7 @@
             position: relative;
             display: block;
             width: 620px;
-            height: 192px;
+            height: 430px;
             background-color: $background_gray;
             margin: 16px auto 0;
             border : dashed 1px $pale_gray;             
@@ -80,8 +80,10 @@
               line-height: 48px;
               color: blue;
               border-top: dashed 1px $pale_gray;
-
             }
+            .js-file_group{
+              display:flex;
+              }
           }
           #reset-switch{
             margin: 20px auto;
@@ -178,7 +180,7 @@
         }
       }
       .form-box-right{
-        width: 400px;      
+        width: 400px; 
         &__input{
           display: flex;
           justify-content: space-between;
@@ -269,6 +271,9 @@
               font-size: 16px;
               width: 100%;
               box-sizing: border-box;
+               .select-selecter{
+                
+               }
             }
           }
         }
@@ -321,12 +326,6 @@ select {
   ::-ms-expand {	/* select要素のデザインを無効にする（IE用） */
   display: none;
 }
-
-// %span {
-//   -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
-//   -moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
-//   appearance: none;
-// }
 
 //ここからプレビュー用
 .pic-form{

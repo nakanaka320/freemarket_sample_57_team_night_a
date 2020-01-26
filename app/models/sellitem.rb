@@ -1,5 +1,5 @@
 class Sellitem < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
   has_many :comments
   has_many :images
   belongs_to :brand, optional: true
