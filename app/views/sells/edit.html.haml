@@ -3,9 +3,8 @@
   .product-exhibit-main
     %section
       %h2.bold
-        商品の情報の入力
-      -# = form_for @product do |f|
-      = form_for @user do |f|
+        商品の情報の編集
+      = form_with model:@sellitem,url: sell_path, method: :patch, local: true do |f|
         = render 'shared/error_messages', model: f.object
         .sell-upload-box
           %h3.bold
@@ -33,13 +32,13 @@
               商品名
               %span
                 必須
-            = f.text_field :nickname, id: "input-default",  placeholder: "商品名（必須 40文字まで)"
+            = f.text_field :name, id: "input-default",  placeholder: "商品名（必須 40文字まで)"
           .form-group
             %label.bold
               商品の説明
               %span
                 必須
-            = f.text_area :nickname, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+            = f.text_area :text, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
         .sell-content.clearfix
           %h3.sub-head
             商品の詳細
@@ -52,8 +51,7 @@
               %div
                 .select-wrap
                   %i.fa.fa-angle-down
-                  = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"}, class: "select-default"
-                  -# = f.collection_select :category, @category, :id, :name, {prompt: '---'}, class: "select-default", id: "category_parent"
+                  = f.collection_select :category_id, @parents, :id, :name,{prompt: "--"},{class: "select-wrap__holder"}
                 .display_none.select-wrap
                   %i.fa.fa-angle-down
                   %select.select-default#category_children
@@ -70,8 +68,7 @@
               %div
                 .select-wrap
                   %i.fa.fa-angle-down
-                  = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
-                  -# = f.select :state, Product.states.keys,{prompt: '---'},class:"select-default"
+                  = f.collection_select :condition, Condition.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
         .sell-content.clearfix
           %h3.sub-head
             配送について
@@ -85,8 +82,7 @@
               %div
                 .select-wrap
                   %i.fa.fa-angle-down
-                  = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
-                  -# = f.select :fee_payer, Product.fee_payers.keys,{prompt: '---'},class:"select-default"
+                  = f.collection_select :send_cost, Cost.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
             .form-group
               %label.bold
                 配送の方法
@@ -95,8 +91,7 @@
               %div
                 .select-wrap
                   %i.fa.fa-angle-down
-                  = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
-                  -# = f.select :delivery, Product.deliveries.keys,{prompt: '---'},class:"select-default"
+                  = f.collection_select :send_method, Post.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
             .form-group
               %label.bold
                 発送元の地域
@@ -105,8 +100,7 @@
               %div
                 .select-wrap
                   %i.fa.fa-angle-down
-                  = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
-                  -# = f.select :city, Product.cities.keys,{prompt: '---'},class:"select-default"
+                  = f.collection_select :send_place, Prefecture.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
             .form-group
               %label.bold
                 発送までの日数
@@ -115,8 +109,7 @@
               %div
                 .select-wrap
                   %i.fa.fa-angle-down
-                  = f.collection_select :prefecture, Prefecture.all, :id, :name,{prompt: "--"},class:"select-default"
-                  -# = f.select :delivery_time, Product.delivery_times.keys,{prompt: '---'},class:"select-default"
+                  = f.collection_select :send_day, Day.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
         .sell-content.clearfix
           %h3.sub-head
             販売価格(300〜9,999,999)
@@ -132,13 +125,13 @@
                   .sell-price-input
                     ¥
                     .sell-price-input__box
-                      = f.number_field :nickname, min:300, max:9999999, class: "input-default", id: "sell-price", placeholder: "例）300"
+                      = f.number_field :price, min:300, max:9999999, class: "input-default", id: "sell-price", placeholder: "例）300"
               %li.form-group.border
                 .clearfix
                   .sell-price-title
                     販売手数料(10%)
                   .sell-price-input
-                    =@user.nickname
+                    -
                     .right
                       #mercari_fee
               %li.form-group.border
@@ -146,7 +139,7 @@
                   .sell-price-title.bold
                     販売利益
                   .sell-price-input
-                    =@user.nickname
+                    -
                     .right
                       #seller_gain
         .exhibit-form
