@@ -67,7 +67,8 @@
             ¥
             = @sellitem.price
           %span.item-pricebox__tax  (税込)
-          %span.item-pricebox__postage 送料込み  
+          %span.item-pricebox__postage 送料込み
+           
 
           -#        -# sellitemのuser_idが、ログイン中のユーザーのidと同じならば
           -# -if @sellitem.user_id == current_user.id
@@ -82,7 +83,6 @@
           -#     = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"purchase_btn", data: {turbolinks: false}
           -#   -else
           -#     .product-buy-btn-sold 売り切れました
-
         .purchase-box
           = link_to edit_sell_path(@sellitem), data: {turbolinks: false} do
             .product-edit-btn 商品の編集
@@ -91,6 +91,8 @@
           = link_to sell_path(@sellitem), method: :delete, data: { turbolinks: false} do
             .product-stop-btn この商品を削除する
           = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"purchase_btn"
+
+
         .item-coment
           %p.item-coment__inner 新品で購入し、タンスの中で眠っていました。
         .item-button

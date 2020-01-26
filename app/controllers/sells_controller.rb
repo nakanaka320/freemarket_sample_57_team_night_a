@@ -5,6 +5,9 @@ class SellsController < ApplicationController
 
   end
   
+  def delete
+  end
+  
   def new
     @sellitem = Sellitem.new
     @sellitem.images.build
