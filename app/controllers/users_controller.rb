@@ -24,9 +24,29 @@ class UsersController < ApplicationController
 
     if session[:provider].present? && session[:uid].present?
       password = Devise.friendly_token.first(7)
-      @user = User.new(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday])
+      @user = User.new(nickname:session[:nickname], 
+                       email: session[:email], 
+                       password: "password", 
+                       password_confirmation: "password", 
+                       first_name: session[:first_name],
+                       last_name: session[:last_name], 
+                       first_name_kana: session[:first_name_kana], 
+                       last_name_kana: session[:last_name_kana], 
+                       birthday_year: session[:birthday_year],
+                       birthday_month: session[:birthday_month],
+                       birthday: session[:birthday])
     else
-      @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday])
+      @user = User.new(nickname:session[:nickname], 
+                       email: session[:email], 
+                       password: session[:password], 
+                       password_confirmation: session[:password_confirmation], 
+                       first_name: session[:first_name],
+                       last_name: session[:last_name], 
+                       first_name_kana: session[:first_name_kana], 
+                       last_name_kana: session[:last_name_kana], 
+                       birthday_year: session[:birthday_year],
+                       birthday_month: session[:birthday_month],
+                       birthday: session[:birthday])
     end
 
     if @user.valid?(:sample)
@@ -47,27 +67,63 @@ class UsersController < ApplicationController
     p_city = "未記入"
     p_street = "未記入"
     p_building = "未記入"
+    #　　このカラムは残しておく
+    # post_number: "123-4567",
+    # city: "未記入",
+    # street: "未記入",
+    # building: "未記入"
     
     if session[:provider].present? && session[:uid].present?
       password = Devise.friendly_token.first(7)
-      @user = User.new(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
-        post_number: 1234567,
+      @user = User.new(nickname:session[:nickname],
+        email: session[:email],
+        password: "password",
+        password_confirmation: "password",
+        first_name: session[:first_name],
+        last_name: session[:last_name],
+        first_name_kana: session[:first_name_kana],
+        last_name_kana: session[:last_name_kana],
+        birthday_year: session[:birthday_year],
+        birthday_month: session[:birthday_month],
+        birthday: session[:birthday],
+        phone_number: session[:phone_number],
+        post_number: "1234567",
         prefecture: p_prefecture,
         city: p_city,
         street: p_street,
         building: p_building)
+        #　　このカラムは残しておく
+        # city: "未記入",
+        # street: "未記入",
+        # building: "未記入")
 
       sns = SnsCredential.new(user_id: @user.id,uid: session[:uid], provider: session[:provider])
     else
-      @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
+      @user = User.new(nickname:session[:nickname],
+        email: session[:email],
+        password: session[:password],
+        password_confirmation: session[:password_confirmation],
+        first_name: session[:first_name],
+        last_name: session[:last_name],
+        first_name_kana: session[:first_name_kana],
+        last_name_kana: session[:last_name_kana],
+        birthday_year: session[:birthday_year],
+        birthday_month: session[:birthday_month],
+        birthday: session[:birthday],
+        phone_number: session[:phone_number],
         post_number: 1234567,
         prefecture: p_prefecture,
         city: p_city,
         street: p_street,
         building: p_building)
+        #　　このカラムは残しておく
+        # prefecture: "未記入",
+        # city: "未記入",
+        # street: "未記入",
+        # building: "未記入")
     end
 
-    if @user.valid?
+    if @user.valid?(:hoge)
       render 'users/step3'
     else
       @user.errors.messages
@@ -88,11 +144,41 @@ class UsersController < ApplicationController
 
     if session[:provider].present? && session[:uid].present?
       password = Devise.friendly_token.first(7)
-      @user = User.new(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
-        post_number:session[:post_number],prefecture: session[:prefecture], city:session[:city], street:session[:street], building:session[:building])
+      @user = User.new(nickname:session[:nickname],
+                       email: session[:email],
+                       password: "password",
+                       password_confirmation: "password", 
+                       first_name: session[:first_name],
+                       last_name: session[:last_name], 
+                       first_name_kana: session[:first_name_kana], 
+                       last_name_kana: session[:last_name_kana], 
+                       birthday_year: session[:birthday_year],
+                       birthday_month: session[:birthday_month],
+                       birthday: session[:birthday],
+                       phone_number: session[:phone_number],
+                       post_number:session[:post_number],
+                       prefecture: session[:prefecture], 
+                       city:session[:city], 
+                       street:session[:street], 
+                       building:session[:building])
     else
-      @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name: session[:first_name],last_name: session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana: session[:last_name_kana], birthday_year: session[:birthday_year],birthday_month: session[:birthday_month],birthday: session[:birthday],phone_number: session[:phone_number],
-        post_number:session[:post_number], prefecture: session[:prefecture], city:session[:city], street:session[:street], building:session[:building])
+      @user = User.new(nickname:session[:nickname], 
+                       email: session[:email], 
+                       password: session[:password], 
+                       password_confirmation: session[:password_confirmation], 
+                       first_name: session[:first_name],
+                       last_name: session[:last_name], 
+                       first_name_kana: session[:first_name_kana], 
+                       last_name_kana: session[:last_name_kana], 
+                       birthday_year: session[:birthday_year],
+                       birthday_month: session[:birthday_month],
+                       birthday: session[:birthday],
+                       phone_number: session[:phone_number],
+                       post_number:session[:post_number], 
+                       prefecture: session[:prefecture], 
+                       city:session[:city], 
+                       street:session[:street], 
+                       building:session[:building])
     end
       if @user.save 
         if session[:password].present? && session[:password_confirmation].present?
