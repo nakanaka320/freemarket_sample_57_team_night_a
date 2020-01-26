@@ -1,4 +1,5 @@
 class SellsController < ApplicationController
+  before_action :set_sellitem, only:[:show,:edit,:destroy,:update]
 
   def index
 
@@ -21,7 +22,11 @@ class SellsController < ApplicationController
   end
 
   def show
-    @sellitem = Sellitem.includes(:images).find(params[:id])
+    @sellitem = Sellitem.find(params[:id])
+  end
+
+  def edit
+
   end
 
   def category_children  
@@ -45,6 +50,10 @@ class SellsController < ApplicationController
                                      :send_place, 
                                      :send_day, 
                                      images_attributes: [:gazou, :_destroy, :id])#, :user_id)
+  end
+
+  def set_sellitem
+    @sellitem = Sellitem.find(params[:id])
   end
 
 end

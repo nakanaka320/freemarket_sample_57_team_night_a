@@ -91,17 +91,33 @@
       }
      
       .purchase-box {
-        background-color: #e62017 ;
+        background-color: #fff ;
         width: 100%;
         text-align: center;
         a {
-          margin: 16px 0 0;
+          margin: 16px 0 ;
           color: #fff;
-          font-weight: 600;
           font-size: 24px;
-          height: 60px;
-          line-height: 60px;
+          line-height: 48px;
           text-align: center;
+        }
+        .product-edit-btn {
+          background-color: rgb(236, 22, 22) ;
+          margin: 16px 0 ;
+          color: #fff;
+          font-size: 14px;
+          line-height: 48px;
+          text-align: center;
+        }
+        .product-btn-or {
+          margin: 16px 0 ;
+          background-color: #fff ;
+        }
+        .product-stop-btn {
+          margin: 16px 0 ;
+          background-color: #aaa ;
+          color: #fff;
+          font-size: 14px;
         }
       }
       
