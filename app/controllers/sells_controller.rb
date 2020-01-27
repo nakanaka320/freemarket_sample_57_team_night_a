@@ -39,13 +39,19 @@ class SellsController < ApplicationController
 
   def update
     @sellitem = Sellitem.find(params[:id])
-    @sellitem.update(sellitem_update_params)
-    redirect_to action: :show
+    if @sellitem.update(sellitem_update_params)
+      redirect_to action: :show
+    else
+      redirect_to action: :edit
+    end
   end
 
   def destroy
-    @sellitem.destroy  #if @product.user_id == current_user.id
-    redirect_to action: :delete
+    if @sellitem.destroy  #if @product.user_id == current_user.id
+      redirect_to action: :delete
+    else
+      redirect_to action: :edit
+    end
   end
 
   def category_children  

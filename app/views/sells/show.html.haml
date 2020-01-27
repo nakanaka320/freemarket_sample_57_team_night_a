@@ -65,14 +65,14 @@
           %span.item-pricebox__tax  (税込)
           %span.item-pricebox__postage 送料込み
            
-
-          -#        -# sellitemのuser_idが、ログイン中のユーザーのidと同じならば
+          -#         user_id カラムが実装されてからコメントアウトを解除
+          -#        sellitemのuser_idが、ログイン中のユーザーのidと同じならば
           -# -if @sellitem.user_id == current_user.id
           -#   = link_to edit_sell_path(@sellitem), data: {turbolinks: false} do
           -#     .product-edit-btn 商品の編集
           -#     .product-btn-or or
           -#     .product-stop-btn 出品を一旦停止する
-          -#   = link_to sell_path(@sellitem), method: :delete, data: { turbolinks: false} do
+          -#   = link_to delete_sells_path(@sellitem), method: :delete, data: { turbolinks: false} do
           -#     .product-stop-btn この商品を削除する   
           -# -else 
           -#   -if @sellitem.present? # -if @sellitem.status == 0    statusカラムを作成後解除
@@ -84,9 +84,10 @@
             .product-edit-btn 商品の編集
             .product-btn-or or
             .product-stop-btn 出品を一旦停止する
-          = link_to  delete_sells_path(@sellitem), method: :delete, data: { turbolinks: false} do
-            .product-stop-btn この商品を削除する
-          = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"purchase_btn"
+          .product-delete-btn
+            = link_to  "この商品を削除する",{controller: "sells",action: "destroy",id: @sellitem.id}, method: :delete, data: { turbolinks: false}
+            
+          -# = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"purchase_btn"
 
 
         .item-coment
