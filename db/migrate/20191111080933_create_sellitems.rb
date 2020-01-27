@@ -6,11 +6,12 @@ class CreateSellitems < ActiveRecord::Migration[5.2]
       t.references :user,  foreign_key: true
       t.string     :text,  null:false
       t.string     :category_id
-      t.string     :condition,   null: false
-      t.string     :send_cost,   null: false
-      t.string     :send_method, null: false
-      t.string     :send_place,  null: false
-      t.string     :send_day,    null: false
+      t.integer     :condition,   null: false
+      t.integer     :send_cost,   null: false
+      t.integer     :send_method, null: false
+      t.integer     :send_place,  null: false
+      t.integer     :send_day,    null: false
+      t.integer     :status, default: 0
       t.timestamps
     end
   end
