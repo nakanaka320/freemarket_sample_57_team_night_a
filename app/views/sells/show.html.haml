@@ -40,23 +40,23 @@
             %tr
               %th 商品の状態
               %td 
-                = @sellitem.condition
+                = Condition.find(@sellitem.condition).name
             %tr
               %th 配送料の負担
               %td
-                = @sellitem.send_cost
+                = Cost.find(@sellitem.send_cost).name
             %tr
               %th 配送の方法
               %td
-                = @sellitem.send_method
+                = Post.find(@sellitem.send_method).name
             %tr
               %th 配送元の地域
               %td
-                = @sellitem.send_place
+                = Prefecture.find(@sellitem.send_place).name
             %tr
               %th 発送日の目安
               %td
-                = @sellitem.send_day
+                = Day.find(@sellitem.send_day).name
 
         .item-pricebox
           %span.item-pricebox__price
