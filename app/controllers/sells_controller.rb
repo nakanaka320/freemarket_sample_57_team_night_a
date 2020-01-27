@@ -68,7 +68,7 @@ class SellsController < ApplicationController
                                      :send_method, 
                                      :send_place, 
                                      :send_day, 
-                                     images_attributes: [:gazou, :_destroy, :id])#, :user_id)
+                                     images_attributes: [:gazou, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_sellitem
