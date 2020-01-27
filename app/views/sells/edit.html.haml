@@ -1,149 +1,166 @@
-.product-exhibit
-  =render 'users/login-header'
-  .product-exhibit-main
-    %section
-      %h2.bold
-        商品の情報の編集
-      = form_with model:@sellitem,url: sell_path, method: :patch, local: true do |f|
-        = render 'shared/error_messages', model: f.object
-        .sell-upload-box
-          %h3.bold
-            出品画像
-            %span
-              必須
-          %p
-            最大5枚までアップロードできます
-          .dropzone
-            .dropzone__container
-              = f.fields_for :image do |image|
-                .dropzone__container__dot
-                  #preview
-                  .dropzone-area
-                    = image.label :image, class: "dropzone-box", for: "upload-image__btn" do
-                      .input_area
-                        = image.file_field :image, id: "upload-image__btn", class: "upload-image", 'data-image': 0, type: "hidden", name: "product[images_attributes][0][image]"
-                      %p
-                        ドラッグアンドドロップ
-                        %br
-                        またはクリックしてファイルをダウンロード
-        .sell-content
-          .form-group#form-group-first
-            %label.bold
-              商品名
-              %span
-                必須
-            = f.text_field :name, id: "input-default",  placeholder: "商品名（必須 40文字まで)"
-          .form-group
-            %label.bold
-              商品の説明
-              %span
-                必須
-            = f.text_area :text, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
-        .sell-content.clearfix
-          %h3.sub-head
-            商品の詳細
-          .sell-form-box
-            .form-group#margin-0
-              %label.bold
-                カテゴリー
-                %span
-                  必須
-              %div
-                .select-wrap
-                  %i.fa.fa-angle-down
-                  = f.collection_select :category_id, @parents, :id, :name,{prompt: "--"},{class: "select-wrap__holder"}
-                .display_none.select-wrap
-                  %i.fa.fa-angle-down
-                  %select.select-default#category_children
-
-                .display_none.select-wrap
-                  %i.fa.fa-angle-down
-                  %select.select-default#category_grandchildren
-                  
-            .form-group
-              %label.bold
-                商品の状態
-                %span
-                  必須
-              %div
-                .select-wrap
-                  %i.fa.fa-angle-down
-                  = f.collection_select :condition, Condition.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
-        .sell-content.clearfix
-          %h3.sub-head
-            配送について
-          = link_to "?", 'https://www.mercari.com/jp/help_center/article/68/', class:"form-question" 
-          .sell-form-box
-            .form-group#margin-0
-              %label.bold
-                配送料の負担
-                %span
-                  必須
-              %div
-                .select-wrap
-                  %i.fa.fa-angle-down
-                  = f.collection_select :send_cost, Cost.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
-            .form-group
-              %label.bold
-                配送の方法
-                %span
-                  必須
-              %div
-                .select-wrap
-                  %i.fa.fa-angle-down
-                  = f.collection_select :send_method, Post.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
-            .form-group
-              %label.bold
-                発送元の地域
-                %span
-                  必須
-              %div
-                .select-wrap
-                  %i.fa.fa-angle-down
-                  = f.collection_select :send_place, Prefecture.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
-            .form-group
-              %label.bold
-                発送までの日数
-                %span
-                  必須
-              %div
-                .select-wrap
-                  %i.fa.fa-angle-down
-                  = f.collection_select :send_day, Day.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
-        .sell-content.clearfix
-          %h3.sub-head
-            販売価格(300〜9,999,999)
-          = link_to "?", 'https://www.mercari.com/jp/help_center/article/64/', class:"form-question" 
-          .sell-form-box
-            %ul
-              %li.form-group#margin-0
-                .clearfix
-                  %label.sell-price-title.bold
-                    価格
-                    %span
+.log-body
+  .log-body__container
+    =render "users/login-header"
+    .main-container
+      %section.sell-box
+        = form_with model:@sellitem,url: sell_path, method: :patch, local: true do |f|
+          .sell-box__inner
+            %h2.sell-box__inner__head
+              商品の情報を入力
+            .sell-form
+              .sell-form__upload-box
+                %h3.sell-form__upload-box__head
+                  出品画像
+                  %span.sell-form__upload-box__head__require.icon
+                    必須
+                %p.sell-form__upload-box__text
+                  最大5枚までアップロードできます
+                .sell-form__upload-box__image-upload
+                  .preview-open
+                    #image-box
+                      = f.fields_for :images do |image|
+                        .js-file_group{"data-index" => "#{image.index}"}
+                          = image.file_field :gazou, class: 'js-file'
+                          %br/
+                          %span.js-remove 削除
+            .sell-box__content
+              .content-item
+                %label.content-item__name.item
+                  商品名
+                  %span.content-item__name__require.icon
+                    必須
+                .content-item__name
+                  = f.text_field :name, class: "content-item__item-name__holder", placeholder:"商品名（必須40文字まで）", maxlength: 40
+              .content-describe
+                %label.content-describe__name.item
+                  商品の説明
+                  %span.content-describe__name__require.icon
+                    必須
+                  .select-holder
+                    .select-wrap
+                = f.text_area :text, class: "content-describe__holder", rows: 5, placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: 1000
+            .sell-box__content.show-item
+              .form-box
+                %h3.form-box__sub-head
+                  商品の詳細
+                %a.form-question
+                  = fa_icon 'question-circle'
+              .form-box-right
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    カテゴリー
+                    %span.form-box-right__info__text__require.icon
                       必須
-                  .sell-price-input
-                    ¥
-                    .sell-price-input__box
-                      = f.number_field :price, min:300, max:9999999, class: "input-default", id: "sell-price", placeholder: "例）300"
-              %li.form-group.border
-                .clearfix
-                  .sell-price-title
+                  .select-holder
+                    .select-wrap
+                      = f.label :category_id do
+                        %i.select-wrap__icon
+                          = fa_icon 'angle-down'
+                        .select-wrap__holder.select-selecter
+                          = f.collection_select :category_id, @parents, :id, :name,{prompt: "--"},{class: "select-wrap__holder"}
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    商品の状態
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :condition, Condition.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
+            .sell-box__content.show-item
+              .form-box
+                %h3.form-box__sub-head
+                  配送について
+                %a.form-question
+                  = fa_icon 'question-circle'
+              .form-box-right
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    配送料の負担
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :send_cost, Cost.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
+                  #send_m
+                    %label.form-box-right__info__text
+                      配送方法
+                      %span.form-box-right__info__text__require.icon
+                        必須
+                    .select-holder
+                      .select-wrap
+                        %i.select-wrap__icon
+                          = fa_icon 'angle-down'
+                        = f.collection_select :send_method, Post.all, :id, :name, {prompt: "--"},{class: "select-wrap__holder"}
+                .form-box-right__info
+                  %label.form-box-right__info__text
+                    発送元の地域
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :send_place, Prefecture.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
+                  .form-box-right__info
+                  %label.form-box-right__info__text
+                    発送までの日数
+                    %span.form-box-right__info__text__require.icon
+                      必須
+                  .select-holder
+                    .select-wrap
+                      %i.select-wrap__icon
+                        = fa_icon 'angle-down'
+                      = f.collection_select :send_day, Day.all, :id, :name, {prompt: "--"}, {class: "select-wrap__holder"}
+            .sell-box__content.show-item
+              .form-box
+                %h3.form-box__sub-head
+                  販売価格(300〜9,999,999)
+                %a.form-question
+                  = fa_icon 'question-circle'
+              .form-box-right
+                .form-box-right__info
+                  .info-box
+                    .price-box-left
+                      %label.left
+                        価格
+                        %span.form-box-right__info__text__require.icon
+                          必須
+                    .price-box-right
+                      .sell-price-input
+                        ¥
+                      = f.text_field :price, class: "sell-price-input__box", placeholder: "例) 300"
+                .form-box-right__input
+                  .left.fee
                     販売手数料(10%)
-                  .sell-price-input
-                    -
-                    .right
-                      #mercari_fee
-              %li.form-group.border
-                .clearfix
-                  .sell-price-title.bold
+                  .right.zeikin
+                    %span -
+                .form-box-right__info.last-info
+                  .left
                     販売利益
-                  .sell-price-input
-                    -
-                    .right
-                      #seller_gain
-        .exhibit-form
-          .sell-content.exhibit-btn
-            = f.submit "変更する", class:"button",id: "product_botton"
-            = link_to "キャンセル", root_path,class:"back-btn"
-  =render 'users/login-footer'
+                  .right.uriage
+                    %span -
+            .sell-box__content.show-item
+              .form-box-end
+                .text
+                  %p.text__conf
+                    %a.text__conf__link
+                      禁止されている出品
+                    、
+                    %a.text__conf__link
+                      行為
+                    を必ずご確認ください。
+                  %p.text__conf
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+                  %p.text__conf
+                    また、出品をもちまして
+                    %a.text__conf__link
+                      加盟店規約
+                    に同意したことになります。
+                  = f.submit "変更する", class: "text__submit-button"                    
+                = link_to mypages_path,class:"return-button" do
+                  %button.text__submit-button-return
+                    もどる
