@@ -144,16 +144,16 @@
                       .sell-price-input
                         ¥
                       = f.text_field :price, class: "sell-price-input__box", placeholder: "例) 300"
-                    .product_price-fee
-                  .form-box-right__input
-                    .left.fee
-                      販売手数料(10%)
-                      .right.zeikin
-                  .form-box-right__info.last-info
-                    .left
-                      販売利益
-                      = f.number_field :price, style: "display: none", id: "price"
-                      .right.uriage
+                .form-box-right__input
+                  .left.fee
+                    販売手数料(10%)
+                  .right.zeikin
+                    %span -
+                .form-box-right__info.last-info
+                  .left
+                    販売利益
+                  .right.uriage
+                    %span -
             .sell-box__content.show-item
               .form-box-end
                 .text

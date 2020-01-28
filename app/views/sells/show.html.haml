@@ -9,7 +9,8 @@
           .photo
             = image_tag @sellitem.images[0].gazou.url, size:"300x300"
           .mini-photo
-            = image_tag "smile.jpg", size:"60x60"
+            - if @sellitem.images[1].present?
+              = image_tag @sellitem.images[1].gazou.url, size:"60x60"
         %table
           %tbody
             %tr
@@ -30,7 +31,7 @@
             %tr
               %th カテゴリー
               %td.category
-                = @category.name
+                = Category.find(@sellitem.category_id).name
                 
             %tr
               %th ブランド
@@ -65,33 +66,26 @@
           %span.item-pricebox__tax  (税込)
           %span.item-pricebox__postage 送料込み
            
-          -#         user_id カラムが実装されてからコメントアウトを解除
-          -#        sellitemのuser_idが、ログイン中のユーザーのidと同じならば
-          -# -if @sellitem.user_id == current_user.id
-          -#   = link_to edit_sell_path(@sellitem), data: {turbolinks: false} do
-          -#     .product-edit-btn 商品の編集
-          -#     .product-btn-or or
-          -#     .product-stop-btn 出品を一旦停止する
-          -#   = link_to delete_sells_path(@sellitem), method: :delete, data: { turbolinks: false} do
-          -#     .product-stop-btn この商品を削除する   
-          -# -else 
-          -#   -if @sellitem.present? # -if @sellitem.status == 0    statusカラムを作成後解除
-          -#     = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"purchase_btn", data: {turbolinks: false}
-          -#   -else
-          -#     .product-buy-btn-sold 売り切れました
         .purchase-box
-          = link_to edit_sell_path(@sellitem), data: {turbolinks: false} do
-            .product-edit-btn 商品の編集
-            .product-btn-or or
-            .product-stop-btn 出品を一旦停止する
-          .product-delete-btn
-            = link_to  "この商品を削除する",{controller: "sells",action: "destroy",id: @sellitem.id}, method: :delete, data: { turbolinks: false}
-            
-          -# = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"purchase_btn"
+          -if @sellitem.user_id == current_user.id
+            = link_to edit_sell_path(@sellitem), data: {turbolinks: false} do
+              .product-edit-btn 商品の編集
+              .product-btn-or or
+              .product-stop-btn 出品を一旦停止する
+            .product-delete-btn
+              = link_to  "この商品を削除する",{controller: "sells",action: "destroy",id: @sellitem.id}, method: :delete, data: { turbolinks: false}   
+          -else
+            .purchase-box2
+              -# -if @sellitem.present? # -if @sellitem.status == 0    statusカラムを作成後解除
+              = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"product-purchase-btn", data: {turbolinks: false}
+              -# -else
+              -#   .product-buy-btn-sold 売り切れました
+       
 
 
         .item-coment
-          %p.item-coment__inner 新品で購入し、タンスの中で眠っていました。
+          %p.item-coment__inner
+            = @sellitem.text
         .item-button
           .item-button__left
             %button{type: "button",class:"like-button"}

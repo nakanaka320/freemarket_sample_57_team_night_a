@@ -7,7 +7,7 @@ class SellsController < ApplicationController
   end
   
   def delete
-    # 削除完了画面
+    
   end
 
   def new
@@ -28,30 +28,30 @@ class SellsController < ApplicationController
 
   def show
     @sellitem = Sellitem.find(params[:id])
-    @category= Category.find(@sellitem.category_id)
   end
 
   def edit
     @sellitem = Sellitem.find(params[:id])
-    @category= Category.find(@sellitem.category_id)
     @parents = Category.roots
   end
 
   def update
-    @sellitem = Sellitem.find(params[:id])
-    if @sellitem.update(sellitem_update_params)
+    if  params[:sellitem][:images_attributes] == nil
+      @sellitem.update(update_no_image_params)
       redirect_to action: :show
     else
-      redirect_to action: :edit
+      if @sellitem.update(sellitem_update_params)
+        redirect_to action: :show
+      else
+        redirect_to action: :edit
+      end
     end
   end
+    
 
   def destroy
-    if @sellitem.destroy  #if @product.user_id == current_user.id
-      redirect_to action: :delete
-    else
-      redirect_to action: :edit
-    end
+    @sellitem.destroy if @sellitem.user_id == current_user.id
+    redirect_to action: :delete
   end
 
   def category_children  
@@ -81,8 +81,12 @@ class SellsController < ApplicationController
     @sellitem = Sellitem.find(params[:id])
   end
 
+  def update_no_image_params
+    params.require(:sellitem).permit(:name, :text, :category_id, :price, :condition , :send_place, :send_method, :send_day, :send_cost).merge(user_id: current_user.id)
+  end
+
   def sellitem_update_params
-    params.require(:sellitem).permit(:name, :text, :category_id, :price, :condition , :send_place, :send_method, :send_day, :send_cost) #.merge(user_id: current_user.id)
+    params.require(:sellitem).permit(:name, :text, :category_id, :price, :condition , :send_place, :send_method, :send_day, :send_cost).merge(user_id: current_user.id)
   end
 
 end
