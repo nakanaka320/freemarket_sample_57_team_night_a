@@ -31,7 +31,7 @@ class Card2sController < ApplicationController
       token: params[:payjpToken])
     if @card.save
       card_information
-      redirect_to step_complet_users_path
+      redirect_to step_complet_users_path,notice: "カードを登録しました。"
     else
       redirect_to action: "step4"
     end
@@ -45,7 +45,7 @@ class Card2sController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to  card_mypages_path
+      redirect_to  card_mypages_path,notice:"カードを削除しました。"
   end
 
   def show 
