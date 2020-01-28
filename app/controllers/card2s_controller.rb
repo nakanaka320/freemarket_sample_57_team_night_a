@@ -14,7 +14,11 @@ class Card2sController < ApplicationController
 
   def new 
     card = Card2.find_by(user_id: current_user.id)
-    redirect_to action: "index" if card.present?
+    if card.present?
+      redirect_to action: 'index' 
+    else
+      redirect_to action: 'step4'
+    end
   end
 
   def create 
