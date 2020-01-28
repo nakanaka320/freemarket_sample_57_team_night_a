@@ -19,7 +19,7 @@ class SellsController < ApplicationController
   def create
     @sellitem = Sellitem.new(sellitem_params)
     if @sellitem.save
-    redirect_to root_path,notice: "#{@sellitem.name}を出品しました"
+    redirect_to root_path
     else
       @parents = Category.roots
       render :new

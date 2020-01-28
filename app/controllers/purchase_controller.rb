@@ -33,7 +33,7 @@ class PurchaseController < ApplicationController
     customer:  card.customer_id, 
     currency:  'jpy'
   )
-  redirect_to action: 'done',notice: "#{@sellitem.name}ゲットだぜ"
+  redirect_to action: 'done' 
   end
 
   private
