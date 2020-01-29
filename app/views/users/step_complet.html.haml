@@ -2,7 +2,6 @@
   .complete-body__container-2
     .complete-body__container__header
       %h1.complete-body__container__header__h1 
-        -# = image_tag "main-logo.png" , width: 240, height:70
       .progress-bar-contents
         .progress-bar
           .progress-bar__text
@@ -33,10 +32,11 @@
             完了
           .progress-bar__dot.dot-bars5
             ●
-     
+
+    
     .complete-main
       .complete-main__box
-        = render partial: "shared/flash"
+        = render partial: 'shared/flash'
         %h2.complete-main__box__text
           会員登録完了
         .complete-inner

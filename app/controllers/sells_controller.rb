@@ -51,6 +51,7 @@ class SellsController < ApplicationController
 
   def destroy
     @sellitem.destroy if @sellitem.user_id == current_user.id
+    flash[:notice]= "#{@sellitem.name}を削除しますた。"
     redirect_to action: :delete
   end
 

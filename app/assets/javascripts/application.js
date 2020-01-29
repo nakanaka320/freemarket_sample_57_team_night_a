@@ -18,6 +18,6 @@
 //= require_tree .
 
 $(function(){
-  setTimeout("$('.notice, .alert').fadeOut('slow')", 2000) 
+  setTimeout("$('.notice, .alert').fadeOut('slow')", 3000) 
 })
 
