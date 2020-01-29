@@ -33,6 +33,7 @@ class PurchaseController < ApplicationController
     customer:  card.customer_id, 
     currency:  'jpy'
   )
+  flash[:notice] = "#{@sellitem.name}をゲットしますた！"
   redirect_to action: 'done' 
   end
 

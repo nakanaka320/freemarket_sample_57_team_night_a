@@ -19,7 +19,7 @@ class SellsController < ApplicationController
   def create
     @sellitem = Sellitem.new(sellitem_params)
     if @sellitem.save
-    redirect_to root_path
+    redirect_to root_path,notice: "#{@sellitem.name}を出品しました"
     else
       @parents = Category.roots
       render :new
@@ -51,6 +51,7 @@ class SellsController < ApplicationController
 
   def destroy
     @sellitem.destroy if @sellitem.user_id == current_user.id
+    flash[:notice]= "#{@sellitem.name}を削除しますた。"
     redirect_to action: :delete
   end
 
