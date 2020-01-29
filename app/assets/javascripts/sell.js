@@ -96,7 +96,6 @@ $(function(){
     }
   });
 
-//売り上げ計算
   $(document).on('change', '#sellitem_category_id2', function(){
     var productcategory = document.getElementById('sellitem_category_id2').value;
     if (productcategory != ''){
