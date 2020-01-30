@@ -62,5 +62,8 @@ Rails.application.routes.draw do
   end
   post 'sellitem-registration'=> 'sells#create'
 
-  
+  get '/category/:id',to: 'category#category'
+  get '/category2/:id',to: 'category#category2'
+  get '/category3/:id',to: 'category#category3'
+
 end
