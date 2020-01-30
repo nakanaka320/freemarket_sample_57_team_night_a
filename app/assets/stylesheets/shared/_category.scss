@@ -3,17 +3,22 @@
   display: block;
   height: 0.5rem;
   margin: 0 auto;
-}
-.parent_top > li {/*親階層のみ幅を100%にする*/
+  position: absolute;
+  bottom: 0;
   width: 100%;
 }
-.parent_top:hover li{/*ホバーしてる時だけ姿を現す*/
-  opacity: 1;
+.parent_top > li {/*親階層のみ幅を115%にする*/
+  width: 115%;
+}
+.parent_top:hover li a{/*ホバーしてる時だけ姿を現す*/
+  display: block;
+}
+.parent_top li:hover > a {
+  background-color: red;
+  color: #fff;
 }
 /*全てのリスト・リンク共通*/
 .parent_top li {
-  opacity: 0;
-  display: block;
   list-style: none;
   position: relative;
   z-index: 100;
@@ -22,7 +27,7 @@
 .parent_top li a {
   background: #fff;
   color: #001b34;
-  display: block;
+  display: none;
   height: 2rem;
   line-height: 2rem;
   text-align: center;
@@ -30,7 +35,7 @@
   width: 200px;
   font-size: 14px;
   font-weight: normal;
-}
+} 
 /*子階層以降共通*/
 .parent_top li li {
   height: 0;

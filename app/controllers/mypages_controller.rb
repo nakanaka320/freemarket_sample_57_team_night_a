@@ -1,6 +1,7 @@
 class MypagesController < ApplicationController
   def index
     @user = current_user
+    @parents = Category.roots.order("id ASC").limit(13)
   end
 
   def profile
