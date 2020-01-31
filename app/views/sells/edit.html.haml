@@ -3,7 +3,7 @@
     =render "users/login-header"
     .main-container
       %section.sell-box
-        = form_with model:@sellitem, url: sellitem_registration_path, method: :post, local: true do |f|
+        = form_with model:@sellitem,url: sell_path, method: :patch, local: true do |f|
           .sell-box__inner
             %h2.sell-box__inner__head
               商品の情報を入力
@@ -18,21 +18,11 @@
                 .sell-form__upload-box__image-upload
                   .preview-open
                     #image-box
-                      #previews
-                        - if @sellitem.persisted?
-                          - @sellitem.images.each_with_index do |image, i|
-                            = image_tag data: { index: i }, width: "100", height: '100'
                       = f.fields_for :images do |image|
                         .js-file_group{"data-index" => "#{image.index}"}
                           = image.file_field :gazou, class: 'js-file'
                           %br/
-                          %span.js-remove
-                        - if @sellitem.persisted?
-                          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                      - if @sellitem.persisted?
-                        .js-file_group{"data-index" => "#{@sellitem.images.count}"}
-                          = file_field_tag :gazou, name: "sellitem[images_attributes][#{@sellitem.images.count}][gazou]", class: 'js-file'
-                          .js-remove 削除
+                          %span.js-remove 削除
             .sell-box__content
               .content-item
                 %label.content-item__name.item
@@ -66,8 +56,7 @@
                       = f.label :category_id do
                         %i.select-wrap__icon
                           = fa_icon 'angle-down'
-                      .select-wrap__holderz
-                        .select-selecter
+                        .select-wrap__holder.select-selecter
                           = f.collection_select :category_id, @parents, :id, :name,{prompt: "--"},{class: "select-wrap__holder"}
                 .form-box-right__info
                   %label.form-box-right__info__text
@@ -143,7 +132,7 @@
                     .price-box-right
                       .sell-price-input
                         ¥
-                      = f.text_field :price, class: "sell-price-input__box", placeholder: "例) 300"
+                        = f.text_field :price, class: "sell-price-input__box", placeholder: "例) 300"
                 .form-box-right__input
                   .left.fee
                     販売手数料(10%)
@@ -171,7 +160,7 @@
                     %a.text__conf__link
                       加盟店規約
                     に同意したことになります。
-                  = f.submit "出品する", class: "text__submit-button"                    
-                = link_to mypages_path,class:"return-button" do
+                  = f.submit "変更する", class: "text__submit-button"                    
+                = link_to sell_path,class:"return-button" do
                   %button.text__submit-button-return
                     もどる
