@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     collection do
       get 'category_children' 
       get 'category_grandchildren'
+      get 'delete', to: 'sells#delete'
     end
     resources :purchase, only: [:index] do
       collection do
@@ -60,5 +61,5 @@ Rails.application.routes.draw do
     end
   end
   post 'sellitem-registration'=> 'sells#create'
-  
+
 end

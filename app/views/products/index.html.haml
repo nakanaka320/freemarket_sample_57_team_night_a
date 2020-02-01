@@ -1,3 +1,4 @@
+= render partial: 'shared/flash'
 = render 'shared/header'
 = render 'shared/sell-btn'
 .toppage-main
@@ -38,6 +39,7 @@
               = link_to "もっと見る ＞", "#"
           .pickup-contents__image
             = render partial: 'product', collection: @ladies,as: "product" 
+
             
             
     .pickup-contents

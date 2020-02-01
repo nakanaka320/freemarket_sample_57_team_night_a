@@ -1,6 +1,7 @@
 class MypagesController < ApplicationController
+  before_action :set_info
+  
   def index
-    @user = current_user
   end
 
   def profile
@@ -24,4 +25,10 @@ class MypagesController < ApplicationController
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
+
+  def set_info
+    @user = current_user
+    @parents = Category.roots.order("id ASC").limit(13)
+  end
+
 end

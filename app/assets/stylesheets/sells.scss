@@ -68,19 +68,13 @@
             position: relative;
             display: block;
             width: 620px;
-            height: 430px;
+            height: 160px;
             background-color: $background_gray;
             margin: 16px auto 0;
             border : dashed 1px $pale_gray;             
             font-family: monospace,monospace;
             flex-direction: column;
-            &__text{
-              width: 100%;
-              height: 48px;
-              line-height: 48px;
-              color: blue;
-              border-top: dashed 1px $pale_gray;
-            }
+          
             .js-file_group{
               display:flex;
               }
