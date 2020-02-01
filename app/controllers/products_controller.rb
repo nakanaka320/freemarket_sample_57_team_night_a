@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
     @mens= Sellitem.includes(:images).where(category_id: [*138..360]).order("created_at DESC").limit(10)
     @appliances = Sellitem.includes(:images).where(category_id: [*360..775]).order("created_at DESC").limit(10)
     @toys = Sellitem.includes(:images).where(category_id: [*776..1000]).order("created_at DESC").limit(10)
+
+    @parents = Category.roots.order("id ASC").limit(13)
   end
 
   def new

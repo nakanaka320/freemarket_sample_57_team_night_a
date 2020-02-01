@@ -62,5 +62,4 @@ Rails.application.routes.draw do
   end
   post 'sellitem-registration'=> 'sells#create'
 
-  
 end
