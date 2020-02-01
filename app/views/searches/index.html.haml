@@ -213,7 +213,6 @@
               %h2.search-result-head
                 - @sellitems.each do |item| 
                   = image_tag item.images[0].gazou.url, class:'pickup-content__img'
-                  -# %span.search-result-he
                   %figcaption.text__box 
                     %span 
                       = item.name

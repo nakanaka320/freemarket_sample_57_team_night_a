@@ -1,0 +1,271 @@
+// Place all the styles related to the searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variable.scss";
+
+.top-head{
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  z-index:2;
+  position: relative;
+}
+
+#backwall{
+  height: 100%;
+  width: 100%;
+  background-color: $background_gray;
+  padding-bottom:40px;
+  padding-top: 10px;
+  margin: auto;
+  .search-container{
+    margin: 40px 220px;
+    display: flex;
+
+    .left-side{
+      width: 280px;
+      margin: 0 40px 0 0;
+      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      
+      .search-form{
+        &__keyword{
+          background-color: $white;
+          width: 100%;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    .search-dropdown-content{
+      position: static;
+      display: block;
+      position: static;
+      display: block;
+      margin: 40px 0 0;
+      background-color: $white;
+      padding: 16px;
+      color: $black;
+
+      &__title{
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .search-group{
+        margin: 24px 0 0;
+
+        &__icon{
+          color:$button-gray;
+          font-size: 20px;
+        }
+
+        &__top{
+          font-size:14px;
+          font-weight: 600;
+        }
+
+        &__text{
+          width: 100%;
+          margin: 8px 0 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+
+          &__option{
+
+          }
+        }
+        .select-price{
+          display: flex;
+
+          justify-content: space-around;
+          .number{
+            margin-top: 8px;
+            width: 45%;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            box-sizing: border-box;
+          }
+
+          .between{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+
+      .clearfix{
+        .check-list{
+          font-size:14px;
+          .checkbox-box{
+            margin: 16px 0 0;
+            display: inline-block;
+            width: 48%;
+            vertical-align: middle;
+            word-break: break-word;
+            
+            &__check{
+              transform: scale(1.5);
+            }
+            &__condition{
+              
+            }
+          }
+        }
+      }
+      .search-button{
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        .search-button-reset{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .search-button-submit{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    // .right-side{
+    //   color: $black;
+    //   width: 700px;
+    //   .right-side__title{
+    //     margin: 0 0 16px;
+    //     font-size: 22px;
+    //     font-weight: bold;
+    //   }
+    //   .itembox-content{
+    //     width: auto;
+    //     margin: 0 auto;
+    //     &__image-box{
+    //       margin: 0 20px 20px 0;
+    //       width: 160px;
+    //       line-height: 1.0em;
+
+    //       figure {
+    //         margin: 0;
+    //         padding: 0;
+    //         width: 160px;
+    //         height: 160px;
+    //       }
+
+          
+    //       &__photo{
+    //         width: 100%;
+    //         height: auto;
+    //       }
+    //       .photo-box{
+    //         height: 60px;
+    //         padding: 8px 12px;
+    //         width: 100%;
+    //         background-color: $white;
+    //         font-size: 14px;
+    //         font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    //         box-sizing: border-box;	
+            
+            
+    //         &__name{
+    //           font-size: 15px;
+    //           height: 1.5em;
+    //         }
+    //         .item-box-price{
+    //           display: flex;
+    //           justify-content: space-between;
+    //           &__num{
+    //           font-weight: 600;
+    //           background-color: $white;
+    //           margin-top: 2px 0 0;
+    //           font-size: 15px;
+    //           }
+    //           &__like{
+    //             // font-size:18px;
+    //             // font-weight: 00;
+
+    //             &__num{
+    //               font-size: 16px;
+    //             }
+    //           }
+    //           .heart{
+    //             font-weight: 600;
+    //             color: $button_gray;
+    //             font-size: 18px;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    .right-side{
+      color: $black;
+      width: 700px;
+      .right-side__title{
+        margin: 0 0 16px;
+        font-size: 22px;
+        font-weight: bold;
+      }
+      .search{
+        width: 900px;
+        &__container{
+          width: 160px;
+          line-height: 1.0em;
+          .items-box-container{
+            width: 900px;
+            .search-result-head{
+              width: auto;
+              .pickup-content__img{
+                margin: 0px 20px 20px 0px;
+                width: 160px;
+              }
+              .text__box{
+                box-sizing: border-box;
+                color: #222;
+                font-size: 14px;
+                height: 20%;
+                line-height: 1.4em;
+                padding: 0px 12px;
+                white-space: normal;
+                word-break: break-word;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.second-head{
+  background-color: $background-gray;
+  border-top: 1px solid #eee;
+  position: relative;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: $black;
+  font-weight: 600;
+  .second-head__box{
+    overflow: visible;
+    width: 700px;
+    margin-left: 220px;
+    padding: 16px 0;
+    white-space: normal;
+  }
+}
