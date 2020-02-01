@@ -1,0 +1,229 @@
+.top-head
+  =render "shared/header"
+.wrapper#backwall
+  .search-container
+    .left-side
+      .search-form
+        %select.search-form__keyword
+          %option.search-form__keyword___value
+            並び替え
+          %option.search-form__keyword___value
+            価格の安い順
+          %option.search-form__keyword___value
+            価格の高い順
+          %option.search-form__keyword___value
+            出品の古い順
+          %option.search-form__keyword___value
+            出品の新しい順
+          %option.search-form__keyword___value
+            いいね!の多い順
+        
+      .search-dropdown-content
+        %h3.search-dropdown-content__title
+          詳細検索
+        .search-group
+          %label.search-group__icon
+            = fa_icon 'plus'
+          %label.search-group__top
+            キーワードを追加する
+          %input.search-group__text{placeholder:"例）値下げ"}
+        .search-group
+          %label.search-group__icon
+            = fa_icon 'list-ul'
+          %label.search-group__top
+            カテゴリーを検索する
+          %select.search-group__text
+            %option.search-group__text__option
+              すべて
+            %option.search-group__text__option
+              レディース
+            %option.search-group__text__option
+              メンズ
+            %option.search-group__text__option
+              べビー・キッズ
+            %option.search-group__text__option
+              インテリア・住まい・小物
+            %option.search-group__text__option
+              本・音楽・ゲーム
+            %option.search-group__text__option
+              おもちゃ・ホビー・グッズ
+            %option.search-group__text__option
+              コスメ・香水・美容
+            %option.search-group__text__option
+              家電・スマホ・カメラ
+            %option.search-group__text__option
+              スポーツ・レジャー
+            %option.search-group__text__option
+              ハンドメイド
+            %option.search-group__text__option
+              チケット
+            %option.search-group__text__option
+              自動車・オートバイ
+            %option.search-group__text__option
+              その他
+
+        .search-group
+          %label.search-group__icon
+            = fa_icon 'tag'
+          %label.search-group__top
+            ブランド名から探す
+          %input.search-group__text{placeholder:"例）シャネル"}
+        .search-group
+          %label.search-group__icon
+            = fa_icon 'arrows-alt'
+          %label.search-group__top
+            サイズを指定する
+          %select.search-group__text
+            %option.search-group__text__option
+              すべて
+            %option.search-group__text__option
+              洋服のサイズ
+            %option.search-group__text__option
+              メンズ靴のサイズ
+            %option.search-group__text__option
+              レディース靴のサイズ
+            %option.search-group__text__option
+              スカートのサイズ
+            %option.search-group__text__option
+              キッズ服のサイズ
+            %option.search-group__text__option
+              ベビー・キッズ靴のサイズ
+            %option.search-group__text__option
+              ベビー服のサイズ
+            %option.search-group__text__option
+              テレビのサイズ
+            %option.search-group__text__option
+              カメラレンズのサイズ
+            %option.search-group__text__option
+              オートバイのサイズ
+            %option.search-group__text__option
+              ヘルメットのサイズ
+            %option.search-group__text__option
+              タイヤのサイズ
+            %option.search-group__text__option
+              スキーのサイズ
+            %option.search-group__text__option
+              スノーボードのサイズ
+
+        .search-group
+          %label.search-group__icon
+            = fa_icon 'money'
+          %label.search-group__top
+            価格
+          %select.search-group__text
+            %option.search-group__text__option
+              選択してください
+            %option.search-group__text__option
+              300 ~ 1000
+            %option.search-group__text__option
+              1000 ~ 5000
+            %option.search-group__text__option
+              5000 ~ 10000
+            %option.search-group__text__option
+              10000 ~ 30000
+            %option.search-group__text__option
+              30000 ~ 50000
+            %option.search-group__text__option
+              50000 ~
+          .select-price
+            %input.number{placeholder:"¥ Min"}
+            %span.between ~
+            %input.number{placeholder:"¥ Max"}
+        .search-group.clearfix
+          %label.search-group__icon
+            = fa_icon 'star'
+          %label.search-group__top
+            商品の状態
+          .check-list
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox",class:"aaa"}
+              %label.checkbox-box__condition
+                すべて
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                新品、未使用品
+
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                未使用に近い
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                目立った傷や汚れなし
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                やや傷や汚れあり
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                全体的に状態が悪い
+            
+        .search-group.clearfix
+          %label.search-group__icon
+            = fa_icon 'truck'
+          %label.search-group__top
+            配送料の負担
+          .check-list
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.check-box__condition
+                すべて
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                着払い(購入者負担)
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                送料込み(出品者負担)
+        .search-group.clearfix
+          %label.search-group__icon
+            = fa_icon 'shopping-cart'
+          %label.search-group__top
+            販売状況
+          .check-list
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                すべて
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                販売中
+            .checkbox-box
+              %input.checkbox-box__check{type: "checkbox"}
+              %label.checkbox-box__condition
+                売り切れ
+        .search-button
+          .search-button-reset
+            クリア
+          .search-button-submit
+            完了
+    .right-side
+      %span.right-side__title
+        = @search
+        の検索結果
+      .search
+        .search__container
+          %section.items-box-container
+            -if @search.present?
+              %h2.search-result-head
+                - @sellitems.each do |item| 
+                  = image_tag item.images[0].gazou.url, class:'pickup-content__img'
+                  -# %span.search-result-he
+                  %figcaption.text__box 
+                    %span 
+                      = item.name
+              .search-result-number
+                ="1-#{@sellitems.count}件表示"
+            -else
+              %h2.search-result-nil
+                新着商品
+.second-head
+  .second-head__box
+    メルカリ
+.last-footer
+  = render "shared/footer"
