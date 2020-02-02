@@ -119,6 +119,7 @@ $(function(){
   });
 });
 
+//売り上げ計算
 $(function(){
   $('.sell-price-input__box').on('input', function(){ 
     var data = $('.sell-price-input__box').val(); 

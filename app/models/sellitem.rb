@@ -1,7 +1,7 @@
 class Sellitem < ApplicationRecord
   belongs_to :user
   has_many :comments
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :brand, optional: true
   belongs_to :category, optional: true
 

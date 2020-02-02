@@ -146,109 +146,45 @@
       }
     }
 
-    // .right-side{
-    //   color: $black;
-    //   width: 700px;
-    //   .right-side__title{
-    //     margin: 0 0 16px;
-    //     font-size: 22px;
-    //     font-weight: bold;
-    //   }
-    //   .itembox-content{
-    //     width: auto;
-    //     margin: 0 auto;
-    //     &__image-box{
-    //       margin: 0 20px 20px 0;
-    //       width: 160px;
-    //       line-height: 1.0em;
-
-    //       figure {
-    //         margin: 0;
-    //         padding: 0;
-    //         width: 160px;
-    //         height: 160px;
-    //       }
-
-          
-    //       &__photo{
-    //         width: 100%;
-    //         height: auto;
-    //       }
-    //       .photo-box{
-    //         height: 60px;
-    //         padding: 8px 12px;
-    //         width: 100%;
-    //         background-color: $white;
-    //         font-size: 14px;
-    //         font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-    //         box-sizing: border-box;	
-            
-            
-    //         &__name{
-    //           font-size: 15px;
-    //           height: 1.5em;
-    //         }
-    //         .item-box-price{
-    //           display: flex;
-    //           justify-content: space-between;
-    //           &__num{
-    //           font-weight: 600;
-    //           background-color: $white;
-    //           margin-top: 2px 0 0;
-    //           font-size: 15px;
-    //           }
-    //           &__like{
-    //             // font-size:18px;
-    //             // font-weight: 00;
-
-    //             &__num{
-    //               font-size: 16px;
-    //             }
-    //           }
-    //           .heart{
-    //             font-weight: 600;
-    //             color: $button_gray;
-    //             font-size: 18px;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
     .right-side{
       color: $black;
       width: 700px;
+      display: flex;
       .right-side__title{
         margin: 0 0 16px;
         font-size: 22px;
         font-weight: bold;
-      }
-      .search{
-        width: 900px;
-        &__container{
-          width: 160px;
-          line-height: 1.0em;
-          .items-box-container{
-            width: 900px;
-            .search-result-head{
-              width: auto;
-              .pickup-content__img{
-                margin: 0px 20px 20px 0px;
-                width: 160px;
-              }
-              .text__box{
-                box-sizing: border-box;
-                color: #222;
-                font-size: 14px;
-                height: 20%;
-                line-height: 1.4em;
-                padding: 0px 12px;
-                white-space: normal;
-                word-break: break-word;
+        .search{
+          width: auto;
+          margin: 0 auto;
+          &__container{
+            margin: 0 20px 20px 0;
+            width: 160px;
+            line-height: 1.0em;
+            .items-box-container{
+              .search-result-head{
+                .pickup-content__link{
+                  display: inline-block;
+                  .pickup-content__img{
+                    margin: 0px 20px 20px 0px;
+                    padding: 10px 0px 10px 0px;
+                    width: 160px;
+                  }
+                  .text__box-name{
+                    box-sizing: border-box;
+                    color: #222;
+                    font-size: 14px;
+                    height: 20%;
+                    line-height: 1.4em;
+                    padding: 0px 12px;
+                    white-space: normal;
+                    word-break: break-word;
+                }
               }
             }
           }
         }
+      }
       }
     }
   }

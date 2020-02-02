@@ -206,21 +206,22 @@
       %span.right-side__title
         = @search
         の検索結果
-      .search
-        .search__container
-          %section.items-box-container
-            -if @search.present?
-              %h2.search-result-head
-                - @sellitems.each do |item| 
-                  = image_tag item.images[0].gazou.url, class:'pickup-content__img'
-                  %figcaption.text__box 
-                    %span 
-                      = item.name
-              .search-result-number
-                ="1-#{@sellitems.count}件表示"
-            -else
-              %h2.search-result-nil
-                新着商品
+        .search
+          .search__container
+            .items-box-container
+              -if @search.present?
+                %h2.search-result-head
+                  - @sellitems.each do |item| 
+                    = link_to sell_path(item.id), class:'pickup-content__link' do
+                      %figcaption.text__box 
+                        = image_tag item.images[0].gazou.url, class:'pickup-content__img'
+                        .text__box-name
+                          = item.name
+                .search-result-number
+                  ="1-#{@sellitems.count}件表示"
+              -else
+                %h2.search-result-nil
+                  新着商品
 .second-head
   .second-head__box
     メルカリ
