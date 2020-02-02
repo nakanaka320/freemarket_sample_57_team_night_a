@@ -215,6 +215,8 @@
                     = link_to sell_path(item.id), class:'pickup-content__link' do
                       %figcaption.text__box 
                         = image_tag item.images[0].gazou.url, class:'pickup-content__img'
+                        .text__box-price
+                          = item.price
                         .text__box-name
                           = item.name
                 .search-result-number
