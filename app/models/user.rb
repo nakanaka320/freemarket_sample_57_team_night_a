@@ -6,6 +6,10 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable,
           :omniauthable,omniauth_providers: [:facebook, :google_oauth2] #oauth用モジュール
   
+  def already_liked?(sellitem)
+    self.likes.exists?(sellitem_id: sellitem.id)
+  end
+  
   def self.find_oauth(auth)        
     uid = auth.uid
     provider = auth.provider
@@ -42,9 +46,11 @@ class User < ApplicationRecord
 
   has_many :comments ,dependent: :destroy
   has_many :goods ,dependent: :destroy
-  has_many :sellitems
+  has_many :sellitems, dependent: :destroy
   has_many :buyitems
   has_many :card2s
+  has_many :likes, dependent: :destroy
+  has_many :liked_sellitems, through: :likes, source: :sellitem
 
   validates :nickname,presence: true,
   length: { maximum: 8}
