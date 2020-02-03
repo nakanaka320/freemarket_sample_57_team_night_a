@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # devise_for :installs
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "products#index"
-
+  resources :searches,only:[:index]
   resources :mypages, only: [:index] do
     collection do
       get 'profile', to:'mypages#profile'
