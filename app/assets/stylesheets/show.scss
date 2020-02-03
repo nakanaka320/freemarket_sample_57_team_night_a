@@ -161,7 +161,10 @@
       }
       .item-button {
         margin: 16px 0 0;
+        display: flex;
+        justify-content: space-between;
         &__left {
+          display: flex;
           float: left;
           font-size: 14px;
           button, a {
