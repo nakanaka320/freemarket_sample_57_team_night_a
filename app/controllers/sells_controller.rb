@@ -30,9 +30,8 @@ class SellsController < ApplicationController
     @sellitem = Sellitem.find(params[:id])
     @parents = Category.roots.order("id ASC").limit(13)
 
-    @like = Like.new
-    @likes = Like.where(sellitem_id:@sellitem.id).count
-
+    @likes_count = @sellitem.likes.length
+ 
   end
 
   def edit

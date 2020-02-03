@@ -88,20 +88,9 @@
         .item-button
           .item-button__left
             .like-button-area
-              
-              %h3
-                =  "いいね件数:#{@likes}"                 
-              - if current_user.already_liked?(@sellitem)
-                = button_to  sell_like_path(@sellitem), method: :delete,class: "like-button" do
-                  = fa_icon "heart"
-                  %span 
-                    いいねを取り消す
-              - else
-                = button_to  sell_likes_path(@sellitem),class: "like-button" do
-                  = fa_icon "heart"
-                  %span 
-                    いいね
-              
+              #likes
+                = render partial: "sells/likes",locals: {sellitem: @sellitem}
+
             = link_to "#",class:"report" do
               = fa_icon "flag"
               %span 不適切な商品の報告

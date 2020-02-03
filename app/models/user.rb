@@ -6,9 +6,9 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable,
           :omniauthable,omniauth_providers: [:facebook, :google_oauth2] #oauth用モジュール
   
-  def already_liked?(sellitem)
-    self.likes.exists?(sellitem_id: sellitem.id)
-  end
+  # def already_liked?(sellitem)
+  #   self.likes.exists?(sellitem_id: sellitem.id)
+  # end
   
   def self.find_oauth(auth)        
     uid = auth.uid
