@@ -4,12 +4,12 @@
 %ul.parent_top
   - @parents.each do |parent|
     %li
-      = link_to "#{parent.name}"
+      = link_to "#{parent.name}", controller: "products", action: "category", id: "#{parent.id}"
       %ul
         - parent.children.each do |child|
           %li
-            = link_to "#{child.name}"
+            = link_to "#{child.name}", controller: "products", action: "category", id: "#{parent.id}"
             %ul
               - child.children.each do |grandchild|
                 %li
-                  = link_to "#{grandchild.name}"
+                  = link_to "#{grandchild.name}", controller: "products", action: "category", id: "#{parent.id}"

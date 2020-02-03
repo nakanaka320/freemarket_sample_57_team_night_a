@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get 'edit', to: 'products#edit'
     end
   end
+  get '/category/:id', to: 'products#category'
 
   resources :users do
     collection do

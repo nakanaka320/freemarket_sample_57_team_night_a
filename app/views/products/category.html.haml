@@ -1,0 +1,47 @@
+.product-category
+  = render 'shared/header'
+  = render 'shared/sell-btn'
+  .category-toppage-main
+    .pickup-container
+      .category-pickup-header
+        .pickup-header__category
+          %ul
+            = link_to "#" do
+              %li
+                アクセサリー
+              %li
+                パンツ
+              %li
+                トップス
+              %li
+                ワンピース
+              %li
+                靴
+              %li
+                ジャケット/アウター
+              %li
+                小物
+              %li
+                スーツ/フォーマル/ドレス
+              %li
+                バッグ
+      .pickup-contents
+        .pickup-content
+          .pickup-content__img
+          .pickup-content__text__box
+        .pickup-content__price-box
+          .pickup-contents-box
+            .category-contents-box
+              .pickup-contents__header
+                .pickup-contents__header-name
+                  #{@categories.name}の商品一覧
+              .pickup-contents__image
+                = render partial: "product", collection: @ladies ,as: "product"
+            
+      .category-ladies-btn #{@categories.name}
+      .category-ladies-pickup-content
+        .category-ladies-pickup-content-box
+          %span #{@categories.name}の着ない服、いらない洋服を売るならメルカリへ。#{@categories.name}の商品は100万点以上あります。人気のあるカテゴリーはチャームとカジュアルパンツです。人気の商品は「ドールチャーム」や「フォロワー様限定♡個性派韓国ファッション♡長さ調節ok!カジュアルパンツ」があります。#{@categories.name}の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
+
+
+  = render 'shared/footer'
