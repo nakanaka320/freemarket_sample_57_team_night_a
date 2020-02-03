@@ -88,8 +88,7 @@
         .item-button
           .item-button__left
             .like-button-area
-              #likes
-                = render partial: "sells/likes",locals: {sellitem: @sellitem}
+              = render partial: "sells/likes",locals: {sellitem: @sellitem}
 
             = link_to "#",class:"report" do
               = fa_icon "flag"
