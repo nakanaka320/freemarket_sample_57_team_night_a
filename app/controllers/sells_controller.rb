@@ -31,6 +31,7 @@ class SellsController < ApplicationController
     @parents = Category.roots.order("id ASC").limit(13)
 
     @like = Like.new
+    @likes = Like.where(sellitem_id:@sellitem.id).count
 
   end
 
