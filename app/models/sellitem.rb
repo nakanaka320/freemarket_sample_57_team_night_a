@@ -12,4 +12,9 @@ class Sellitem < ApplicationRecord
   end
 
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  def self.search(search)
+    return Sellitem.all unless search
+    Sellitem.where(['name LIKE ?', "%#{search}%"])
+  end
 end
