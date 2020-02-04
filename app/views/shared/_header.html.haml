@@ -2,7 +2,7 @@
   .header-top
     %h1
       = link_to root_path do
-        = image_tag "main-logo.png" , width: 240, height:70
+        = image_tag "main-logo.png",class: "main-logo"
     .fuzzy_search
       = form_tag(searches_path,method: :get) do
         %label.fuzzy_search__label
