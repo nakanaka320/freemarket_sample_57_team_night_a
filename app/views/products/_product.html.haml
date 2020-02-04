@@ -12,3 +12,7 @@
       %figcaption.text__box 
         %span 
           = product.name
+        .like-zone
+          %span.like-count
+            = fa_icon "heart",id:"l-btn-grey"
+            = product.likes.length

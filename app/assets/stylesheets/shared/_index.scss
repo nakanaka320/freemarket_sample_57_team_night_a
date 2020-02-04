@@ -124,13 +124,20 @@
                 padding: 0px 12px;
                 white-space: normal;
                 word-break: break-word;
-
-                .span{
+                span{
                   display: inline-block;
                   height: 2.8em;
                   overflow: hidden;
                   position: relative;
-                  
+                }
+                .like-zone {
+                  position: absolute;
+                  right: 12px;
+                  bottom: -25px;
+                  padding-left: 32px;
+                  #l-btn-grey {
+                    color: rgb(187, 184, 184);
+                  }
                 }
               }
             }
