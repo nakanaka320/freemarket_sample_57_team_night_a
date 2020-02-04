@@ -5,10 +5,9 @@ class Sellitem < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :category, optional: true
 
-  has_many :likes
-  has_many :liked_users, through: :likes, source: :user
+  has_many :likes, dependent: :destroy
   
-  def liked?(user)
+  def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
 

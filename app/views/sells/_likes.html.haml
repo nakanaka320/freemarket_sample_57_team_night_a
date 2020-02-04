@@ -1,13 +1,11 @@
-#likes
-  =  "いいね件数:#{@likes_count}"                 
-  - if sellitem.liked?(current_user)
-    - binding.pry
-    = button_to  sell_like_path(sellitem), method: :delete,class: "like-button",remote: true do
-      = fa_icon "heart"
-      %span
-        いいねをもみ消す
-  - else
-    = button_to  sell_likes_path(sellitem),class: "like-button",remote: true do
-      = fa_icon "heart"
-      %span
-        いいね
+=  "いいね件数:#{@likes_count}"
+- if sellitem.liked_by?(current_user)
+  = button_to  sell_like_path(sell_id:sellitem.id,id:current_user.id), method: :delete,class: "like-button",remote: true do
+    = fa_icon "heart"
+    %span
+      いいねをもみ消す
+- else
+  = button_to  sell_likes_path(sell_id:sellitem.id,id:current_user.id), method: :post,class: "like-button",remote: true do
+    = fa_icon "heart"
+    %span
+      いいね
