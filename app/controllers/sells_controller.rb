@@ -1,7 +1,7 @@
 class SellsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_sellitem, only:[:show,:edit,:destroy,:update]
-
+ 
   def index
 
   end
@@ -25,9 +25,11 @@ class SellsController < ApplicationController
       render :new
     end
   end
-
+ 
   def show
     @sellitem = Sellitem.find(params[:id])
+    @parents = Category.roots.order("id ASC").limit(13)
+
   end
 
   def edit

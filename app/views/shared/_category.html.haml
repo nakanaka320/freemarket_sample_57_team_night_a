@@ -1,0 +1,15 @@
+= link_to "#",class: "category-choice" do
+  = fa_icon 'list-ul', class: "icon-red"
+  %span カテゴリーから探す
+%ul.parent_top
+  - @parents.each do |parent|
+    %li
+      = link_to "#{parent.name}", controller: "products", action: "category", id: "#{parent.id}"
+      %ul
+        - parent.children.each do |child|
+          %li
+            = link_to "#{child.name}", controller: "products", action: "category", id: "#{parent.id}"
+            %ul
+              - child.children.each do |grandchild|
+                %li
+                  = link_to "#{grandchild.name}", controller: "products", action: "category", id: "#{parent.id}"

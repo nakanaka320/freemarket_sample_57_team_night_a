@@ -1,12 +1,18 @@
 .header {
   background: #fff;
-  
+  width: 100%;
+  &__center {
+    width:1020px;
+    text-align: center;
+    margin: 0 auto;
+  }
   // ヘッダー上半分
   .header-top {
-    width:70%;
+    width:100%;
     margin: 0 auto;
     padding: 10px;
     display:flex;
+    background-color: #fff;
     h1 {
       margin-right: 50px;
     }
@@ -46,11 +52,11 @@
       }
     }
   }
-
+ 
   // ヘッダー下半分
   .header-bottom {
-    width: 72%;
-    margin: 0 auto;
+    width: 1000px;
+    margin-left: 100px ;
     padding: 0px 10px 10px;
     justify-content: space-between;
     display: flex;
@@ -74,6 +80,7 @@
           color: #0099e8;
         }
       }
+      
     }
     &__right {
       ul {
