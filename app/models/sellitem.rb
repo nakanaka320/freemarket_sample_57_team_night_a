@@ -17,4 +17,8 @@ class Sellitem < ApplicationRecord
     return Sellitem.all unless search
     Sellitem.where(['name LIKE ?', "%#{search}%"])
   end
+
+  validates_associated :images
+  validates :price, numericality: { only_integer: true }
+  validates :images, :name, :text, :condition, :send_cost, :send_method, :send_place, :send_day, :category_id, presence: {message: "空欄を埋めてください"}
 end

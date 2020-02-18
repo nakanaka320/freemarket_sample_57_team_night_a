@@ -116,11 +116,6 @@ class UsersController < ApplicationController
         city: p_city,
         street: p_street,
         building: p_building)
-        #　　このカラムは残しておく
-        # prefecture: "未記入",
-        # city: "未記入",
-        # street: "未記入",
-        # building: "未記入")
     end
 
     if @user.valid?(:hoge)
