@@ -1,21 +1,19 @@
 //画像投稿
 $(document).on('turbolinks:load', ()=> { 
-  const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group">
-                    <input class="js-file" type="file"
-                    name="sellitem[images_attributes][${num}][gazou]"
-                    id="sellitem_images_attributes_${num}_gazou"><br>
-                    <div class="js-remove">削除</div>
-                  </div>`;
-    return html;
-  }
-  const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="123px" height="100px">`;
+
+  const buildImg = (index, url, num)=> {
+    const html = `<span class="js-file_group_box_content">
+                    <img data-index="${index},${num}" src="${url}" width="110px" height="100px">
+                      <div class="js-room">
+                        <span class="js-edit">編集</span>
+                        <span class="js-remove">削除</span>
+                      </div>
+                  </span>`;
     return html;
   }
 
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
-  lastIndex = $('.js-file_group:last').data('index');
+  lastIndex = $('.js-file_group_box:last').data('index');
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
@@ -28,14 +26,16 @@ $(document).on('turbolinks:load', ()=> {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else { 
-      $('#previews').append(buildImg(targetIndex, blobUrl));
-      $('#image-box').append(buildFileField(fileIndex[0]));
+      $('.js-file_group_box').append(buildImg(targetIndex, blobUrl,fileIndex[0]));
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
-
-  $('#image-box').on('click', '.js-remove', function() {
+  
+//削除
+  $(document).on('click', '.js-room', function(e) {
+    e.stopPropagation();
+    console.log(this)
     const targetIndex = $(this).parent().data('index');
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     if (hiddenCheck) hiddenCheck.prop('checked', true);

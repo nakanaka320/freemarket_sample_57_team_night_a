@@ -4,6 +4,7 @@
     .main-container
       %section.sell-box
         = form_with model:@sellitem, url: sellitem_registration_path, method: :post, local: true do |f|
+          = render "shared/sellitem_error_messages", model: f.object
           .sell-box__inner
             %h2.sell-box__inner__head
               商品の情報を入力
@@ -17,22 +18,15 @@
                   最大5枚までアップロードできます
                 .sell-form__upload-box__image-upload
                   .preview-open
+                    ここの枠の中をクリック
+                  = f.fields_for :images do |image|
                     #image-box
                       #previews
-                        - if @sellitem.persisted?
-                          - @sellitem.images.each_with_index do |image, i|
-                            = image_tag data: { index: i }, width: "100", height: '100'
-                      = f.fields_for :images do |image|
-                        .js-file_group{"data-index" => "#{image.index}"}
-                          = image.file_field :gazou, class: 'js-file'
-                          %br/
-                          %span.js-remove
-                        - if @sellitem.persisted?
-                          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                      - if @sellitem.persisted?
-                        .js-file_group{"data-index" => "#{@sellitem.images.count}"}
-                          = file_field_tag :gazou, name: "sellitem[images_attributes][#{@sellitem.images.count}][gazou]", class: 'js-file'
-                          .js-remove 削除
+                        .js-file_field
+                          .js-file_group
+                            .js-file_group_box
+                              .js-file_group_box_room{"data-index" => "#{image.index}"}
+                                = image.file_field :gazou, class: 'js-file'
             .sell-box__content
               .content-item
                 %label.content-item__name.item
