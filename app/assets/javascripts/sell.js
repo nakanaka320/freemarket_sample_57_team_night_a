@@ -35,7 +35,6 @@ $(document).on('turbolinks:load', ()=> {
 //削除
   $(document).on('click', '.js-room', function(e) {
     e.stopPropagation();
-    console.log(this)
     const targetIndex = $(this).parent().data('index');
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     if (hiddenCheck) hiddenCheck.prop('checked', true);
