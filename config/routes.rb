@@ -60,6 +60,7 @@ Rails.application.routes.draw do
         get 'done', to: 'purchase#done'
       end
     end
+    resources :likes, only: [:create, :destroy]
   end
   post 'sellitem-registration'=> 'sells#create'
 

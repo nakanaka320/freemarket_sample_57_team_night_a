@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_18_120639) do
+ActiveRecord::Schema.define(version: 2020_02_02_104452) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -121,6 +121,15 @@ ActiveRecord::Schema.define(version: 2020_01_18_120639) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "sellitem_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sellitem_id"], name: "index_likes_on_sellitem_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -137,6 +146,7 @@ ActiveRecord::Schema.define(version: 2020_01_18_120639) do
     t.integer "send_method", null: false
     t.integer "send_place", null: false
     t.integer "send_day", null: false
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sellitems_on_user_id"
@@ -192,6 +202,8 @@ ActiveRecord::Schema.define(version: 2020_01_18_120639) do
   add_foreign_key "goods", "buyitems"
   add_foreign_key "goods", "sellitems"
   add_foreign_key "goods", "users"
+  add_foreign_key "likes", "sellitems"
+  add_foreign_key "likes", "users"
   add_foreign_key "sellitems", "users"
   add_foreign_key "sns_credentials", "users"
 end

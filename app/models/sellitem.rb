@@ -5,6 +5,12 @@ class Sellitem < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :category, optional: true
 
+  has_many :likes, dependent: :destroy
+  
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
+
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def self.search(search)
