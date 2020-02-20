@@ -37,10 +37,7 @@
     .adress-main
       .adress-main
         = form_with model:@user, url: registration_step3_users_path(@user), method: :post, local: true do |f|
-          -# - if @user.errors.any?
           .adress-main__box
-            - @user.errors.full_messages.each do |message|
-              %li= message
             %h2.adress-main__box__text
               住所入力
             .adress-inner
