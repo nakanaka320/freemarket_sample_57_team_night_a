@@ -205,22 +205,28 @@
     .right-side
       %span.right-side__title
         = @search
-        の検索結果
+        %span.right-side__title__text
+          の検索結果
         .search
           .search__container
             .items-box-container
               -if @search.present?
+                .search-result-number
+                  ="1-#{@sellitems.count}件表示"
                 %h2.search-result-head
                   - @sellitems.each do |item| 
                     = link_to sell_path(item.id), class:'pickup-content__link' do
-                      %figcaption.text__box 
+                      %figcaption.search-imgbox
                         = image_tag item.images[0].gazou.url, class:'pickup-content__img'
                         .text__box-price
                           = item.price
                         .text__box-name
-                          = item.name
-                .search-result-number
-                  ="1-#{@sellitems.count}件表示"
+                          .text__box-name__text
+                            = item.name
+                          %span.like-count
+                            = fa_icon "heart",id:"l-btn-grey"
+                            = item.likes.length
+                             
               -else
                 %h2.search-result-nil
                   新着商品

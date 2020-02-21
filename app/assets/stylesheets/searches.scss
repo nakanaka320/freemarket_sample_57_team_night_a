@@ -14,9 +14,9 @@
   padding-top: 10px;
   margin: auto;
   .search-container{
-    margin: 40px 220px;
+    margin: 40px auto 0;
     display: flex;
-
+    width: 1020px;
     .left-side{
       width: 280px;
       margin: 0 40px 0 0;
@@ -77,14 +77,9 @@
           line-height: 1.5;
           font-size: 16px;
           box-sizing: border-box;
-
-          &__option{
-
-          }
         }
         .select-price{
           display: flex;
-
           justify-content: space-around;
           .number{
             margin-top: 8px;
@@ -98,7 +93,6 @@
             font-size: 16px;
             box-sizing: border-box;
           }
-
           .between{
             display: flex;
             align-items: center;
@@ -116,12 +110,8 @@
             width: 48%;
             vertical-align: middle;
             word-break: break-word;
-            
             &__check{
               transform: scale(1.5);
-            }
-            &__condition{
-              
             }
           }
         }
@@ -151,6 +141,10 @@
         margin: 0 0 16px;
         font-size: 22px;
         font-weight: bold;
+        &__text{
+          font-size: 18px;
+          font-weight: normal;
+        }
         .search{
           width: auto;
           margin: 0 auto;
@@ -160,20 +154,30 @@
             line-height: 1.0em;
             display: contents;
             .items-box-container{
+              .search-result-number{
+                font-size: 12px;
+              }
               .search-result-head{
+                width: auto;
+                margin:0 auto;
+                display: flex;
                 .pickup-content__link{
-                  display: inline-block;
-                  justify-content: space-between;
-                  margin: 0px 20px 20px 0px;
+                  margin: 0 20px 20px 0;
+                  width: 160px;
                   position: relative;
-                  .text__box{
-                    width: 130px;
-                  .pickup-content__img{
-                    margin: 0px 20px 0px 0px;
-                    padding: 10px 0px 0px 0px;
-                    width: 130px;
+                  .search-imgbox{
+                    width: 100%;
+                    img {
+                      width:160px;
+                      height:160px;
+                    }
+                    .pickup-content__img{
+                      margin: 0px 20px 0px 0px;
+                      padding: 10px 0px 0px 0px;
+                      width: 100%;
+                      position: relative;
+                    }
                   }
-                }
                   .text__box-price{
                     border-radius: 0 16px 16px 0;
                     font-weight: 600;
@@ -182,25 +186,44 @@
                     font-size: 15px;
                     width: 60px;
                     position: absolute;
-                    bottom: 35px;
+                    bottom: 65px;
+                    padding: 4px 12px 4px 8px;
                   }
                   .text__box-name{
-                    box-sizing: border-box;
-                    color: #222;
-                    font-size: 20px;
-                    height: 20%;
-                    line-height: 1.4em;
-                    padding: 0px 12px;
-                    white-space: normal;
-                    word-break: break-word;
-                    background-color: mintcream;
-                    overflow: hidden;
+                    position: relative;
+                    height: 58px;
+                    padding: 8px 12px;
+                    background-color: white;
+                    .text__box-name__text{
+                      overflow: hidden;
+                      position: relative;
+                      font-weight: 400;
+                      height: 3em;
+                      line-height: 1.5;
+                      word-break: break-word;
+                      white-space: normal;
+                      font-size: 14px;
+                    } 
+                    .like-count{
+                      position: absolute;
+                      right: 12px;
+                      bottom: 3px;
+                      padding-left: 32px;
+                      font-size: 16px;
+                      font-weight: 400;
+                      color: #333;
+                      background: linear-gradient(to right, rgba(255,255,255,0), #fff 24px);
+                      #l-btn-grey{
+                        color: grey;
+                      }
+                    }
+                  }
+                  
                 }
               }
             }
           }
         }
-      }
       }
     }
   }
