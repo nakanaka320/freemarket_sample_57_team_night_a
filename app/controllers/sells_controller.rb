@@ -18,11 +18,13 @@ class SellsController < ApplicationController
 
   def create
     @sellitem = Sellitem.new(sellitem_params)
+    @sellitem.valid?
     if @sellitem.save
     redirect_to root_path,notice: "#{@sellitem.name}を出品しました"
     else
       @parents = Category.roots
-      render :new
+      @sellitem.errors.messages
+      render 'sells/new'
     end
   end
  
@@ -30,6 +32,8 @@ class SellsController < ApplicationController
     @sellitem = Sellitem.find(params[:id])
     @parents = Category.roots.order("id ASC").limit(13)
 
+    @likes_count = @sellitem.likes.length
+ 
   end
 
   def edit
@@ -53,7 +57,7 @@ class SellsController < ApplicationController
 
   def destroy
     @sellitem.destroy if @sellitem.user_id == current_user.id
-    flash[:notice]= "#{@sellitem.name}を削除しますた。"
+    flash[:notice]= "#{@sellitem.name}を削除しました。"
     redirect_to action: :delete
   end
 

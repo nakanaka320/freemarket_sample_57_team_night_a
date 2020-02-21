@@ -1,6 +1,17 @@
 ja:
   activerecord:
     attributes:
+      sellitem:
+        images: 商品画像
+        price: 価格
+        name: 商品名
+        text: 商品説明
+        condition: 商品状態
+        send_cost: 配送料
+        send_method: 配送方法
+        send_place: 発送元の地域
+        send_day: 発送までの日数
+        category_id: カテゴリー
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -37,6 +48,16 @@ ja:
         city: 市区町村
         street: 番地
         phone_number: 電話番号
+        images: 商品画像
+        price: 価格
+        name: 商品名
+        text: 商品説明
+        condition: 商品状態
+        send_cost: 配送料
+        send_method: 配送方法
+        send_place: 発送元の地域
+        send_day: 発送までの日数
+        category_id: カテゴリー
     models:
       user: ユーザ
   devise:

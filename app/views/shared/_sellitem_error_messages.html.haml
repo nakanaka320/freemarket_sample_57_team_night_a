@@ -1,0 +1,5 @@
+- if @sellitem.errors.any?
+  .alert.alert-warning
+    %ul
+      - @sellitem.errors.full_messages.each do |message|
+        %li= message

@@ -87,9 +87,10 @@
             = @sellitem.text
         .item-button
           .item-button__left
-            %button{type: "button",class:"like-button"}
-              = fa_icon "heart"
-              %span いいね
+            .like-button-area
+              #likes
+                = render partial: "sells/likes",locals: {sellitem: @sellitem}
+
             = link_to "#",class:"report" do
               = fa_icon "flag"
               %span 不適切な商品の報告

@@ -8,13 +8,17 @@
   }
   // ヘッダー上半分
   .header-top {
-    width:100%;
+    width:1020px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 8px 0 0;
     display:flex;
     background-color: #fff;
     h1 {
       margin-right: 50px;
+    }
+    .main-logo {
+      width: 150px;
+      height: 50px;
     }
     .fuzzy_search {
       width: 100%;
