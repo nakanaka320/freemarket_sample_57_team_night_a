@@ -33,8 +33,10 @@ class PurchaseController < ApplicationController
     customer:  card.customer_id, 
     currency:  'jpy'
   )
-  flash[:notice] = "#{@sellitem.name}をゲットしますた！"
-  redirect_to action: 'done' 
+    @sellitem[:status] = 1
+    @sellitem.save
+    flash[:notice] = "#{@sellitem.name}を購入しました。"
+    redirect_to action: 'done' 
   end
 
   private
