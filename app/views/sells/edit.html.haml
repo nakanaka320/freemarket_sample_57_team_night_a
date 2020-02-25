@@ -17,14 +17,24 @@
                   最大5枚までアップロードできます
                 .sell-form__upload-box__image-upload
                   .preview-open
+                    ここの枠の中をクリック
+                  = f.fields_for :images do |image|
                     #image-box
                       #previews
-                        = image_tag @sellitem.images[0].gazou.url, width: "100", height: '100'
-                      = f.fields_for :images do |image|
-                        .js-file_group{"data-index" => "#{image.index}"}
-                          = image.file_field :gazou, class: 'js-file'
-                          %br/
-                          %span.js-remove 削除
+                        .js-file_field
+                          .js-file_group
+                            .js-file_group_box
+                              - @sellitem.images.each do |image|
+                                .js-file_group_box_content
+                                  = image_tag image.gazou.url, height: "118", alt: "preview"
+                                  .js-room
+                                    %span.js-edit
+                                      編集
+                                    %span.js-remove
+                                      削除
+                              .js-file_group_box_room{"data-index": "#{image.index}"}
+                                = image.file_field :gazou, class: 'js-file'
+
             .sell-box__content
               .content-item
                 %label.content-item__name.item

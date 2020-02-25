@@ -21,9 +21,12 @@
         padding: 32px 16px;
         font-size: 22px;
       }
-      .sell-upload-box {
+      .sell-form__upload-box { 
         width: 620px;
         padding: 40px;
+        &__image-upload {
+          height: 170px;
+        }
         h3 {
           span {
             margin: 0 0 0 8px;
