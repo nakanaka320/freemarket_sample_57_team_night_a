@@ -15,26 +15,29 @@
                     必須
                 %p.sell-form__upload-box__text
                   最大5枚までアップロードできます
-                .sell-form__upload-box__image-upload
-                  .preview-open
-                    ここの枠の中をクリック
-                  = f.fields_for :images do |image|
-                    #image-box
-                      #previews
-                        .js-file_field
-                          .js-file_group
-                            .js-file_group_box
-                              - @sellitem.images.each do |image|
-                                .js-file_group_box_content
-                                  = image_tag image.gazou.url, height: "118", alt: "preview"
-                                  .js-room
-                                    %span.js-edit
-                                      編集
-                                    %span.js-remove
-                                      削除
-                              .js-file_group_box_room{"data-index": "#{image.index}"}
-                                = image.file_field :gazou, class: 'js-file'
-
+                .post__drop__box__container
+                  .prev-content
+                    - @sellitem.images.each do |image|
+                      .preview-box
+                        .upper-box
+                          = image_tag image.gazou.url, width: "118", height: "118", alt: "preview"
+                        .lower-box
+                          .update-box
+                            %label.edit-btn 編集
+                          .delete-box
+                            .delete-btn
+                              %span 削除
+                  .label-content
+                    = f.label :"images_attributes_#{@sellitem.images.length}_image", class: "label-box", id: "label-box--#{@sellitem.images.length}" do
+                      %pre.label-box__text-visible クリックしてファイルをアップロード
+                  .hidden-content
+                    = f.fields_for :images do |i|
+                      = i.file_field :gazou, class: "hidden-field"
+                      = i.check_box:_destroy, class: "hidden-checkbox"
+                    - @sellitem.images.length.upto(4) do |i|
+                      %input{name: "sellitem[images_attributes][#{i}][gazou]", id: "sellitem_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+      
+                                
             .sell-box__content
               .content-item
                 %label.content-item__name.item

@@ -29,7 +29,7 @@ class SellsController < ApplicationController
   end
  
   def show
-    @sellitem = Sellitem.find(params[:id])
+    @sellitem = Sellitem.includes(:images).find(params[:id])
     @parents = Category.roots.order("id ASC").limit(13)
 
     @likes_count = @sellitem.likes.length
@@ -37,7 +37,7 @@ class SellsController < ApplicationController
   end
 
   def edit
-    @sellitem = Sellitem.find(params[:id])
+    @sellitem = Sellitem.includes(:images).find(params[:id])
     @parents = Category.roots
   end
 

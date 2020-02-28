@@ -1,219 +1,259 @@
-.product-exhibit {
-  position: relative;
-  height: 2500px;
-  .clearfix:after {
-    content: '';
-    display: block;
-    clear: both;
+.sell-content {
+  padding: 40px;
+  border-top: 1px solid #eee;
+  #input-default {
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
   }
-  .bold {
-    font-weight: bold;
+  .form-group {
+    margin: 40px 0 0;
+    label {
+      span {
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        background: #ea352d;
+      }
+    }
+    .textarea-default {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-height: 104px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .select-wrap {
+      margin: 8px 0 0;
+      position: relative;
+      background-color: #fff;
+      i {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        z-index: 2;
+        color: #888;
+        font-size: 8px;
+      }
+      select {
+        width: 100%;
+      }
+      .select-default {
+        position: relative;
+        z-index: 2;
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+    }
   }
-  .product-exhibit-main {
-    width: 700px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    section {
-      background-color: #ffffff;
-      box-sizing: border-box;
-      h2 {
-        text-align: center;
-        padding: 32px 16px;
-        font-size: 22px;
-      }
-      .sell-form__upload-box { 
-        width: 620px;
-        padding: 40px;
-        &__image-upload {
-          height: 170px;
-        }
-        h3 {
-          span {
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-            vertical-align: top;
-            background: #ea352d;
-          }
-        }
-        p {
-          margin: 8px 0 0;
-          line-height: 1.5;
-        }
-        .dropzone {
-          display: block;
-          width: 620px;
-          &__container {
-            width: 100%;
-            padding: 40px;
-            position: relative;
-            min-height: 162px;
-            background: #f5f5f5;
-            border: 1px dashed #ccc;
-            font-size: 0;
-            text-align: center;
-            p {
-              text-align: center;
-              font-size: 14px;
-              line-height: 1.5;
-              font-weight: bold;
-            }
-          }
-        }
-      }
-      .sell-content {
-        padding: 40px;
-        border-top: 1px solid #eee;
-        #input-default {
-          width: 100%;
-          margin: 8px 0 0;
-          height: 48px;
-          padding: 10px 16px 8px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-          background: #fff;
-          line-height: 1.5;
-          font-size: 16px;
-        }
-        .form-group {
-          margin: 40px 0 0;
-          label {
-            span {
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              border-radius: 2px;
-              color: #fff;
-              font-size: 12px;
-              vertical-align: top;
-              background: #ea352d;
-            }
-          }
-          .textarea-default {
-            display: block;
-            width: 100%;
-            max-width: 100%;
-            min-height: 104px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: #fff;
-            font-size: 16px;
-            line-height: 1.5;
-          }
-          .select-wrap {
-            margin: 8px 0 0;
-            position: relative;
-            background-color: #fff;
-            i {
-              position: absolute;
-              right: 16px;
-              top: 50%;
-              z-index: 2;
-              color: #888;
-              font-size: 8px;
-            }
-            select {
-              width: 100%;
-            }
-            .select-default {
-              position: relative;
-              z-index: 2;
-              height: 48px;
-              padding: 0 16px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: 0;
-              font-size: 16px;
-              line-height: 1.5;
-              cursor: pointer;
-            }
-          }
-        }
-        #form-group-first {
-          margin: 0;
-        }
-        .sub-head {
-          float: left;
-          color: #888;
-          font-size: 14px;
-        }
-        .form-question {
-          display: inline-block;
-          width: 14px;
-          height: 14px;
-          border-radius: 50%;
-          background: #0099e8;
+  #form-group-first {
+    margin: 0;
+  }
+  .sub-head {
+    float: left;
+    color: #888;
+    font-size: 14px;
+  }
+  .form-question {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0099e8;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .sell-form-box {
+    float: right;
+    width: 400px;
+    margin: 0;
+    .form-group {
+      .sell-price-title {
+        float: left;
+        span {
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
           color: #fff;
-          line-height: 14px;
           font-size: 12px;
-          text-align: center;
+          vertical-align: top;
+          background: #ea352d;
         }
-        .sell-form-box {
-          float: right;
-          width: 400px;
-          margin: 0;
-          .form-group {
-            .sell-price-title {
-              float: left;
-              span {
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: #fff;
-                font-size: 12px;
-                vertical-align: top;
-                background: #ea352d;
-              }
-            }
-            .sell-price-input {
-              float: right;
-              width:  50%;
-              &__box {
-                display: inline-block;
-                width: 80%;
-                margin: 0 0 0 5%;
-                .input-default {
-                  width:100%;
-                  height: 48px;
-                }
-              }
-            }
-            .sell-price-title {
-              float: left;
-            }
-          }
-          #margin-0 {
-            margin: 0;
+      }
+      .sell-price-input {
+        float: right;
+        width:  50%;
+        &__box {
+          display: inline-block;
+          width: 80%;
+          margin: 0 0 0 5%;
+          .input-default {
+            width:100%;
+            height: 48px;
           }
         }
       }
-      .exhibit-form {
-        text-align: center;
+      .sell-price-title {
+        float: left;
       }
-      .exhibit-btn {
-        padding: 40px ;
-        border-top: 1px solid #eee;
-        .button {
-          margin: 40px 0 0;
-          width: 100%;
-          color:white;
-          height: 48px;
-          background-color: #ea352d;
-          border: 1px solid rgb(228, 32, 32);
-        }
-        .back-btn {
-          width: 45%;
-          margin: 24px auto 0;
-          background: #aaa;
-          border: 1px solid #aaa;
-          color: #fff;
-          display: block;
-          line-height: 48px;
-          font-size: 14px;
-          text-align: center;
-        }
-      }
-    }  
+    }
+    #margin-0 {
+      margin: 0;
+    }
   }
 }
+.exhibit-form {
+  text-align: center;
+}
+.exhibit-btn {
+  padding: 40px ;
+  border-top: 1px solid #eee;
+  .button {
+    margin: 40px 0 0;
+    width: 100%;
+    color:white;
+    height: 48px;
+    background-color: #ea352d;
+    border: 1px solid rgb(228, 32, 32);
+  }
+  .back-btn {
+    width: 45%;
+    margin: 24px auto 0;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    text-align: center;
+  }
+}  
+  
+
+
+.sell-form__upload-box{ 
+  width: 620px;
+  padding: 40px;
+  .post__drop__box__container{
+    display: block;
+    margin: 16px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    .prev-content{
+      display: flex;
+      .preview-box{
+        height: 118px;
+        width: 118px;
+        margin: 0 15px 10px 0;
+        .upper-box{
+          height: 112px;
+          width: 100%;
+        }
+        .lower-box{
+          display: flex;
+          text-align: center;
+          .update-box {
+            color: #00b0ff;
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid rgb(255, 253, 253);
+            background: #fcfbfb;
+            cursor: pointer;
+          }
+          .delete-box {
+            color: #00b0ff;
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #eee;
+            background: #f5f5f5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .label-content{
+    margin-bottom: 10px;
+    width: 620px;
+    .label-box {
+      display: block;
+      border: 1px dashed #ccc;
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      height: 162px;
+      cursor: pointer;
+      &__text-visible {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        pointer-events: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+  }
+  //file_fieldのcss
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .hidden-checkbox {
+      display: none;
+    }
+  }
+}
+  p {
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+  .dropzone {
+    display: block;
+    width: 620px;
+    &__container {
+      width: 100%;
+      padding: 40px;
+      position: relative;
+      min-height: 162px;
+      background: #f5f5f5;
+      border: 1px dashed #ccc;
+      font-size: 0;
+      text-align: center;
+      p {
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+      }
+    }
+  }
