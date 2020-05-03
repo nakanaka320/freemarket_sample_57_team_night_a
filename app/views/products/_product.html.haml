@@ -5,8 +5,13 @@
       - if product.images[0].present?
         = image_tag product.images[0].gazou.url, class:'pickup-content__img'
         .img_title
-          %p.img_price
+          %p.img_price 
             = "¥#{product.price}"
+          - unless product.status == 0
+            .product-tag-sold-out-top
+              .sold-out-text-top SOLD
+          - else
+            .none-sold
       - else
         = image_tag "", class:'pickup-content__img'
     %figcaption.text__box 

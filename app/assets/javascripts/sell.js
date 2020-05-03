@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', ()=> {
 
   const buildImg = (index, url, num)=> {
     const html = `<span class="js-file_group_box_content">
-                    <img data-index="${index},${num}" src="${url}" width="110px" height="100px">
+                    <img data-index="${index},${num}" src="${url}" height="118px">
                       <div class="js-room">
                         <span class="js-edit">編集</span>
                         <span class="js-remove">削除</span>
