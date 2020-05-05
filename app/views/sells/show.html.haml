@@ -8,6 +8,11 @@
         .item-photo
           .photo
             = image_tag @sellitem.images[0].gazou.url, size:"300x300"
+            - unless @sellitem.status == 0
+              .product-tag-sold-out-top
+                .sold-out-text-top SOLD
+            - else
+              .none-sold
           .mini-photo
             - if @sellitem.images[1].present?
               = image_tag @sellitem.images[1].gazou.url, size:"60x60"
@@ -75,10 +80,10 @@
               = link_to  "この商品を削除する",{controller: "sells",action: "destroy",id: @sellitem.id}, method: :delete, data: { turbolinks: false}   
           -else
             .purchase-box2
-              -# -if @sellitem.present? # -if @sellitem.status == 0    statusカラムを作成後解除
-              = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"product-purchase-btn", data: {turbolinks: false}
-              -# -else
-              -#   .product-buy-btn-sold 売り切れました
+              -if @sellitem.status == 0 
+                = link_to "購入画面に進む", {controller: "purchase",action: "index",sell_id: @sellitem.id},class:"product-purchase-btn", data: {turbolinks: false}
+              -else
+                .product-buy-btn-sold 売り切れました
        
 
 

@@ -29,7 +29,7 @@ class SellsController < ApplicationController
   end
  
   def show
-    @sellitem = Sellitem.find(params[:id])
+    @sellitem = Sellitem.includes(:images).find(params[:id])
     @parents = Category.roots.order("id ASC").limit(13)
 
     @likes_count = @sellitem.likes.length
@@ -37,7 +37,7 @@ class SellsController < ApplicationController
   end
 
   def edit
-    @sellitem = Sellitem.find(params[:id])
+    @sellitem = Sellitem.includes(:images).find(params[:id])
     @parents = Category.roots
   end
 
@@ -93,7 +93,7 @@ class SellsController < ApplicationController
   end
 
   def sellitem_update_params
-    params.require(:sellitem).permit(:name, :text, :category_id, :price, :condition , :send_place, :send_method, :send_day, :send_cost).merge(user_id: current_user.id)
+    params.require(:sellitem).permit(:name, :text, :category_id, :price, :condition , :send_place, :send_method, :send_day, :send_cost,images_attributes: [:gazou, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
 end
