@@ -31,7 +31,6 @@ Rails.application.routes.draw do
       get 'registration-step2', to: 'users#step2_save'
       get 'step3'
       post 'registration-step3', to: 'users#step3_save'
-      # get 'step4'
       post 'registration-step4', to: 'users#step4_save'
       get 'step_complet'
       get 'sign_up_choice'

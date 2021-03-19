@@ -89,11 +89,28 @@ class SellsController < ApplicationController
   end
 
   def update_no_image_params
-    params.require(:sellitem).permit(:name, :text, :category_id, :price, :condition , :send_place, :send_method, :send_day, :send_cost).merge(user_id: current_user.id)
+    params.require(:sellitem).permit(:name,
+                                     :text,
+                                     :category_id,
+                                     :price,
+                                     :condition,
+                                     :send_place,
+                                     :send_method,
+                                     :send_day,
+                                     :send_cost).merge(user_id: current_user.id)
   end
 
   def sellitem_update_params
-    params.require(:sellitem).permit(:name, :text, :category_id, :price, :condition , :send_place, :send_method, :send_day, :send_cost,images_attributes: [:gazou, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:sellitem).permit(:name,
+                                     :text,
+                                     :category_id,
+                                     :price,
+                                     :condition,
+                                     :send_place,
+                                     :send_method,
+                                     :send_day,
+                                     :send_cost,
+                                     images_attributes: [:gazou, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
 end
